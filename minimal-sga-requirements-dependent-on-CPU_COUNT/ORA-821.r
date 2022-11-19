@@ -1,4 +1,5 @@
-data <- read.csv("C:\\Users\\berx\\Downloads\\punkte.txt", header=TRUE)
+# commands used in https://berxblog.blogspot.com/2022/11/minimal-sga-requirements-dependent-on.html
+data <- read.csv("https://github.com/berx/berxblog/raw/main/minimal-sga-requirements-dependent-on-CPU_COUNT/cpu_minSGA.csv", header=TRUE)
 head(data)
 
 sgalm <- lm(sga ~cpu , data=data)
