@@ -3,7 +3,7 @@
 /* based on https://stackoverflow.com/questions/69219420/css-stylesheets-in-graphviz */
 
 graph sample {
-    stylesheet="sample.css"
+    stylesheet="https://raw.githubusercontent.com/berx/berxblog/main/graphviz-stryles-svg/graphviz_svg_styles.css"
 	color=white;
 // Nodes
     n_box 				[shape=box];
