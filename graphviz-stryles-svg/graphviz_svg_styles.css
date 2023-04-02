@@ -1,0 +1,19 @@
+.graph>polygon {
+	fill: white;
+}
+
+.node>polygon {
+	fill: palegreen;
+}
+
+.node>ellipse {
+	fill: deeppink;
+}
+
+.node>path {
+	fill:lightgrey;
+}
+
+.node>text {
+	fill:blue;
+}
