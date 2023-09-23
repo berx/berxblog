@@ -1,0 +1,4012 @@
+<sql_monitor_report version="4.0" sysdate="09/23/2023 12:42:18">
+  <report_parameters>
+    <sql_id>2u4jc5hhwhc7n</sql_id>
+    <sql_exec_id>16777216</sql_exec_id>
+    <sql_exec_start>09/23/2023 12:42:10</sql_exec_start>
+    <bucket_count>10</bucket_count>
+    <interval_start>09/23/2023 12:42:10</interval_start>
+    <interval_end>09/23/2023 12:42:19</interval_end>
+  </report_parameters>
+  <target instance_id="1" session_id="270" session_serial="15439" sql_id="2u4jc5hhwhc7n" sql_exec_start="09/23/2023 12:42:10" sql_exec_id="16777216" sql_plan_hash="291046652" sql_full_plan_hash="1497395187" db_unique_name="cdb1" db_platform_name="x86_64/Linux 2.4.xx" report_host_name="localhost">
+    <user_id>116</user_id>
+    <user>BERX</user>
+    <con_id>3</con_id>
+    <con_name>PDB1</con_name>
+    <program>SQL Developer</program>
+    <module>SQL Developer</module>
+    <service>pdb1</service>
+    <sql_fulltext is_full="Y">with J as -- 19c
+  (select /*+ materialize */ min(object_id), object_type  
+from dba_objects 
+where object_name like &apos;%J%&apos;
+group by object_type ),
+L as (
+select /*+ materialize */ min(object_id), object_type  
+from dba_objects 
+where object_name like &apos;%L%&apos;
+group by object_type ),
+M as (
+select /*+ materialize */ min(object_id), object_type  
+from dba_objects 
+where object_name like &apos;%M%&apos;
+group by object_type )
+select /*+ MONITOR */ 
+   * 
+from l,j,m</sql_fulltext>
+    <status>DONE (ALL ROWS)</status>
+    <refresh_count>893</refresh_count>
+    <first_refresh_time>09/23/2023 12:42:10</first_refresh_time>
+    <last_refresh_time>09/23/2023 12:42:18</last_refresh_time>
+    <duration>8</duration>
+    <optimizer_env>
+      <param name="active_instance_count">1</param>
+      <param name="is_recur_flags">0</param>
+      <param name="parallel_autodop">0</param>
+      <param name="parallel_ddl_mode">enabled</param>
+      <param name="parallel_ddldml">0</param>
+      <param name="parallel_degree">0</param>
+      <param name="parallel_execution_enabled">true</param>
+      <param name="parallel_max_degree">4</param>
+      <param name="parallel_query_default_dop">0</param>
+      <param name="parallel_query_mode">enabled</param>
+      <param name="pga_aggregate_target">393216 KB</param>
+      <param name="total_cpu_count">4</param>
+    </optimizer_env>
+  </target>
+  <stats type="monitor">
+    <stat name="elapsed_time">715449</stat>
+    <stat name="cpu_time">504144</stat>
+    <stat name="user_io_wait_time">152625</stat>
+    <stat name="other_wait_time">58680</stat>
+    <stat name="user_fetch_count">890</stat>
+    <stat name="buffer_gets">27033</stat>
+    <stat name="disk_reads">501</stat>
+    <stat name="read_reqs">501</stat>
+    <stat name="read_bytes">4104192</stat>
+  </stats>
+  <activity_sampled>
+    <activity class="Cpu">1</activity>
+  </activity_sampled>
+  <activity_detail start_time="09/23/2023 12:42:10" end_time="09/23/2023 12:42:19" first_sample_time="09/23/2023 12:42:10" last_sample_time="09/23/2023 12:42:10" duration="1" sample_interval="1" bucket_interval="1" bucket_count="10" bucket_duration="10" cpu_cores="4" total_cpu_cores="4" hyperthread="N">
+    <bucket number="1">
+      <activity class="Cpu" line="77">1</activity>
+    </bucket>
+  </activity_detail>
+  <plan>
+    <operation name="SELECT STATEMENT" id="0" depth="0" pos="62185524">
+      <cost>62185524</cost>
+    </operation>
+    <operation name="TEMP TABLE TRANSFORMATION" id="1" depth="1" pos="1">
+      <qblock>SEL$43</qblock>
+      <other_xml>
+        <info type="db_version">19.0.0.0</info>
+        <info type="parse_schema"><![CDATA["BERX"]]></info>
+        <info type="plan_hash_full">1497395187</info>
+        <info type="plan_hash">291046652</info>
+        <info type="plan_hash_2">785838802</info>
+        <stats type="compilation">
+          <stat name="bg">40</stat>
+        </stats>
+        <qb_registry>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$28]]></n>
+            <f>
+              <h>
+                <t><![CDATA[L]]></t>
+                <s><![CDATA[SEL$28]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$28]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$7]]></n>
+            <f>
+              <h>
+                <t><![CDATA[EO]]></t>
+                <s><![CDATA[SEL$7]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$35]]></n>
+            <f>
+              <h>
+                <t><![CDATA[EO]]></t>
+                <s><![CDATA[SEL$35]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$27]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$27]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$12]]></n>
+            <f>
+              <h>
+                <t><![CDATA[T]]></t>
+                <s><![CDATA[SEL$12]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$29]]></n>
+            <f>
+              <h>
+                <t><![CDATA[DBA_OBJECTS]]></t>
+                <s><![CDATA[SEL$29]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$11]]></n>
+            <f>
+              <h>
+                <t><![CDATA[I]]></t>
+                <s><![CDATA[SEL$11]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IO]]></t>
+                <s><![CDATA[SEL$11]]></s>
+              </h>
+              <h>
+                <t><![CDATA[T]]></t>
+                <s><![CDATA[SEL$11]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$33]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$16]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$16]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$16]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$26]]></n>
+            <f>
+              <h>
+                <t><![CDATA[T]]></t>
+                <s><![CDATA[SEL$26]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$6]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$6]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$19]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$19]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$19]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SET$1]]></n>
+            <f>
+              <h>
+                <t><![CDATA[NULL_HALIAS]]></t>
+                <s><![CDATA[SET$1]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$36]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$36]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$4]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$41]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$41]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$8]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$8]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SET$2]]></n>
+            <f>
+              <h>
+                <t><![CDATA[NULL_HALIAS]]></t>
+                <s><![CDATA[SET$2]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$25]]></n>
+            <f>
+              <h>
+                <t><![CDATA[I]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IO]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[T]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" f="y" h="y">
+            <n><![CDATA[SEL$D0BBB93D]]></n>
+            <p><![CDATA[SEL$16]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$19]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$16]]></s>
+              </h>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$19]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$19]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$1]]></n>
+            <f>
+              <h>
+                <t><![CDATA[DBA_OBJECTS]]></t>
+                <s><![CDATA[SEL$1]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$30]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$30]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$30]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$13]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$13]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" f="y" h="y">
+            <n><![CDATA[SEL$B2BBC534]]></n>
+            <p><![CDATA[SEL$30]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$33]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$30]]></s>
+              </h>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$21]]></n>
+            <f>
+              <h>
+                <t><![CDATA[EO]]></t>
+                <s><![CDATA[SEL$21]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$15]]></n>
+            <f>
+              <h>
+                <t><![CDATA[DBA_OBJECTS]]></t>
+                <s><![CDATA[SEL$15]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="76" f="y" h="y">
+            <n><![CDATA[SEL$3E1B8095]]></n>
+            <p><![CDATA[SEL$29]]></p>
+            <f>
+              <h>
+                <t><![CDATA[T1]]></t>
+                <s><![CDATA[SEL$3E1B8095]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SET$3]]></n>
+            <f>
+              <h>
+                <t><![CDATA[NULL_HALIAS]]></t>
+                <s><![CDATA[SET$3]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$10]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O2]]></t>
+                <s><![CDATA[SEL$10]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U2]]></t>
+                <s><![CDATA[SEL$10]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$31]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$31]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$40]]></n>
+            <f>
+              <h>
+                <t><![CDATA[T]]></t>
+                <s><![CDATA[SEL$40]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$2]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" f="y" h="y">
+            <n><![CDATA[SEL$E029B2FF]]></n>
+            <p><![CDATA[SEL$2]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$5]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$5]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$5]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="76" f="y" h="y">
+            <n><![CDATA[SEL$B3498AC7]]></n>
+            <p><![CDATA[SEL$15]]></p>
+            <f>
+              <h>
+                <t><![CDATA[T1]]></t>
+                <s><![CDATA[SEL$B3498AC7]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$23]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$23]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$38]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O2]]></t>
+                <s><![CDATA[SEL$38]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U2]]></t>
+                <s><![CDATA[SEL$38]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$5]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O]]></t>
+                <s><![CDATA[SEL$5]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$5]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$3]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$34]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$34]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$37]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$37]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$20]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$20]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$18]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$18]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$43]]></n>
+            <f>
+              <h>
+                <t><![CDATA[J]]></t>
+                <s><![CDATA[SEL$43]]></s>
+              </h>
+              <h>
+                <t><![CDATA[L]]></t>
+                <s><![CDATA[SEL$43]]></s>
+              </h>
+              <h>
+                <t><![CDATA[M]]></t>
+                <s><![CDATA[SEL$43]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$14]]></n>
+            <f>
+              <h>
+                <t><![CDATA[L]]></t>
+                <s><![CDATA[SEL$14]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$14]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$22]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$22]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$32]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$32]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$24]]></n>
+            <f>
+              <h>
+                <t><![CDATA[O2]]></t>
+                <s><![CDATA[SEL$24]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U2]]></t>
+                <s><![CDATA[SEL$24]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$17]]></n>
+            <f>
+              <h>
+                <t><![CDATA[S]]></t>
+                <s><![CDATA[SEL$17]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$39]]></n>
+            <f>
+              <h>
+                <t><![CDATA[I]]></t>
+                <s><![CDATA[SEL$39]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IO]]></t>
+                <s><![CDATA[SEL$39]]></s>
+              </h>
+              <h>
+                <t><![CDATA[T]]></t>
+                <s><![CDATA[SEL$39]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="76" f="y" h="y">
+            <n><![CDATA[SEL$D67CB2D2]]></n>
+            <p><![CDATA[SEL$1]]></p>
+            <f>
+              <h>
+                <t><![CDATA[T1]]></t>
+                <s><![CDATA[SEL$D67CB2D2]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$9]]></n>
+            <f>
+              <h>
+                <t><![CDATA[UE]]></t>
+                <s><![CDATA[SEL$9]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$42]]></n>
+            <f>
+              <h>
+                <t><![CDATA[L]]></t>
+                <s><![CDATA[SEL$42]]></s>
+              </h>
+              <h>
+                <t><![CDATA[U]]></t>
+                <s><![CDATA[SEL$42]]></s>
+              </h>
+            </f>
+          </q>
+        </qb_registry>
+        <outline_data>
+          <hint><![CDATA[IGNORE_OPTIM_EMBEDDED_HINTS]]></hint>
+          <hint><![CDATA[OPTIMIZER_FEATURES_ENABLE('19.1.0')]]></hint>
+          <hint><![CDATA[DB_VERSION('19.1.0')]]></hint>
+          <hint><![CDATA[ALL_ROWS]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$3")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$4")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$11")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$12")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$13")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$6")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$7")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$8")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$9")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$10")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$E029B2FF")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$5" >"SEL$2")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$14")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SET$1")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$1")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$17")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$18")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$25")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$26")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$27")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$20")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$21")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$22")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$23")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$24")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$D0BBB93D")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$19" >"SEL$16")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$28")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SET$2")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$15")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$31")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$32")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$39")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$40")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$41")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$34")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$35")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$36")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$37")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$38")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$B2BBC534")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$33" >"SEL$30")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$42")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SET$3")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$29")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$B3498AC7")]]></hint>
+          <hint><![CDATA[MATERIALIZE(@"SEL$15")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$D67CB2D2")]]></hint>
+          <hint><![CDATA[MATERIALIZE(@"SEL$1")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$3E1B8095")]]></hint>
+          <hint><![CDATA[MATERIALIZE(@"SEL$29")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$43")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$2")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$5")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$16")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$19")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$30")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$33")]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$43" "L"@"SEL$43")]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$43" "J"@"SEL$43")]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$43" "M"@"SEL$43")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$43" "L"@"SEL$43" "J"@"SEL$43" "M"@"SEL$43")]]></hint>
+          <hint><![CDATA[USE_MERGE_CARTESIAN(@"SEL$43" "J"@"SEL$43")]]></hint>
+          <hint><![CDATA[USE_MERGE_CARTESIAN(@"SEL$43" "M"@"SEL$43")]]></hint>
+          <hint><![CDATA[FULL(@"SEL$3E1B8095" "T1"@"SEL$3E1B8095")]]></hint>
+          <hint><![CDATA[FULL(@"SEL$B3498AC7" "T1"@"SEL$B3498AC7")]]></hint>
+          <hint><![CDATA[FULL(@"SEL$D67CB2D2" "T1"@"SEL$D67CB2D2")]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$29" "DBA_OBJECTS"@"SEL$29")]]></hint>
+          <hint><![CDATA[USE_HASH_AGGREGATION(@"SEL$29")]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$15" "DBA_OBJECTS"@"SEL$15")]]></hint>
+          <hint><![CDATA[USE_HASH_AGGREGATION(@"SEL$15")]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$1" "DBA_OBJECTS"@"SEL$1")]]></hint>
+          <hint><![CDATA[USE_HASH_AGGREGATION(@"SEL$1")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$14" "L"@"SEL$14" ("LINK$"."OWNER#" "LINK$"."NAME"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$14" "U"@"SEL$14" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$14" "L"@"SEL$14" "U"@"SEL$14")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$14" "U"@"SEL$14")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$E029B2FF" "U"@"SEL$5" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[FULL(@"SEL$E029B2FF" "O"@"SEL$5")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$E029B2FF" "U"@"SEL$2" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$E029B2FF" "U"@"SEL$5" "O"@"SEL$5" "U"@"SEL$2")]]></hint>
+          <hint><![CDATA[USE_HASH(@"SEL$E029B2FF" "O"@"SEL$5")]]></hint>
+          <hint><![CDATA[USE_HASH(@"SEL$E029B2FF" "U"@"SEL$2")]]></hint>
+          <hint><![CDATA[SWAP_JOIN_INPUTS(@"SEL$E029B2FF" "U"@"SEL$2")]]></hint>
+          <hint><![CDATA[ORDER_SUBQ(@"SEL$E029B2FF" "SEL$11" "SEL$12" "SEL$13" "SEL$8" "SEL$9" "SEL$10")]]></hint>
+          <hint><![CDATA[PQ_FILTER(@"SEL$E029B2FF" SERIAL)]]></hint>
+          <hint><![CDATA[INDEX_SS(@"SEL$10" "U2"@"SEL$10" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$10" "O2"@"SEL$10" ("OBJ$"."DATAOBJ#" "OBJ$"."TYPE#" "OBJ$"."OWNER#"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$10" "U2"@"SEL$10" "O2"@"SEL$10")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$10" "O2"@"SEL$10")]]></hint>
+          <hint><![CDATA[PARTIAL_JOIN(@"SEL$10" "O2"@"SEL$10")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$9" "UE"@"SEL$9" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$9" "UE"@"SEL$9")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$8" "UE"@"SEL$8" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$8" "UE"@"SEL$8")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$7" "EO"@"SEL$7" ("OBJ$"."OBJ#" "OBJ$"."OWNER#" "OBJ$"."TYPE#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$7" "EO"@"SEL$7")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$6" "UE"@"SEL$6" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$6" "UE"@"SEL$6")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$13" "S"@"SEL$13" ("SEQ$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$12" "T"@"SEL$12" "I_OBJ#")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$11" "I"@"SEL$11" ("IND$"."OBJ#"))]]></hint>
+          <hint><![CDATA[CLUSTER(@"SEL$11" "T"@"SEL$11")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$11" "IO"@"SEL$11" ("OBJ$"."OBJ#" "OBJ$"."OWNER#" "OBJ$"."TYPE#"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$11" "I"@"SEL$11" "T"@"SEL$11" "IO"@"SEL$11")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$11" "T"@"SEL$11")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$11" "IO"@"SEL$11")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$4" "S"@"SEL$4" ("SUM$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$3" "S"@"SEL$3" ("SUM$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$28" "L"@"SEL$28" ("LINK$"."OWNER#" "LINK$"."NAME"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$28" "U"@"SEL$28" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$28" "L"@"SEL$28" "U"@"SEL$28")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$28" "U"@"SEL$28")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$D0BBB93D" "U"@"SEL$19" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[FULL(@"SEL$D0BBB93D" "O"@"SEL$19")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$D0BBB93D" "U"@"SEL$16" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$D0BBB93D" "U"@"SEL$19" "O"@"SEL$19" "U"@"SEL$16")]]></hint>
+          <hint><![CDATA[USE_HASH(@"SEL$D0BBB93D" "O"@"SEL$19")]]></hint>
+          <hint><![CDATA[USE_HASH(@"SEL$D0BBB93D" "U"@"SEL$16")]]></hint>
+          <hint><![CDATA[SWAP_JOIN_INPUTS(@"SEL$D0BBB93D" "U"@"SEL$16")]]></hint>
+          <hint><![CDATA[ORDER_SUBQ(@"SEL$D0BBB93D" "SEL$25" "SEL$26" "SEL$27" "SEL$22" "SEL$23" "SEL$24")]]></hint>
+          <hint><![CDATA[PQ_FILTER(@"SEL$D0BBB93D" SERIAL)]]></hint>
+          <hint><![CDATA[INDEX_SS(@"SEL$24" "U2"@"SEL$24" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$24" "O2"@"SEL$24" ("OBJ$"."DATAOBJ#" "OBJ$"."TYPE#" "OBJ$"."OWNER#"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$24" "U2"@"SEL$24" "O2"@"SEL$24")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$24" "O2"@"SEL$24")]]></hint>
+          <hint><![CDATA[PARTIAL_JOIN(@"SEL$24" "O2"@"SEL$24")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$23" "UE"@"SEL$23" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$23" "UE"@"SEL$23")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$22" "UE"@"SEL$22" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$22" "UE"@"SEL$22")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$21" "EO"@"SEL$21" ("OBJ$"."OBJ#" "OBJ$"."OWNER#" "OBJ$"."TYPE#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$21" "EO"@"SEL$21")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$20" "UE"@"SEL$20" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$20" "UE"@"SEL$20")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$27" "S"@"SEL$27" ("SEQ$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$26" "T"@"SEL$26" "I_OBJ#")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$25" "I"@"SEL$25" ("IND$"."OBJ#"))]]></hint>
+          <hint><![CDATA[CLUSTER(@"SEL$25" "T"@"SEL$25")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$25" "IO"@"SEL$25" ("OBJ$"."OBJ#" "OBJ$"."OWNER#" "OBJ$"."TYPE#"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$25" "I"@"SEL$25" "T"@"SEL$25" "IO"@"SEL$25")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$25" "T"@"SEL$25")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$25" "IO"@"SEL$25")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$18" "S"@"SEL$18" ("SUM$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$17" "S"@"SEL$17" ("SUM$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$42" "L"@"SEL$42" ("LINK$"."OWNER#" "LINK$"."NAME"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$42" "U"@"SEL$42" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$42" "L"@"SEL$42" "U"@"SEL$42")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$42" "U"@"SEL$42")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$B2BBC534" "U"@"SEL$33" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[FULL(@"SEL$B2BBC534" "O"@"SEL$33")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$B2BBC534" "U"@"SEL$30" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$B2BBC534" "U"@"SEL$33" "O"@"SEL$33" "U"@"SEL$30")]]></hint>
+          <hint><![CDATA[USE_HASH(@"SEL$B2BBC534" "O"@"SEL$33")]]></hint>
+          <hint><![CDATA[USE_HASH(@"SEL$B2BBC534" "U"@"SEL$30")]]></hint>
+          <hint><![CDATA[SWAP_JOIN_INPUTS(@"SEL$B2BBC534" "U"@"SEL$30")]]></hint>
+          <hint><![CDATA[ORDER_SUBQ(@"SEL$B2BBC534" "SEL$39" "SEL$40" "SEL$41" "SEL$36" "SEL$37" "SEL$38")]]></hint>
+          <hint><![CDATA[PQ_FILTER(@"SEL$B2BBC534" SERIAL)]]></hint>
+          <hint><![CDATA[INDEX_SS(@"SEL$38" "U2"@"SEL$38" ("USER$"."USER#" "USER$"."TYPE#" "USER$"."SPARE1" "USER$"."SPARE2"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$38" "O2"@"SEL$38" ("OBJ$"."DATAOBJ#" "OBJ$"."TYPE#" "OBJ$"."OWNER#"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$38" "U2"@"SEL$38" "O2"@"SEL$38")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$38" "O2"@"SEL$38")]]></hint>
+          <hint><![CDATA[PARTIAL_JOIN(@"SEL$38" "O2"@"SEL$38")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$37" "UE"@"SEL$37" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$37" "UE"@"SEL$37")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$36" "UE"@"SEL$36" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$36" "UE"@"SEL$36")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$35" "EO"@"SEL$35" ("OBJ$"."OBJ#" "OBJ$"."OWNER#" "OBJ$"."TYPE#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$35" "EO"@"SEL$35")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$34" "UE"@"SEL$34" ("USER_EDITIONING$"."USER#"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$34" "UE"@"SEL$34")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$41" "S"@"SEL$41" ("SEQ$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$40" "T"@"SEL$40" "I_OBJ#")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$39" "I"@"SEL$39" ("IND$"."OBJ#"))]]></hint>
+          <hint><![CDATA[CLUSTER(@"SEL$39" "T"@"SEL$39")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$39" "IO"@"SEL$39" ("OBJ$"."OBJ#" "OBJ$"."OWNER#" "OBJ$"."TYPE#"))]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$39" "I"@"SEL$39" "T"@"SEL$39" "IO"@"SEL$39")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$39" "T"@"SEL$39")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$39" "IO"@"SEL$39")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$32" "S"@"SEL$32" ("SUM$"."OBJ#"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$31" "S"@"SEL$31" ("SUM$"."OBJ#"))]]></hint>
+        </outline_data>
+        <hint_usage>
+          <q>
+            <n><![CDATA[SEL$1]]></n>
+            <h o="EM">
+              <x><![CDATA[materialize]]></x>
+            </h>
+          </q>
+          <q>
+            <n><![CDATA[SEL$15]]></n>
+            <h o="EM">
+              <x><![CDATA[materialize]]></x>
+            </h>
+          </q>
+          <q>
+            <n><![CDATA[SEL$29]]></n>
+            <h o="EM">
+              <x><![CDATA[materialize]]></x>
+            </h>
+          </q>
+        </hint_usage>
+      </other_xml>
+    </operation>
+    <operation name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" id="2" depth="2" pos="1">
+      <object>SYS_TEMP_0FD9D6606_7ABD60</object>
+      <qblock>SEL$1</qblock>
+    </operation>
+    <operation name="HASH" options="GROUP BY" id="3" depth="3" pos="1">
+      <card>3517</card>
+      <bytes>323564</bytes>
+      <cost>417</cost>
+      <io_cost>414</io_cost>
+      <cpu_cost>91408195</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="VIEW" id="4" depth="4" pos="1">
+      <object>DBA_OBJECTS</object>
+      <card>3517</card>
+      <bytes>323564</bytes>
+      <cost>416</cost>
+      <io_cost>414</io_cost>
+      <cpu_cost>59934711</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SET$1</qblock>
+      <object_alias>&quot;DBA_OBJECTS&quot;@&quot;SEL$1&quot;</object_alias>
+    </operation>
+    <operation name="UNION-ALL" id="5" depth="5" pos="1">
+      <qblock>SET$1</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="6" depth="6" pos="2">
+      <object>SUM$</object>
+      <card>1</card>
+      <bytes>26</bytes>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1400</cpu_cost>
+      <qblock>SEL$3</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$3&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="7" depth="7" pos="1">
+      <object>I_SUM$_1</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <predicates type="access">&quot;S&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$3</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$3&quot;</object_alias>
+    </operation>
+    <operation name="FILTER" id="8" depth="6" pos="1">
+      <predicates type="filter">(((&quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;1 AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;2 AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;6) OR (&quot;O&quot;.&quot;TYPE#&quot;=1 AND  IS NULL) OR (&quot;O&quot;.&quot;TYPE#&quot;=2 AND =1) OR (&quot;O&quot;.&quot;TYPE#&quot;=6 AND =1)) AND (BITAND(&quot;U&quot;.&quot;SPARE1&quot;,16)=0 OR BITAND(&quot;O&quot;.&quot;FLAGS&quot;,1048576)=1048576 OR (&quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;88 AND  IS NULL) OR ( IS NOT NULL AND ((SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_name&apos;)=&apos;ORA$BASE&apos; AND &quot;U&quot;.&quot;TYPE#&quot;&lt;&gt;2) OR (&quot;U&quot;.&quot;TYPE#&quot;=2 AND &quot;U&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;))) OR  IS NOT NULL))))</predicates>
+      <qblock>SEL$E029B2FF</qblock>
+    </operation>
+    <operation name="HASH JOIN" id="9" depth="7" pos="1">
+      <card>3873</card>
+      <bytes>542220</bytes>
+      <cost>355</cost>
+      <io_cost>353</io_cost>
+      <cpu_cost>53967878</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O&quot;.&quot;SPARE3&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="10" depth="8" pos="1">
+      <object>I_USER2</object>
+      <card>138</card>
+      <bytes>552</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>34721</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$E029B2FF</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$2&quot;</object_alias>
+    </operation>
+    <operation name="HASH JOIN" id="11" depth="8" pos="2">
+      <card>3873</card>
+      <bytes>526728</bytes>
+      <cost>354</cost>
+      <io_cost>352</io_cost>
+      <cpu_cost>52925156</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O&quot;.&quot;OWNER#&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="12" depth="9" pos="1">
+      <object>I_USER2</object>
+      <card>138</card>
+      <bytes>3450</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>34721</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$E029B2FF</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$5&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="FULL" id="13" depth="9" pos="2">
+      <object>OBJ$</object>
+      <card>3873</card>
+      <bytes>429903</bytes>
+      <cost>353</cost>
+      <io_cost>351</io_cost>
+      <cpu_cost>51882435</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(&quot;O&quot;.&quot;NAME&quot; LIKE &apos;%J%&apos; AND &quot;O&quot;.&quot;NAME&quot;&lt;&gt;&apos;_NEXT_OBJECT&apos; AND &quot;O&quot;.&quot;NAME&quot;&lt;&gt;&apos;_default_auditing_options_&apos; AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;10 AND &quot;O&quot;.&quot;LINKNAME&quot; IS NULL AND BITAND(&quot;O&quot;.&quot;FLAGS&quot;,128)=0)</predicates>
+      <qblock>SEL$E029B2FF</qblock>
+      <object_alias>&quot;O&quot;@&quot;SEL$5&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" id="14" depth="7" pos="2">
+      <card>1</card>
+      <bytes>32</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>30806</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$11</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" id="15" depth="8" pos="1">
+      <card>1</card>
+      <bytes>23</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>22584</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="16" depth="9" pos="1">
+      <object>IND$</object>
+      <card>1</card>
+      <bytes>10</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15463</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;I&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="17" depth="10" pos="1">
+      <object>I_IND1</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;I&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;I&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="CLUSTER" id="18" depth="9" pos="2">
+      <object>TAB$</object>
+      <card>1</card>
+      <bytes>13</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7121</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(&quot;I&quot;.&quot;BO#&quot;=&quot;T&quot;.&quot;OBJ#&quot; AND BITAND(&quot;T&quot;.&quot;PROPERTY&quot;,36893488147419103232)=36893488147419103232)</predicates>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="19" depth="8" pos="2">
+      <object>I_OBJ1</object>
+      <card>1</card>
+      <bytes>9</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8221</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;IO&quot;.&quot;OBJ#&quot;=&quot;I&quot;.&quot;BO#&quot; AND &quot;IO&quot;.&quot;TYPE#&quot;=2</predicates>
+      <predicates type="filter">&quot;IO&quot;.&quot;TYPE#&quot;=2</predicates>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;IO&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="CLUSTER" id="20" depth="7" pos="3">
+      <object>TAB$</object>
+      <card>1</card>
+      <bytes>13</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>16323</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">BITAND(&quot;T&quot;.&quot;PROPERTY&quot;,36893488147419103232)=0</predicates>
+      <qblock>SEL$12</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$12&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="21" depth="8" pos="1">
+      <object>I_OBJ#</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;T&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$12</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$12&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="22" depth="7" pos="4">
+      <object>SEQ$</object>
+      <card>1</card>
+      <bytes>8</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8801</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(BITAND(&quot;S&quot;.&quot;FLAGS&quot;,1024)=0 OR &quot;S&quot;.&quot;FLAGS&quot; IS NULL)</predicates>
+      <qblock>SEL$13</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$13&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="23" depth="8" pos="1">
+      <object>I_SEQ1</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <predicates type="access">&quot;S&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$13</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$13&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="24" depth="7" pos="5">
+      <object>USER_EDITIONING$</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17183</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;TYPE#&quot;=:B1</predicates>
+      <qblock>SEL$8</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$8&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="25" depth="8" pos="1">
+      <object>I_USER_EDITIONING</object>
+      <card>7</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8521</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;UE&quot;.&quot;USER#&quot;=:B1</predicates>
+      <qblock>SEL$8</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$8&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="26" depth="7" pos="6">
+      <object>USER_EDITIONING$</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17183</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;UE&quot;.&quot;TYPE#&quot;=:B1</predicates>
+      <qblock>SEL$9</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$9&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="27" depth="8" pos="1">
+      <object>I_USER_EDITIONING</object>
+      <card>7</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8521</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;UE&quot;.&quot;USER#&quot;=:B1</predicates>
+      <qblock>SEL$9</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$9&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" options="SEMI" id="28" depth="7" pos="7">
+      <card>1</card>
+      <bytes>29</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15493</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$10</qblock>
+    </operation>
+    <operation name="INDEX" options="SKIP SCAN" id="29" depth="8" pos="1">
+      <object>I_USER2</object>
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7321</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;U2&quot;.&quot;TYPE#&quot;=2 AND &quot;U2&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;))</predicates>
+      <predicates type="filter">(&quot;U2&quot;.&quot;TYPE#&quot;=2 AND &quot;U2&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;)))</predicates>
+      <qblock>SEL$10</qblock>
+      <object_alias>&quot;U2&quot;@&quot;SEL$10&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="30" depth="8" pos="2">
+      <object>I_OBJ4</object>
+      <card>1</card>
+      <bytes>9</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O2&quot;.&quot;DATAOBJ#&quot;=:B1 AND &quot;O2&quot;.&quot;TYPE#&quot;=88 AND &quot;O2&quot;.&quot;OWNER#&quot;=&quot;U2&quot;.&quot;USER#&quot;</predicates>
+      <qblock>SEL$10</qblock>
+      <object_alias>&quot;O2&quot;@&quot;SEL$10&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" id="31" depth="6" pos="3">
+      <card>1</card>
+      <bytes>14</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>14743</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$14</qblock>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="32" depth="7" pos="1">
+      <object>I_LINK1</object>
+      <card>1</card>
+      <bytes>10</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7421</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;L&quot;.&quot;NAME&quot; LIKE &apos;%J%&apos;</predicates>
+      <qblock>SEL$14</qblock>
+      <object_alias>&quot;L&quot;@&quot;SEL$14&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="33" depth="7" pos="2">
+      <object>I_USER2</object>
+      <card>1</card>
+      <bytes>4</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7321</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;L&quot;.&quot;OWNER#&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+      <qblock>SEL$14</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$14&quot;</object_alias>
+    </operation>
+    <operation name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" id="34" depth="2" pos="2">
+      <object>SYS_TEMP_0FD9D6607_7ABD60</object>
+      <qblock>SEL$15</qblock>
+    </operation>
+    <operation name="HASH" options="GROUP BY" id="35" depth="3" pos="1">
+      <card>3517</card>
+      <bytes>323564</bytes>
+      <cost>417</cost>
+      <io_cost>414</io_cost>
+      <cpu_cost>91408195</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="VIEW" id="36" depth="4" pos="1">
+      <object>DBA_OBJECTS</object>
+      <card>3517</card>
+      <bytes>323564</bytes>
+      <cost>416</cost>
+      <io_cost>414</io_cost>
+      <cpu_cost>59934711</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SET$2</qblock>
+      <object_alias>&quot;DBA_OBJECTS&quot;@&quot;SEL$15&quot;</object_alias>
+    </operation>
+    <operation name="UNION-ALL" id="37" depth="5" pos="1">
+      <qblock>SET$2</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="38" depth="6" pos="2">
+      <object>SUM$</object>
+      <card>1</card>
+      <bytes>26</bytes>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1400</cpu_cost>
+      <qblock>SEL$17</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$17&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="39" depth="7" pos="1">
+      <object>I_SUM$_1</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <predicates type="access">&quot;S&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$17</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$17&quot;</object_alias>
+    </operation>
+    <operation name="FILTER" id="40" depth="6" pos="1">
+      <predicates type="filter">(((&quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;1 AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;2 AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;6) OR (&quot;O&quot;.&quot;TYPE#&quot;=1 AND  IS NULL) OR (&quot;O&quot;.&quot;TYPE#&quot;=2 AND =1) OR (&quot;O&quot;.&quot;TYPE#&quot;=6 AND =1)) AND (BITAND(&quot;U&quot;.&quot;SPARE1&quot;,16)=0 OR BITAND(&quot;O&quot;.&quot;FLAGS&quot;,1048576)=1048576 OR (&quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;88 AND  IS NULL) OR ( IS NOT NULL AND ((SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_name&apos;)=&apos;ORA$BASE&apos; AND &quot;U&quot;.&quot;TYPE#&quot;&lt;&gt;2) OR (&quot;U&quot;.&quot;TYPE#&quot;=2 AND &quot;U&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;))) OR  IS NOT NULL))))</predicates>
+      <qblock>SEL$D0BBB93D</qblock>
+    </operation>
+    <operation name="HASH JOIN" id="41" depth="7" pos="1">
+      <card>3873</card>
+      <bytes>542220</bytes>
+      <cost>355</cost>
+      <io_cost>353</io_cost>
+      <cpu_cost>53967878</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O&quot;.&quot;SPARE3&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="42" depth="8" pos="1">
+      <object>I_USER2</object>
+      <card>138</card>
+      <bytes>552</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>34721</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$D0BBB93D</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$16&quot;</object_alias>
+    </operation>
+    <operation name="HASH JOIN" id="43" depth="8" pos="2">
+      <card>3873</card>
+      <bytes>526728</bytes>
+      <cost>354</cost>
+      <io_cost>352</io_cost>
+      <cpu_cost>52925156</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O&quot;.&quot;OWNER#&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="44" depth="9" pos="1">
+      <object>I_USER2</object>
+      <card>138</card>
+      <bytes>3450</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>34721</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$D0BBB93D</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$19&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="FULL" id="45" depth="9" pos="2">
+      <object>OBJ$</object>
+      <card>3873</card>
+      <bytes>429903</bytes>
+      <cost>353</cost>
+      <io_cost>351</io_cost>
+      <cpu_cost>51882435</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(&quot;O&quot;.&quot;NAME&quot; LIKE &apos;%L%&apos; AND &quot;O&quot;.&quot;NAME&quot;&lt;&gt;&apos;_NEXT_OBJECT&apos; AND &quot;O&quot;.&quot;NAME&quot;&lt;&gt;&apos;_default_auditing_options_&apos; AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;10 AND &quot;O&quot;.&quot;LINKNAME&quot; IS NULL AND BITAND(&quot;O&quot;.&quot;FLAGS&quot;,128)=0)</predicates>
+      <qblock>SEL$D0BBB93D</qblock>
+      <object_alias>&quot;O&quot;@&quot;SEL$19&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" id="46" depth="7" pos="2">
+      <card>1</card>
+      <bytes>32</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>30806</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$25</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" id="47" depth="8" pos="1">
+      <card>1</card>
+      <bytes>23</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>22584</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="48" depth="9" pos="1">
+      <object>IND$</object>
+      <card>1</card>
+      <bytes>10</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15463</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$25</qblock>
+      <object_alias>&quot;I&quot;@&quot;SEL$25&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="49" depth="10" pos="1">
+      <object>I_IND1</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;I&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$25</qblock>
+      <object_alias>&quot;I&quot;@&quot;SEL$25&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="CLUSTER" id="50" depth="9" pos="2">
+      <object>TAB$</object>
+      <card>1</card>
+      <bytes>13</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7121</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(&quot;I&quot;.&quot;BO#&quot;=&quot;T&quot;.&quot;OBJ#&quot; AND BITAND(&quot;T&quot;.&quot;PROPERTY&quot;,36893488147419103232)=36893488147419103232)</predicates>
+      <qblock>SEL$25</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$25&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="51" depth="8" pos="2">
+      <object>I_OBJ1</object>
+      <card>1</card>
+      <bytes>9</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8221</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;IO&quot;.&quot;OBJ#&quot;=&quot;I&quot;.&quot;BO#&quot; AND &quot;IO&quot;.&quot;TYPE#&quot;=2</predicates>
+      <predicates type="filter">&quot;IO&quot;.&quot;TYPE#&quot;=2</predicates>
+      <qblock>SEL$25</qblock>
+      <object_alias>&quot;IO&quot;@&quot;SEL$25&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="CLUSTER" id="52" depth="7" pos="3">
+      <object>TAB$</object>
+      <card>1</card>
+      <bytes>13</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>16323</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">BITAND(&quot;T&quot;.&quot;PROPERTY&quot;,36893488147419103232)=0</predicates>
+      <qblock>SEL$26</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$26&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="53" depth="8" pos="1">
+      <object>I_OBJ#</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;T&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$26</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$26&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="54" depth="7" pos="4">
+      <object>SEQ$</object>
+      <card>1</card>
+      <bytes>8</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8801</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(BITAND(&quot;S&quot;.&quot;FLAGS&quot;,1024)=0 OR &quot;S&quot;.&quot;FLAGS&quot; IS NULL)</predicates>
+      <qblock>SEL$27</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$27&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="55" depth="8" pos="1">
+      <object>I_SEQ1</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <predicates type="access">&quot;S&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$27</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$27&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="56" depth="7" pos="5">
+      <object>USER_EDITIONING$</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17183</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;TYPE#&quot;=:B1</predicates>
+      <qblock>SEL$22</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$22&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="57" depth="8" pos="1">
+      <object>I_USER_EDITIONING</object>
+      <card>7</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8521</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;UE&quot;.&quot;USER#&quot;=:B1</predicates>
+      <qblock>SEL$22</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$22&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="58" depth="7" pos="6">
+      <object>USER_EDITIONING$</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17183</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;UE&quot;.&quot;TYPE#&quot;=:B1</predicates>
+      <qblock>SEL$23</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$23&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="59" depth="8" pos="1">
+      <object>I_USER_EDITIONING</object>
+      <card>7</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8521</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;UE&quot;.&quot;USER#&quot;=:B1</predicates>
+      <qblock>SEL$23</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$23&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" options="SEMI" id="60" depth="7" pos="7">
+      <card>1</card>
+      <bytes>29</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15493</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$24</qblock>
+    </operation>
+    <operation name="INDEX" options="SKIP SCAN" id="61" depth="8" pos="1">
+      <object>I_USER2</object>
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7321</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;U2&quot;.&quot;TYPE#&quot;=2 AND &quot;U2&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;))</predicates>
+      <predicates type="filter">(&quot;U2&quot;.&quot;TYPE#&quot;=2 AND &quot;U2&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;)))</predicates>
+      <qblock>SEL$24</qblock>
+      <object_alias>&quot;U2&quot;@&quot;SEL$24&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="62" depth="8" pos="2">
+      <object>I_OBJ4</object>
+      <card>1</card>
+      <bytes>9</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O2&quot;.&quot;DATAOBJ#&quot;=:B1 AND &quot;O2&quot;.&quot;TYPE#&quot;=88 AND &quot;O2&quot;.&quot;OWNER#&quot;=&quot;U2&quot;.&quot;USER#&quot;</predicates>
+      <qblock>SEL$24</qblock>
+      <object_alias>&quot;O2&quot;@&quot;SEL$24&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" id="63" depth="6" pos="3">
+      <card>1</card>
+      <bytes>14</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>14743</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$28</qblock>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="64" depth="7" pos="1">
+      <object>I_LINK1</object>
+      <card>1</card>
+      <bytes>10</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7421</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;L&quot;.&quot;NAME&quot; LIKE &apos;%L%&apos;</predicates>
+      <qblock>SEL$28</qblock>
+      <object_alias>&quot;L&quot;@&quot;SEL$28&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="65" depth="7" pos="2">
+      <object>I_USER2</object>
+      <card>1</card>
+      <bytes>4</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7321</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;L&quot;.&quot;OWNER#&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+      <qblock>SEL$28</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$28&quot;</object_alias>
+    </operation>
+    <operation name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" id="66" depth="2" pos="3">
+      <object>SYS_TEMP_0FD9D6608_7ABD60</object>
+      <qblock>SEL$29</qblock>
+    </operation>
+    <operation name="HASH" options="GROUP BY" id="67" depth="3" pos="1">
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>417</cost>
+      <io_cost>414</io_cost>
+      <cpu_cost>91408195</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="VIEW" id="68" depth="4" pos="1">
+      <object>DBA_OBJECTS</object>
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>416</cost>
+      <io_cost>414</io_cost>
+      <cpu_cost>59934711</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SET$3</qblock>
+      <object_alias>&quot;DBA_OBJECTS&quot;@&quot;SEL$29&quot;</object_alias>
+    </operation>
+    <operation name="UNION-ALL" id="69" depth="5" pos="1">
+      <qblock>SET$3</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="70" depth="6" pos="2">
+      <object>SUM$</object>
+      <card>1</card>
+      <bytes>26</bytes>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1400</cpu_cost>
+      <qblock>SEL$31</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$31&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="71" depth="7" pos="1">
+      <object>I_SUM$_1</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <predicates type="access">&quot;S&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$31</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$31&quot;</object_alias>
+    </operation>
+    <operation name="FILTER" id="72" depth="6" pos="1">
+      <predicates type="filter">(((&quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;1 AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;2 AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;6) OR (&quot;O&quot;.&quot;TYPE#&quot;=1 AND  IS NULL) OR (&quot;O&quot;.&quot;TYPE#&quot;=2 AND =1) OR (&quot;O&quot;.&quot;TYPE#&quot;=6 AND =1)) AND (BITAND(&quot;U&quot;.&quot;SPARE1&quot;,16)=0 OR BITAND(&quot;O&quot;.&quot;FLAGS&quot;,1048576)=1048576 OR (&quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;88 AND  IS NULL) OR ( IS NOT NULL AND ((SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_name&apos;)=&apos;ORA$BASE&apos; AND &quot;U&quot;.&quot;TYPE#&quot;&lt;&gt;2) OR (&quot;U&quot;.&quot;TYPE#&quot;=2 AND &quot;U&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;))) OR  IS NOT NULL))))</predicates>
+      <qblock>SEL$B2BBC534</qblock>
+    </operation>
+    <operation name="HASH JOIN" id="73" depth="7" pos="1">
+      <card>3873</card>
+      <bytes>542220</bytes>
+      <cost>355</cost>
+      <io_cost>353</io_cost>
+      <cpu_cost>53967878</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O&quot;.&quot;SPARE3&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="74" depth="8" pos="1">
+      <object>I_USER2</object>
+      <card>138</card>
+      <bytes>552</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>34721</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$B2BBC534</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$30&quot;</object_alias>
+    </operation>
+    <operation name="HASH JOIN" id="75" depth="8" pos="2">
+      <card>3873</card>
+      <bytes>526728</bytes>
+      <cost>354</cost>
+      <io_cost>352</io_cost>
+      <cpu_cost>52925156</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O&quot;.&quot;OWNER#&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="76" depth="9" pos="1">
+      <object>I_USER2</object>
+      <card>138</card>
+      <bytes>3450</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>34721</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$B2BBC534</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$33&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="FULL" id="77" depth="9" pos="2">
+      <object>OBJ$</object>
+      <card>3873</card>
+      <bytes>429903</bytes>
+      <cost>353</cost>
+      <io_cost>351</io_cost>
+      <cpu_cost>51882435</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(&quot;O&quot;.&quot;NAME&quot; LIKE &apos;%M%&apos; AND &quot;O&quot;.&quot;NAME&quot;&lt;&gt;&apos;_NEXT_OBJECT&apos; AND &quot;O&quot;.&quot;NAME&quot;&lt;&gt;&apos;_default_auditing_options_&apos; AND &quot;O&quot;.&quot;TYPE#&quot;&lt;&gt;10 AND &quot;O&quot;.&quot;LINKNAME&quot; IS NULL AND BITAND(&quot;O&quot;.&quot;FLAGS&quot;,128)=0)</predicates>
+      <qblock>SEL$B2BBC534</qblock>
+      <object_alias>&quot;O&quot;@&quot;SEL$33&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" id="78" depth="7" pos="2">
+      <card>1</card>
+      <bytes>32</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>30806</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$39</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" id="79" depth="8" pos="1">
+      <card>1</card>
+      <bytes>23</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>22584</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="80" depth="9" pos="1">
+      <object>IND$</object>
+      <card>1</card>
+      <bytes>10</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15463</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$39</qblock>
+      <object_alias>&quot;I&quot;@&quot;SEL$39&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="81" depth="10" pos="1">
+      <object>I_IND1</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;I&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$39</qblock>
+      <object_alias>&quot;I&quot;@&quot;SEL$39&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="CLUSTER" id="82" depth="9" pos="2">
+      <object>TAB$</object>
+      <card>1</card>
+      <bytes>13</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7121</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(&quot;I&quot;.&quot;BO#&quot;=&quot;T&quot;.&quot;OBJ#&quot; AND BITAND(&quot;T&quot;.&quot;PROPERTY&quot;,36893488147419103232)=36893488147419103232)</predicates>
+      <qblock>SEL$39</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$39&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="83" depth="8" pos="2">
+      <object>I_OBJ1</object>
+      <card>1</card>
+      <bytes>9</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8221</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;IO&quot;.&quot;OBJ#&quot;=&quot;I&quot;.&quot;BO#&quot; AND &quot;IO&quot;.&quot;TYPE#&quot;=2</predicates>
+      <predicates type="filter">&quot;IO&quot;.&quot;TYPE#&quot;=2</predicates>
+      <qblock>SEL$39</qblock>
+      <object_alias>&quot;IO&quot;@&quot;SEL$39&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="CLUSTER" id="84" depth="7" pos="3">
+      <object>TAB$</object>
+      <card>1</card>
+      <bytes>13</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>16323</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">BITAND(&quot;T&quot;.&quot;PROPERTY&quot;,36893488147419103232)=0</predicates>
+      <qblock>SEL$40</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$40&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="85" depth="8" pos="1">
+      <object>I_OBJ#</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;T&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$40</qblock>
+      <object_alias>&quot;T&quot;@&quot;SEL$40&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="86" depth="7" pos="4">
+      <object>SEQ$</object>
+      <card>1</card>
+      <bytes>8</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8801</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">(BITAND(&quot;S&quot;.&quot;FLAGS&quot;,1024)=0 OR &quot;S&quot;.&quot;FLAGS&quot; IS NULL)</predicates>
+      <qblock>SEL$41</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$41&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="87" depth="8" pos="1">
+      <object>I_SEQ1</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <predicates type="access">&quot;S&quot;.&quot;OBJ#&quot;=:B1</predicates>
+      <qblock>SEL$41</qblock>
+      <object_alias>&quot;S&quot;@&quot;SEL$41&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="88" depth="7" pos="5">
+      <object>USER_EDITIONING$</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17183</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;TYPE#&quot;=:B1</predicates>
+      <qblock>SEL$36</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$36&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="89" depth="8" pos="1">
+      <object>I_USER_EDITIONING</object>
+      <card>7</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8521</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;UE&quot;.&quot;USER#&quot;=:B1</predicates>
+      <qblock>SEL$36</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$36&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="90" depth="7" pos="6">
+      <object>USER_EDITIONING$</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17183</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;UE&quot;.&quot;TYPE#&quot;=:B1</predicates>
+      <qblock>SEL$37</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$37&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="91" depth="8" pos="1">
+      <object>I_USER_EDITIONING</object>
+      <card>7</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8521</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;UE&quot;.&quot;USER#&quot;=:B1</predicates>
+      <qblock>SEL$37</qblock>
+      <object_alias>&quot;UE&quot;@&quot;SEL$37&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" options="SEMI" id="92" depth="7" pos="7">
+      <card>1</card>
+      <bytes>29</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15493</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$38</qblock>
+    </operation>
+    <operation name="INDEX" options="SKIP SCAN" id="93" depth="8" pos="1">
+      <object>I_USER2</object>
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7321</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;U2&quot;.&quot;TYPE#&quot;=2 AND &quot;U2&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;))</predicates>
+      <predicates type="filter">(&quot;U2&quot;.&quot;TYPE#&quot;=2 AND &quot;U2&quot;.&quot;SPARE2&quot;=TO_NUMBER(SYS_CONTEXT(&apos;userenv&apos;,&apos;current_edition_id&apos;)))</predicates>
+      <qblock>SEL$38</qblock>
+      <object_alias>&quot;U2&quot;@&quot;SEL$38&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="94" depth="8" pos="2">
+      <object>I_OBJ4</object>
+      <card>1</card>
+      <bytes>9</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;O2&quot;.&quot;DATAOBJ#&quot;=:B1 AND &quot;O2&quot;.&quot;TYPE#&quot;=88 AND &quot;O2&quot;.&quot;OWNER#&quot;=&quot;U2&quot;.&quot;USER#&quot;</predicates>
+      <qblock>SEL$38</qblock>
+      <object_alias>&quot;O2&quot;@&quot;SEL$38&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" id="95" depth="6" pos="3">
+      <card>1</card>
+      <bytes>14</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>14743</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$42</qblock>
+    </operation>
+    <operation name="INDEX" options="FULL SCAN" id="96" depth="7" pos="1">
+      <object>I_LINK1</object>
+      <card>1</card>
+      <bytes>10</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7421</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;L&quot;.&quot;NAME&quot; LIKE &apos;%M%&apos;</predicates>
+      <qblock>SEL$42</qblock>
+      <object_alias>&quot;L&quot;@&quot;SEL$42&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="97" depth="7" pos="2">
+      <object>I_USER2</object>
+      <card>1</card>
+      <bytes>4</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7321</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;L&quot;.&quot;OWNER#&quot;=&quot;U&quot;.&quot;USER#&quot;</predicates>
+      <qblock>SEL$42</qblock>
+      <object_alias>&quot;U&quot;@&quot;SEL$42&quot;</object_alias>
+    </operation>
+    <operation name="MERGE JOIN" options="CARTESIAN" id="98" depth="2" pos="4">
+      <card>43502789413</card>
+      <bytes>3393217574214</bytes>
+      <cost>62184273</cost>
+      <io_cost>61895697</io_cost>
+      <cpu_cost>8543812862101</cpu_cost>
+      <time>00:40:30 </time>
+    </operation>
+    <operation name="MERGE JOIN" options="CARTESIAN" id="99" depth="3" pos="1">
+      <card>12369289</card>
+      <bytes>643203028</bytes>
+      <cost>49360</cost>
+      <io_cost>49252</io_cost>
+      <cpu_cost>3205718960</cpu_cost>
+      <time>00:00:02 </time>
+    </operation>
+    <operation name="VIEW" id="100" depth="4" pos="1">
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>14</cost>
+      <io_cost>14</io_cost>
+      <cpu_cost>911233</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$B3498AC7</qblock>
+      <object_alias>&quot;L&quot;@&quot;SEL$43&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="FULL" id="101" depth="5" pos="1">
+      <object>SYS_TEMP_0FD9D6607_7ABD60</object>
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>14</cost>
+      <io_cost>14</io_cost>
+      <cpu_cost>911233</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$B3498AC7</qblock>
+      <object_alias>&quot;T1&quot;@&quot;SEL$B3498AC7&quot;</object_alias>
+    </operation>
+    <operation name="BUFFER" options="SORT" id="102" depth="4" pos="2">
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>49360</cost>
+      <io_cost>49252</io_cost>
+      <cpu_cost>3205718960</cpu_cost>
+      <time>00:00:02 </time>
+    </operation>
+    <operation name="VIEW" id="103" depth="5" pos="1">
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>14</cost>
+      <io_cost>14</io_cost>
+      <cpu_cost>911233</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$D67CB2D2</qblock>
+      <object_alias>&quot;J&quot;@&quot;SEL$43&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="FULL" id="104" depth="6" pos="1">
+      <object>SYS_TEMP_0FD9D6606_7ABD60</object>
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>14</cost>
+      <io_cost>14</io_cost>
+      <cpu_cost>911233</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$D67CB2D2</qblock>
+      <object_alias>&quot;T1&quot;@&quot;SEL$D67CB2D2&quot;</object_alias>
+    </operation>
+    <operation name="BUFFER" options="SORT" id="105" depth="3" pos="2">
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>62184259</cost>
+      <io_cost>61895683</io_cost>
+      <cpu_cost>8543811950867</cpu_cost>
+      <time>00:40:30 </time>
+    </operation>
+    <operation name="VIEW" id="106" depth="4" pos="1">
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>5</cost>
+      <io_cost>5</io_cost>
+      <cpu_cost>690469</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$3E1B8095</qblock>
+      <object_alias>&quot;M&quot;@&quot;SEL$43&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="FULL" id="107" depth="5" pos="1">
+      <object>SYS_TEMP_0FD9D6608_7ABD60</object>
+      <card>3517</card>
+      <bytes>91442</bytes>
+      <cost>5</cost>
+      <io_cost>5</io_cost>
+      <cpu_cost>690469</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$3E1B8095</qblock>
+      <object_alias>&quot;T1&quot;@&quot;SEL$3E1B8095&quot;</object_alias>
+    </operation>
+  </plan>
+  <plan_monitor max_activity_count="1" max_io_reqs="351" max_io_bytes="2875392" max_imq_count="0" max_cpu_count="1" max_wait_count="0" max_other_sql_count="0">
+    <operation id="0" name="SELECT STATEMENT" depth="0" position="0" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:18</stat>
+        <stat name="duration">9</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">44460</stat>
+      </stats>
+    </operation>
+    <operation id="1" parent_id="0" name="TEMP TABLE TRANSFORMATION" depth="1" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:18</stat>
+        <stat name="duration">9</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">44460</stat>
+      </stats>
+    </operation>
+    <operation id="2" parent_id="1" name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" depth="2" position="1" skp="0">
+      <object>
+        <name>SYS_TEMP_0FD9D6606_7ABD60</name>
+      </object>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1</stat>
+        <stat name="max_memory">337920</stat>
+      </stats>
+      <rwsstats group_id="9">
+        <metadata>
+          <stat id="1" name="Total loaded partitions" desc="Total number of partitions that have been loaded into" type="4"/>
+          <stat id="2" name="In Memory CDT Rows in Memory" desc="Number of rows loaded into memory for In Memory CDT" type="3"/>
+          <stat id="3" name="Total number of partitions" desc="Total number of active partitions in a table" type="3"/>
+          <stat id="4" name="Load Buffer Size (KB)" desc="Size of load buffer used" type="3"/>
+        </metadata>
+        <stat id="2">30</stat>
+      </rwsstats>
+    </operation>
+    <operation id="3" parent_id="2" name="HASH" options="GROUP BY" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>323564</bytes>
+        <cost>417</cost>
+        <cpu_cost>91408195</cpu_cost>
+        <io_cost>414</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">30</stat>
+        <stat name="max_memory">1485824</stat>
+      </stats>
+      <rwsstats group_id="21">
+        <metadata>
+          <stat id="1" name="Total Number of Rowsets" desc="Total number of rowsets received from underlying input" type="1"/>
+          <stat id="2" name="Rowsets with Encodings" desc="Number of rowsets with encodings" type="1"/>
+          <stat id="3" name="Rowsets Leveraging Encodings" desc="Number of rowsets leveraging encodings" type="1"/>
+          <stat id="4" name="Rowsets Leveraging Storage Aggregation" desc="Number of rowsets leveraging storage aggregation pushdown" type="1"/>
+        </metadata>
+      </rwsstats>
+    </operation>
+    <operation id="4" parent_id="3" name="VIEW" depth="4" position="1" skp="0">
+      <object type="VIEW">
+        <owner>SYS</owner>
+        <name>DBA_OBJECTS</name>
+      </object>
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>323564</bytes>
+        <cost>416</cost>
+        <cpu_cost>59934711</cpu_cost>
+        <io_cost>414</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">4684</stat>
+      </stats>
+    </operation>
+    <operation id="5" parent_id="4" name="UNION-ALL" depth="5" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">4684</stat>
+      </stats>
+    </operation>
+    <operation id="6" parent_id="5" name="TABLE ACCESS" options="BY INDEX ROWID" depth="6" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SUM$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>26</bytes>
+        <cpu_cost>1400</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="7" parent_id="6" name="INDEX" options="UNIQUE SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SUM$_1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="8" parent_id="5" name="FILTER" depth="6" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">4684</stat>
+      </stats>
+    </operation>
+    <operation id="9" parent_id="8" name="HASH JOIN" depth="7" position="1" skp="0">
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>542220</bytes>
+        <cost>355</cost>
+        <cpu_cost>53967878</cpu_cost>
+        <io_cost>353</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">4684</stat>
+        <stat name="max_memory">1724416</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <metadata>
+          <stat id="1" name="Build Size" desc="Size of the build input in bytes" type="4" flags="1"/>
+          <stat id="2" name="Build Row Count" desc="Number of rows for the build" type="5"/>
+          <stat id="3" name="Fan-out" desc="Number of partitions used to split both inputs" type="5"/>
+          <stat id="4" name="Slot Size" desc="Size of an in-memory hash-join slot" type="5"/>
+          <stat id="5" name="Total Build Partitions" desc="Total number of build partitions" type="1"/>
+          <stat id="6" name="Total Cached Partitions" desc="Total number of build partitions left in-memory before probing" type="1"/>
+          <stat id="7" name="Multi-pass Partition Pairs" desc="Total number of partition pairs processed multi-pass" type="1"/>
+          <stat id="8" name="Total Spilled Probe Rows" desc="Total number of rows from the probe spilled to disk (excluding buffering)" type="1"/>
+          <stat id="9" name="Columnar Encodings Leveraged" desc="Total number of encodings leveraged for probing during probe phase" type="1"/>
+          <stat id="10" name="Columnar Encodings Observed" desc="Total number of encodings observed during probe phase" type="1"/>
+        </metadata>
+        <stat id="1">983040</stat>
+        <stat id="2">138</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="10" parent_id="9" name="INDEX" options="FULL SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>138</cardinality>
+        <bytes>552</bytes>
+        <cost>1</cost>
+        <cpu_cost>34721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">138</stat>
+      </stats>
+    </operation>
+    <operation id="11" parent_id="9" name="HASH JOIN" depth="8" position="2" skp="0">
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>526728</bytes>
+        <cost>354</cost>
+        <cpu_cost>52925156</cpu_cost>
+        <io_cost>352</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">4684</stat>
+        <stat name="max_memory">1393664</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">138</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="12" parent_id="11" name="INDEX" options="FULL SCAN" depth="9" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>138</cardinality>
+        <bytes>3450</bytes>
+        <cost>1</cost>
+        <cpu_cost>34721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">138</stat>
+      </stats>
+    </operation>
+    <operation id="13" parent_id="11" name="TABLE ACCESS" options="FULL" depth="9" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>OBJ$</name>
+      </object>
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>429903</bytes>
+        <cost>353</cost>
+        <cpu_cost>51882435</cpu_cost>
+        <io_cost>351</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">4684</stat>
+      </stats>
+      <rwsstats group_id="3">
+        <metadata>
+          <stat id="1" name="Slow metadata bytes" desc="Size of slow metadata in bytes" type="3"/>
+          <stat id="2" name="Eligible bytes" desc="Total bytes eligible for offload" type="1"/>
+          <stat id="3" name="Filtered bytes" desc="Total bytes returned after offload" type="1"/>
+          <stat id="4" name="SI saved bytes" desc="Total bytes saved by storage index" type="1"/>
+          <stat id="5" name="Flash cache bytes" desc="Total bytes fetched from flash cache" type="1"/>
+          <stat id="6" name="Partial flash cache and disk bytes" desc="Total bytes where IO was partially fetched from flash cache and disk" type="1"/>
+          <stat id="7" name="Cell passthru IO bytes" desc="Total cell passthru IO bytes" type="1"/>
+          <stat id="8" name="Block IO bytes" desc="Total block IO bytes" type="1"/>
+          <stat id="9" name="Columnar cache saved bytes" desc="Total bytes saved by columnar cache" type="1"/>
+          <stat id="10" name="Dynamic Scan Tasks on Thread" desc="Number of dynamic scan tasks completed by thread" type="1"/>
+        </metadata>
+      </rwsstats>
+    </operation>
+    <operation id="14" parent_id="8" name="NESTED LOOPS" depth="7" position="2" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>32</bytes>
+        <cost>4</cost>
+        <cpu_cost>30806</cpu_cost>
+        <io_cost>4</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">208</stat>
+      </stats>
+    </operation>
+    <operation id="15" parent_id="14" name="NESTED LOOPS" depth="8" position="1" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>23</bytes>
+        <cost>3</cost>
+        <cpu_cost>22584</cpu_cost>
+        <io_cost>3</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">208</stat>
+        <stat name="cardinality">0</stat>
+      </stats>
+    </operation>
+    <operation id="16" parent_id="15" name="TABLE ACCESS" options="BY INDEX ROWID" depth="9" position="1" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>IND$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>2</cost>
+        <cpu_cost>15463</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">208</stat>
+        <stat name="cardinality">208</stat>
+        <stat name="read_reqs">7</stat>
+        <stat name="read_bytes">57344</stat>
+      </stats>
+    </operation>
+    <operation id="17" parent_id="16" name="INDEX" options="UNIQUE SCAN" depth="10" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_IND1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">208</stat>
+        <stat name="cardinality">208</stat>
+        <stat name="read_reqs">8</stat>
+        <stat name="read_bytes">65536</stat>
+      </stats>
+    </operation>
+    <operation id="18" parent_id="15" name="TABLE ACCESS" options="CLUSTER" depth="9" position="2" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>1</cost>
+        <cpu_cost>7121</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">208</stat>
+        <stat name="read_reqs">2</stat>
+        <stat name="read_bytes">16384</stat>
+      </stats>
+    </operation>
+    <operation id="19" parent_id="14" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_OBJ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8221</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="20" parent_id="8" name="TABLE ACCESS" options="CLUSTER" depth="7" position="3" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>2</cost>
+        <cpu_cost>16323</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">158</stat>
+        <stat name="cardinality">158</stat>
+        <stat name="read_reqs">64</stat>
+        <stat name="read_bytes">524288</stat>
+      </stats>
+    </operation>
+    <operation id="21" parent_id="20" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (CLUSTER)">
+        <owner>SYS</owner>
+        <name>I_OBJ#</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">158</stat>
+        <stat name="cardinality">158</stat>
+        <stat name="read_reqs">2</stat>
+        <stat name="read_bytes">16384</stat>
+      </stats>
+    </operation>
+    <operation id="22" parent_id="8" name="TABLE ACCESS" options="BY INDEX ROWID" depth="7" position="4" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SEQ$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>8</bytes>
+        <cost>1</cost>
+        <cpu_cost>8801</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">19</stat>
+        <stat name="cardinality">19</stat>
+        <stat name="read_reqs">3</stat>
+        <stat name="read_bytes">24576</stat>
+      </stats>
+    </operation>
+    <operation id="23" parent_id="22" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SEQ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">19</stat>
+        <stat name="cardinality">19</stat>
+      </stats>
+    </operation>
+    <operation id="24" parent_id="8" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="5" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>7</bytes>
+        <cost>2</cost>
+        <cpu_cost>17183</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="25" parent_id="24" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>7</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="26" parent_id="8" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="6" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>7</bytes>
+        <cost>2</cost>
+        <cpu_cost>17183</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="27" parent_id="26" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>7</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="28" parent_id="8" name="NESTED LOOPS" options="SEMI" depth="7" position="7" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>29</bytes>
+        <cost>2</cost>
+        <cpu_cost>15493</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="29" parent_id="28" name="INDEX" options="SKIP SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>20</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="30" parent_id="28" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_OBJ4</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="31" parent_id="5" name="NESTED LOOPS" depth="6" position="3" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>14</bytes>
+        <cost>2</cost>
+        <cpu_cost>14743</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="32" parent_id="31" name="INDEX" options="FULL SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_LINK1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>1</cost>
+        <cpu_cost>7421</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+        <stat name="read_reqs">1</stat>
+        <stat name="read_bytes">8192</stat>
+      </stats>
+    </operation>
+    <operation id="33" parent_id="31" name="INDEX" options="RANGE SCAN" depth="7" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>4</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="34" parent_id="1" name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" depth="2" position="2" skp="0">
+      <object>
+        <name>SYS_TEMP_0FD9D6607_7ABD60</name>
+      </object>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1</stat>
+        <stat name="max_memory">337920</stat>
+      </stats>
+      <rwsstats group_id="9">
+        <stat id="2">39</stat>
+      </rwsstats>
+    </operation>
+    <operation id="35" parent_id="34" name="HASH" options="GROUP BY" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>323564</bytes>
+        <cost>417</cost>
+        <cpu_cost>91408195</cpu_cost>
+        <io_cost>414</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">39</stat>
+        <stat name="max_memory">1486848</stat>
+      </stats>
+      <rwsstats group_id="21"/>
+    </operation>
+    <operation id="36" parent_id="35" name="VIEW" depth="4" position="1" skp="0">
+      <object type="VIEW">
+        <owner>SYS</owner>
+        <name>DBA_OBJECTS</name>
+      </object>
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>323564</bytes>
+        <cost>416</cost>
+        <cpu_cost>59934711</cpu_cost>
+        <io_cost>414</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">27570</stat>
+      </stats>
+    </operation>
+    <operation id="37" parent_id="36" name="UNION-ALL" depth="5" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">27570</stat>
+      </stats>
+    </operation>
+    <operation id="38" parent_id="37" name="TABLE ACCESS" options="BY INDEX ROWID" depth="6" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SUM$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>26</bytes>
+        <cpu_cost>1400</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="39" parent_id="38" name="INDEX" options="UNIQUE SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SUM$_1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="40" parent_id="37" name="FILTER" depth="6" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">27570</stat>
+      </stats>
+    </operation>
+    <operation id="41" parent_id="40" name="HASH JOIN" depth="7" position="1" skp="0">
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>542220</bytes>
+        <cost>355</cost>
+        <cpu_cost>53967878</cpu_cost>
+        <io_cost>353</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">27570</stat>
+        <stat name="max_memory">1747968</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">138</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="42" parent_id="41" name="INDEX" options="FULL SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>138</cardinality>
+        <bytes>552</bytes>
+        <cost>1</cost>
+        <cpu_cost>34721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">138</stat>
+      </stats>
+    </operation>
+    <operation id="43" parent_id="41" name="HASH JOIN" depth="8" position="2" skp="0">
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>526728</bytes>
+        <cost>354</cost>
+        <cpu_cost>52925156</cpu_cost>
+        <io_cost>352</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">27570</stat>
+        <stat name="max_memory">1393664</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">138</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="44" parent_id="43" name="INDEX" options="FULL SCAN" depth="9" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>138</cardinality>
+        <bytes>3450</bytes>
+        <cost>1</cost>
+        <cpu_cost>34721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">138</stat>
+      </stats>
+    </operation>
+    <operation id="45" parent_id="43" name="TABLE ACCESS" options="FULL" depth="9" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>OBJ$</name>
+      </object>
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>429903</bytes>
+        <cost>353</cost>
+        <cpu_cost>51882435</cpu_cost>
+        <io_cost>351</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">27570</stat>
+      </stats>
+      <rwsstats group_id="3"/>
+    </operation>
+    <operation id="46" parent_id="40" name="NESTED LOOPS" depth="7" position="2" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>32</bytes>
+        <cost>4</cost>
+        <cpu_cost>30806</cpu_cost>
+        <io_cost>4</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">2722</stat>
+      </stats>
+    </operation>
+    <operation id="47" parent_id="46" name="NESTED LOOPS" depth="8" position="1" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>23</bytes>
+        <cost>3</cost>
+        <cpu_cost>22584</cpu_cost>
+        <io_cost>3</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">2722</stat>
+        <stat name="cardinality">0</stat>
+      </stats>
+    </operation>
+    <operation id="48" parent_id="47" name="TABLE ACCESS" options="BY INDEX ROWID" depth="9" position="1" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>IND$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>2</cost>
+        <cpu_cost>15463</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">2722</stat>
+        <stat name="cardinality">2722</stat>
+        <stat name="read_reqs">33</stat>
+        <stat name="read_bytes">270336</stat>
+      </stats>
+    </operation>
+    <operation id="49" parent_id="48" name="INDEX" options="UNIQUE SCAN" depth="10" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_IND1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">2722</stat>
+        <stat name="cardinality">2722</stat>
+      </stats>
+    </operation>
+    <operation id="50" parent_id="47" name="TABLE ACCESS" options="CLUSTER" depth="9" position="2" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>1</cost>
+        <cpu_cost>7121</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">2722</stat>
+        <stat name="read_reqs">12</stat>
+        <stat name="read_bytes">98304</stat>
+      </stats>
+    </operation>
+    <operation id="51" parent_id="46" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_OBJ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8221</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="52" parent_id="40" name="TABLE ACCESS" options="CLUSTER" depth="7" position="3" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>2</cost>
+        <cpu_cost>16323</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1541</stat>
+        <stat name="cardinality">1541</stat>
+        <stat name="read_reqs">351</stat>
+        <stat name="read_bytes">2875392</stat>
+      </stats>
+    </operation>
+    <operation id="53" parent_id="52" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (CLUSTER)">
+        <owner>SYS</owner>
+        <name>I_OBJ#</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1541</stat>
+        <stat name="cardinality">1541</stat>
+        <stat name="read_reqs">4</stat>
+        <stat name="read_bytes">32768</stat>
+      </stats>
+    </operation>
+    <operation id="54" parent_id="40" name="TABLE ACCESS" options="BY INDEX ROWID" depth="7" position="4" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SEQ$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>8</bytes>
+        <cost>1</cost>
+        <cpu_cost>8801</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">131</stat>
+        <stat name="cardinality">131</stat>
+      </stats>
+    </operation>
+    <operation id="55" parent_id="54" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SEQ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">131</stat>
+        <stat name="cardinality">131</stat>
+      </stats>
+    </operation>
+    <operation id="56" parent_id="40" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="5" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>7</bytes>
+        <cost>2</cost>
+        <cpu_cost>17183</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="57" parent_id="56" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>7</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="58" parent_id="40" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="6" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>7</bytes>
+        <cost>2</cost>
+        <cpu_cost>17183</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="59" parent_id="58" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>7</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="60" parent_id="40" name="NESTED LOOPS" options="SEMI" depth="7" position="7" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>29</bytes>
+        <cost>2</cost>
+        <cpu_cost>15493</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="61" parent_id="60" name="INDEX" options="SKIP SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>20</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="62" parent_id="60" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_OBJ4</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="63" parent_id="37" name="NESTED LOOPS" depth="6" position="3" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>14</bytes>
+        <cost>2</cost>
+        <cpu_cost>14743</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="64" parent_id="63" name="INDEX" options="FULL SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_LINK1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>1</cost>
+        <cpu_cost>7421</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="65" parent_id="63" name="INDEX" options="RANGE SCAN" depth="7" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>4</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="66" parent_id="1" name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" depth="2" position="3" skp="0">
+      <object>
+        <name>SYS_TEMP_0FD9D6608_7ABD60</name>
+      </object>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1</stat>
+        <stat name="max_memory">106496</stat>
+      </stats>
+      <rwsstats group_id="9">
+        <stat id="2">38</stat>
+      </rwsstats>
+    </operation>
+    <operation id="67" parent_id="66" name="HASH" options="GROUP BY" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>417</cost>
+        <cpu_cost>91408195</cpu_cost>
+        <io_cost>414</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">38</stat>
+        <stat name="max_memory">1504256</stat>
+      </stats>
+      <rwsstats group_id="21"/>
+    </operation>
+    <operation id="68" parent_id="67" name="VIEW" depth="4" position="1" skp="0">
+      <object type="VIEW">
+        <owner>SYS</owner>
+        <name>DBA_OBJECTS</name>
+      </object>
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>416</cost>
+        <cpu_cost>59934711</cpu_cost>
+        <io_cost>414</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23159</stat>
+      </stats>
+    </operation>
+    <operation id="69" parent_id="68" name="UNION-ALL" depth="5" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23159</stat>
+      </stats>
+    </operation>
+    <operation id="70" parent_id="69" name="TABLE ACCESS" options="BY INDEX ROWID" depth="6" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SUM$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>26</bytes>
+        <cpu_cost>1400</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="71" parent_id="70" name="INDEX" options="UNIQUE SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SUM$_1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="72" parent_id="69" name="FILTER" depth="6" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23159</stat>
+      </stats>
+    </operation>
+    <operation id="73" parent_id="72" name="HASH JOIN" depth="7" position="1" skp="0">
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>542220</bytes>
+        <cost>355</cost>
+        <cpu_cost>53967878</cpu_cost>
+        <io_cost>353</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23159</stat>
+        <stat name="max_memory">1717248</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">138</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="74" parent_id="73" name="INDEX" options="FULL SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>138</cardinality>
+        <bytes>552</bytes>
+        <cost>1</cost>
+        <cpu_cost>34721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">138</stat>
+      </stats>
+    </operation>
+    <operation id="75" parent_id="73" name="HASH JOIN" depth="8" position="2" skp="0">
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>526728</bytes>
+        <cost>354</cost>
+        <cpu_cost>52925156</cpu_cost>
+        <io_cost>352</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23159</stat>
+        <stat name="max_memory">1374208</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">138</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="76" parent_id="75" name="INDEX" options="FULL SCAN" depth="9" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>138</cardinality>
+        <bytes>3450</bytes>
+        <cost>1</cost>
+        <cpu_cost>34721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">138</stat>
+      </stats>
+    </operation>
+    <operation id="77" parent_id="75" name="TABLE ACCESS" options="FULL" depth="9" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>OBJ$</name>
+      </object>
+      <optimizer>
+        <cardinality>3873</cardinality>
+        <bytes>429903</bytes>
+        <cost>353</cost>
+        <cpu_cost>51882435</cpu_cost>
+        <io_cost>351</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23159</stat>
+      </stats>
+      <rwsstats group_id="3"/>
+      <activity_sampled start_time="09/23/2023 12:42:10" end_time="09/23/2023 12:42:10" duration="1" count="1" imq_count="0" wait_count="0" cpu_count="1" other_sql_count="0" cpu_cores="4" hyperthread="N">
+        <activity class="Cpu">1</activity>
+      </activity_sampled>
+    </operation>
+    <operation id="78" parent_id="72" name="NESTED LOOPS" depth="7" position="2" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>32</bytes>
+        <cost>4</cost>
+        <cpu_cost>30806</cpu_cost>
+        <io_cost>4</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1304</stat>
+      </stats>
+    </operation>
+    <operation id="79" parent_id="78" name="NESTED LOOPS" depth="8" position="1" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>23</bytes>
+        <cost>3</cost>
+        <cpu_cost>22584</cpu_cost>
+        <io_cost>3</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1304</stat>
+        <stat name="cardinality">0</stat>
+      </stats>
+    </operation>
+    <operation id="80" parent_id="79" name="TABLE ACCESS" options="BY INDEX ROWID" depth="9" position="1" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>IND$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>2</cost>
+        <cpu_cost>15463</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1304</stat>
+        <stat name="cardinality">1304</stat>
+        <stat name="read_reqs">1</stat>
+        <stat name="read_bytes">8192</stat>
+      </stats>
+    </operation>
+    <operation id="81" parent_id="80" name="INDEX" options="UNIQUE SCAN" depth="10" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_IND1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1304</stat>
+        <stat name="cardinality">1304</stat>
+      </stats>
+    </operation>
+    <operation id="82" parent_id="79" name="TABLE ACCESS" options="CLUSTER" depth="9" position="2" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>1</cost>
+        <cpu_cost>7121</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1304</stat>
+      </stats>
+    </operation>
+    <operation id="83" parent_id="78" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_OBJ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8221</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="84" parent_id="72" name="TABLE ACCESS" options="CLUSTER" depth="7" position="3" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>2</cost>
+        <cpu_cost>16323</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1113</stat>
+        <stat name="cardinality">1113</stat>
+        <stat name="read_reqs">13</stat>
+        <stat name="read_bytes">106496</stat>
+      </stats>
+    </operation>
+    <operation id="85" parent_id="84" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (CLUSTER)">
+        <owner>SYS</owner>
+        <name>I_OBJ#</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1113</stat>
+        <stat name="cardinality">1113</stat>
+      </stats>
+    </operation>
+    <operation id="86" parent_id="72" name="TABLE ACCESS" options="BY INDEX ROWID" depth="7" position="4" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SEQ$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>8</bytes>
+        <cost>1</cost>
+        <cpu_cost>8801</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">115</stat>
+        <stat name="cardinality">115</stat>
+      </stats>
+    </operation>
+    <operation id="87" parent_id="86" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SEQ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">115</stat>
+        <stat name="cardinality">115</stat>
+      </stats>
+    </operation>
+    <operation id="88" parent_id="72" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="5" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>7</bytes>
+        <cost>2</cost>
+        <cpu_cost>17183</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="89" parent_id="88" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>7</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="90" parent_id="72" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="6" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>7</bytes>
+        <cost>2</cost>
+        <cpu_cost>17183</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="91" parent_id="90" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>7</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="92" parent_id="72" name="NESTED LOOPS" options="SEMI" depth="7" position="7" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>29</bytes>
+        <cost>2</cost>
+        <cpu_cost>15493</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="93" parent_id="92" name="INDEX" options="SKIP SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>20</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="94" parent_id="92" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_OBJ4</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="95" parent_id="69" name="NESTED LOOPS" depth="6" position="3" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>14</bytes>
+        <cost>2</cost>
+        <cpu_cost>14743</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="96" parent_id="95" name="INDEX" options="FULL SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_LINK1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>1</cost>
+        <cpu_cost>7421</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="97" parent_id="95" name="INDEX" options="RANGE SCAN" depth="7" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>4</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="98" parent_id="1" name="MERGE JOIN" options="CARTESIAN" depth="2" position="4" skp="0">
+      <optimizer>
+        <cardinality>43502789413</cardinality>
+        <bytes>3393217574214</bytes>
+        <cost>62184273</cost>
+        <cpu_cost>8543812862101</cpu_cost>
+        <io_cost>61895697</io_cost>
+        <time>2430</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:18</stat>
+        <stat name="duration">9</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">44460</stat>
+      </stats>
+    </operation>
+    <operation id="99" parent_id="98" name="MERGE JOIN" options="CARTESIAN" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>12369289</cardinality>
+        <bytes>643203028</bytes>
+        <cost>49360</cost>
+        <cpu_cost>3205718960</cpu_cost>
+        <io_cost>49252</io_cost>
+        <time>2</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:18</stat>
+        <stat name="duration">9</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1170</stat>
+      </stats>
+    </operation>
+    <operation id="100" parent_id="99" name="VIEW" depth="4" position="1" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>14</cost>
+        <cpu_cost>911233</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:17</stat>
+        <stat name="duration">8</stat>
+        <stat name="from_most_recent">1</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">39</stat>
+      </stats>
+    </operation>
+    <operation id="101" parent_id="100" name="TABLE ACCESS" options="FULL" depth="5" position="1" skp="0">
+      <object type="TABLE (TEMP)">
+        <owner>SYS</owner>
+        <name>SYS_TEMP_0FD9D6607_7ABD60</name>
+      </object>
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>14</cost>
+        <cpu_cost>911233</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:17</stat>
+        <stat name="duration">8</stat>
+        <stat name="from_most_recent">1</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">39</stat>
+      </stats>
+    </operation>
+    <operation id="102" parent_id="99" name="BUFFER" options="SORT" depth="4" position="2" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>49360</cost>
+        <cpu_cost>3205718960</cpu_cost>
+        <io_cost>49252</io_cost>
+        <time>2</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:18</stat>
+        <stat name="duration">9</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">39</stat>
+        <stat name="cardinality">1170</stat>
+        <stat name="max_memory">2048</stat>
+      </stats>
+    </operation>
+    <operation id="103" parent_id="102" name="VIEW" depth="5" position="1" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>14</cost>
+        <cpu_cost>911233</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">30</stat>
+      </stats>
+    </operation>
+    <operation id="104" parent_id="103" name="TABLE ACCESS" options="FULL" depth="6" position="1" skp="0">
+      <object type="TABLE (TEMP)">
+        <owner>SYS</owner>
+        <name>SYS_TEMP_0FD9D6606_7ABD60</name>
+      </object>
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>14</cost>
+        <cpu_cost>911233</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">30</stat>
+      </stats>
+    </operation>
+    <operation id="105" parent_id="98" name="BUFFER" options="SORT" depth="3" position="2" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>62184259</cost>
+        <cpu_cost>8543811950867</cpu_cost>
+        <io_cost>61895683</io_cost>
+        <time>2430</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:18</stat>
+        <stat name="duration">9</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1170</stat>
+        <stat name="cardinality">44460</stat>
+        <stat name="max_memory">2048</stat>
+      </stats>
+    </operation>
+    <operation id="106" parent_id="105" name="VIEW" depth="4" position="1" skp="0">
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>5</cost>
+        <cpu_cost>690469</cpu_cost>
+        <io_cost>5</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">38</stat>
+      </stats>
+    </operation>
+    <operation id="107" parent_id="106" name="TABLE ACCESS" options="FULL" depth="5" position="1" skp="0">
+      <object type="TABLE (TEMP)">
+        <owner>SYS</owner>
+        <name>SYS_TEMP_0FD9D6608_7ABD60</name>
+      </object>
+      <optimizer>
+        <cardinality>3517</cardinality>
+        <bytes>91442</bytes>
+        <cost>5</cost>
+        <cpu_cost>690469</cpu_cost>
+        <io_cost>5</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/23/2023 12:42:10</stat>
+        <stat name="last_active">09/23/2023 12:42:10</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">8</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">38</stat>
+      </stats>
+    </operation>
+  </plan_monitor>
+  <stattype name="metrics" cpu_cores="4" hyperthread="N">
+    <stat_info>
+      <stat id="1" name="nb_cpu"/>
+      <stat id="2" name="nb_sess"/>
+      <stat id="3" name="reads" unit="per_sec"/>
+      <stat id="4" name="writes" unit="per_sec"/>
+      <stat id="5" name="read_kb" unit="bytes_per_sec" factor="1024"/>
+      <stat id="6" name="write_kb" unit="bytes_per_sec" factor="1024"/>
+      <stat id="7" name="interc_kb" unit="bytes_per_sec" factor="1024"/>
+      <stat id="8" name="cache_kb" unit="bytes_per_sec" factor="1024"/>
+      <stat id="9" name="pga_kb" unit="bytes" factor="1024"/>
+      <stat id="10" name="tmp_kb" unit="bytes" factor="1024"/>
+    </stat_info>
+    <buckets bucket_interval="1" bucket_count="10" start_time="09/23/2023 12:42:10" end_time="09/23/2023 12:42:19" duration="10">
+      <bucket bucket_id="1">
+        <stat id="1" value=".26"/>
+        <stat id="3" value="494"/>
+        <stat id="5" value="4008"/>
+        <stat id="7" value="4008"/>
+        <stat id="8" value="154224"/>
+        <stat id="9" value="12586"/>
+      </bucket>
+    </buckets>
+  </stattype>
+</sql_monitor_report>

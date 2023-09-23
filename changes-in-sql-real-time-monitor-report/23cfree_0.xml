@@ -1,0 +1,2092 @@
+<sql_monitor_report version="4.0" sysdate="09/21/2023 17:39:34">
+  <report_parameters>
+    <sql_id>6nq0vzby53q3g</sql_id>
+    <sql_exec_id>16777216</sql_exec_id>
+    <sql_exec_start>09/21/2023 17:39:31</sql_exec_start>
+    <bucket_count>5</bucket_count>
+    <interval_start>09/21/2023 17:39:31</interval_start>
+    <interval_end>09/21/2023 17:39:35</interval_end>
+  </report_parameters>
+  <target instance_id="1" session_id="282" session_serial="57962" sql_id="6nq0vzby53q3g" sql_exec_start="09/21/2023 17:39:31" sql_exec_id="16777216" sql_plan_hash="291046652" sql_full_plan_hash="1497395187" db_unique_name="FREE" db_platform_name="x86_64/Linux 2.4.xx" report_host_name="localhost">
+    <user_id>131</user_id>
+    <user>BERX</user>
+    <con_id>3</con_id>
+    <con_name>FREEPDB1</con_name>
+    <program>SQL Developer</program>
+    <module>SQL Developer</module>
+    <service>freepdb1</service>
+    <sql_fulltext is_full="Y">with J as -- 35069142 =&gt; 0
+  (select /*+ materialize */ min(object_id), object_type  
+from dba_objects 
+where object_name like &apos;%J%&apos;
+group by object_type ),
+L as (
+select /*+ materialize */ min(object_id), object_type  
+from dba_objects 
+where object_name like &apos;%L%&apos;
+group by object_type ),
+M as (
+select /*+ materialize */ min(object_id), object_type  
+from dba_objects 
+where object_name like &apos;%M%&apos;
+group by object_type )
+select /*+ MONITOR */ 
+   * 
+from l,j,m</sql_fulltext>
+    <status>DONE (ALL ROWS)</status>
+    <refresh_count>971</refresh_count>
+    <first_refresh_time>09/21/2023 17:39:31</first_refresh_time>
+    <last_refresh_time>09/21/2023 17:39:34</last_refresh_time>
+    <duration>3</duration>
+    <rminfo rmcg="OTHER_GROUPS"/>
+    <optimizer_env>
+      <param name="active_instance_count">1</param>
+      <param name="is_recur_flags">0</param>
+      <param name="parallel_autodop">0</param>
+      <param name="parallel_ddl_mode">enabled</param>
+      <param name="parallel_ddldml">0</param>
+      <param name="parallel_degree">0</param>
+      <param name="parallel_execution_enabled">false</param>
+      <param name="parallel_max_degree">2</param>
+      <param name="parallel_query_default_dop">0</param>
+      <param name="parallel_query_mode">enabled</param>
+      <param name="pga_aggregate_target">372736 KB</param>
+      <param name="total_cpu_count">2</param>
+    </optimizer_env>
+  </target>
+  <stats type="monitor">
+    <stat name="elapsed_time">178541</stat>
+    <stat name="cpu_time">59594</stat>
+    <stat name="other_wait_time">118947</stat>
+    <stat name="user_fetch_count">968</stat>
+    <stat name="buffer_gets">21706</stat>
+  </stats>
+  <plan_monitor max_io_reqs="0" max_io_bytes="0">
+    <operation id="0" name="SELECT STATEMENT" depth="0" position="0" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">48360</stat>
+      </stats>
+    </operation>
+    <operation id="1" parent_id="0" name="TEMP TABLE TRANSFORMATION" depth="1" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">48360</stat>
+      </stats>
+    </operation>
+    <operation id="2" parent_id="1" name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" depth="2" position="1" skp="0">
+      <object>
+        <name>SYS_TEMP_0FD9D661E_F94298</name>
+      </object>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1</stat>
+        <stat name="max_memory">347136</stat>
+      </stats>
+      <rwsstats group_id="9">
+        <metadata>
+          <stat id="1" name="Total loaded partitions" desc="Total number of partitions that have been loaded into" type="4"/>
+          <stat id="2" name="In Memory CDT Rows in Memory" desc="Number of rows loaded into memory for In Memory CDT" type="3"/>
+          <stat id="3" name="Total number of partitions" desc="Total number of active partitions in a table" type="3"/>
+          <stat id="4" name="Load Buffer Size (KB)" desc="Size of load buffer used" type="3"/>
+        </metadata>
+        <stat id="2">31</stat>
+      </rwsstats>
+    </operation>
+    <operation id="3" parent_id="2" name="HASH" options="GROUP BY" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>332028</bytes>
+        <cost>767</cost>
+        <cpu_cost>102425544</cpu_cost>
+        <io_cost>764</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">31</stat>
+      </stats>
+      <rwsstats group_id="21">
+        <metadata>
+          <stat id="1" name="Total Number of Rowsets" desc="Total number of rowsets received from underlying input" type="1"/>
+          <stat id="2" name="Rowsets with Encodings" desc="Number of rowsets with encodings" type="1"/>
+          <stat id="3" name="Rowsets Leveraging Encodings" desc="Number of rowsets leveraging encodings" type="1"/>
+          <stat id="4" name="Rowsets Leveraging Storage Aggregation" desc="Number of rowsets leveraging storage aggregation pushdown" type="1"/>
+        </metadata>
+      </rwsstats>
+    </operation>
+    <operation id="4" parent_id="3" name="VIEW" depth="4" position="1" skp="0">
+      <object type="VIEW">
+        <owner>SYS</owner>
+        <name>DBA_OBJECTS</name>
+      </object>
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>332028</bytes>
+        <cost>766</cost>
+        <cpu_cost>66520506</cpu_cost>
+        <io_cost>764</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">5098</stat>
+      </stats>
+    </operation>
+    <operation id="5" parent_id="4" name="UNION-ALL" depth="5" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>526851</bytes>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">5098</stat>
+      </stats>
+    </operation>
+    <operation id="6" parent_id="5" name="TABLE ACCESS" options="BY INDEX ROWID" depth="6" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SUM$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>26</bytes>
+        <cpu_cost>1400</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="7" parent_id="6" name="INDEX" options="UNIQUE SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SUM$_1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="8" parent_id="5" name="FILTER" depth="6" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">5098</stat>
+      </stats>
+    </operation>
+    <operation id="9" parent_id="8" name="HASH JOIN" depth="7" position="1" skp="0">
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>571152</bytes>
+        <cost>378</cost>
+        <cpu_cost>55043591</cpu_cost>
+        <io_cost>376</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">5098</stat>
+        <stat name="max_memory">1704960</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <metadata>
+          <stat id="1" name="Build Size" desc="Size of the build input in bytes" type="4" flags="1"/>
+          <stat id="2" name="Build Row Count" desc="Number of rows for the build" type="5"/>
+          <stat id="3" name="Fan-out" desc="Number of partitions used to split both inputs" type="5"/>
+          <stat id="4" name="Slot Size" desc="Size of an in-memory hash-join slot" type="5"/>
+          <stat id="5" name="Total Build Partitions" desc="Total number of build partitions" type="1"/>
+          <stat id="6" name="Total Cached Partitions" desc="Total number of build partitions left in-memory before probing" type="1"/>
+          <stat id="7" name="Multi-pass Partition Pairs" desc="Total number of partition pairs processed multi-pass" type="1"/>
+          <stat id="8" name="Total Spilled Probe Rows" desc="Total number of rows from the probe spilled to disk (excluding buffering)" type="1"/>
+          <stat id="9" name="Columnar Encodings Leveraged" desc="Total number of encodings leveraged for probing during probe phase" type="1"/>
+          <stat id="10" name="Columnar Encodings Observed" desc="Total number of encodings observed during probe phase" type="1"/>
+          <stat id="11" name="DeepVec Hash Joins" desc="Number of DeepVec hash joins executed" type="1"/>
+          <stat id="12" name="DeepVec Hash Join Flags" desc="Flags for DeepVec Scans" type="3"/>
+        </metadata>
+        <stat id="1">983040</stat>
+        <stat id="2">154</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="10" parent_id="9" name="INDEX" options="FULL SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>153</cardinality>
+        <bytes>612</bytes>
+        <cost>1</cost>
+        <cpu_cost>37721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">154</stat>
+      </stats>
+    </operation>
+    <operation id="11" parent_id="9" name="HASH JOIN" depth="8" position="2" skp="0">
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>555504</bytes>
+        <cost>377</cost>
+        <cpu_cost>53991719</cpu_cost>
+        <io_cost>375</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">5098</stat>
+        <stat name="max_memory">1414144</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">154</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="12" parent_id="11" name="INDEX" options="FULL SCAN" depth="9" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>153</cardinality>
+        <bytes>3825</bytes>
+        <cost>1</cost>
+        <cpu_cost>37721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">154</stat>
+      </stats>
+    </operation>
+    <operation id="13" parent_id="11" name="TABLE ACCESS" options="FULL" depth="9" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>OBJ$</name>
+      </object>
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>457704</bytes>
+        <cost>376</cost>
+        <cpu_cost>52939848</cpu_cost>
+        <io_cost>374</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">5098</stat>
+      </stats>
+      <rwsstats group_id="3">
+        <metadata>
+          <stat id="1" name="Eligible bytes" desc="Total bytes eligible for offload" type="1"/>
+          <stat id="2" name="Filtered bytes" desc="Total bytes returned after offload" type="1"/>
+          <stat id="3" name="Cell passthru IO bytes" desc="Total cell passthru IO bytes" type="1"/>
+          <stat id="4" name="Cell reverse offload IO bytes" desc="Total cell reverse offload IO bytes" type="1"/>
+          <stat id="5" name="Cell passthru IO bytes due to quarantine" desc="Total bytes in passthru mode due to quarantine" type="1"/>
+          <stat id="6" name="Eligible bytes for smart IO" desc="Total bytes eligible for smart IO" type="1"/>
+          <stat id="7" name=".. SI saved bytes" desc="Total bytes saved by storage index" type="1"/>
+          <stat id="8" name=".. Columnar cache saved bytes" desc="Total bytes saved by columnar cache" type="1"/>
+          <stat id="9" name=".. Partial storage cache and disk bytes" desc="Total bytes where IO was partially fetched from storage cache and disk" type="1"/>
+          <stat id="10" name=".. Storage cache bytes" desc="Total bytes fetched from storage cache" type="1"/>
+          <stat id="11" name=".... IM Capacity bytes" desc="Total bytes processed for IM Capacity - cell" type="1"/>
+          <stat id="12" name=".... IM Query bytes" desc="Total bytes processed for IM Query - cell" type="1"/>
+          <stat id="13" name=".... No memcompress bytes" desc="Total bytes processed for no memcompress - cell" type="1"/>
+          <stat id="14" name="Bytes added to storage index" desc="Total bytes added to storage index" type="1"/>
+          <stat id="15" name="IM population jobs submitted" desc="Total number of population jobs submitted to create IM columnar cache" type="1"/>
+          <stat id="16" name="cell IORM IO requests on storage cache" desc="Total IO requests from cell on storage cache" type="1"/>
+          <stat id="17" name="cell IORM wait time on flash (us)" desc="Total IORM wait time on flash from cell" type="1"/>
+          <stat id="18" name="cell IORM IO requests on disk" desc="Total IO requests from cell on disk" type="1"/>
+          <stat id="19" name="cell IORM wait time on disk (us)" desc="Total IORM wait time on disk from cell" type="1"/>
+          <stat id="20" name="cell foreground CPU time (ms)" desc="Total CPU time from cell" type="1"/>
+          <stat id="21" name="Block IO bytes" desc="Total block IO bytes" type="1"/>
+          <stat id="22" name="Metadata bytes" desc="Size of metadata in bytes" type="3"/>
+          <stat id="23" name="Dynamic Scan Tasks on Thread" desc="Number of dynamic scan tasks completed by thread" type="1"/>
+        </metadata>
+      </rwsstats>
+    </operation>
+    <operation id="14" parent_id="8" name="NESTED LOOPS" depth="7" position="2" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>32</bytes>
+        <cost>4</cost>
+        <cpu_cost>30806</cpu_cost>
+        <io_cost>4</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">210</stat>
+      </stats>
+    </operation>
+    <operation id="15" parent_id="14" name="NESTED LOOPS" depth="8" position="1" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>23</bytes>
+        <cost>3</cost>
+        <cpu_cost>22584</cpu_cost>
+        <io_cost>3</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">210</stat>
+        <stat name="cardinality">0</stat>
+      </stats>
+    </operation>
+    <operation id="16" parent_id="15" name="TABLE ACCESS" options="BY INDEX ROWID" depth="9" position="1" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>IND$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>2</cost>
+        <cpu_cost>15463</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">210</stat>
+        <stat name="cardinality">210</stat>
+      </stats>
+    </operation>
+    <operation id="17" parent_id="16" name="INDEX" options="UNIQUE SCAN" depth="10" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_IND1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">210</stat>
+        <stat name="cardinality">210</stat>
+      </stats>
+    </operation>
+    <operation id="18" parent_id="15" name="TABLE ACCESS" options="CLUSTER" depth="9" position="2" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>1</cost>
+        <cpu_cost>7121</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">210</stat>
+      </stats>
+    </operation>
+    <operation id="19" parent_id="14" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_OBJ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8221</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="20" parent_id="8" name="TABLE ACCESS" options="CLUSTER" depth="7" position="3" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>2</cost>
+        <cpu_cost>16323</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">167</stat>
+        <stat name="cardinality">167</stat>
+      </stats>
+    </operation>
+    <operation id="21" parent_id="20" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (CLUSTER)">
+        <owner>SYS</owner>
+        <name>I_OBJ#</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">167</stat>
+        <stat name="cardinality">167</stat>
+      </stats>
+    </operation>
+    <operation id="22" parent_id="8" name="TABLE ACCESS" options="BY INDEX ROWID" depth="7" position="4" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SEQ$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>8</bytes>
+        <cost>1</cost>
+        <cpu_cost>8801</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">19</stat>
+        <stat name="cardinality">19</stat>
+      </stats>
+    </operation>
+    <operation id="23" parent_id="22" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SEQ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">19</stat>
+        <stat name="cardinality">19</stat>
+      </stats>
+    </operation>
+    <operation id="24" parent_id="8" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="5" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>6</bytes>
+        <cost>2</cost>
+        <cpu_cost>15083</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="25" parent_id="24" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>2</cardinality>
+        <cost>1</cost>
+        <cpu_cost>7521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="26" parent_id="8" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="6" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>6</bytes>
+        <cost>2</cost>
+        <cpu_cost>15083</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="27" parent_id="26" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>2</cardinality>
+        <cost>1</cost>
+        <cpu_cost>7521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="28" parent_id="8" name="NESTED LOOPS" options="SEMI" depth="7" position="7" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>29</bytes>
+        <cost>2</cost>
+        <cpu_cost>15493</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="29" parent_id="28" name="INDEX" options="SKIP SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>20</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="30" parent_id="28" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_OBJ4</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="31" parent_id="5" name="NESTED LOOPS" depth="6" position="3" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>83</bytes>
+        <cost>1</cost>
+        <cpu_cost>7621</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="32" parent_id="31" name="INDEX" options="FULL SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_LINK1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>79</bytes>
+        <cpu_cost>300</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="33" parent_id="31" name="INDEX" options="RANGE SCAN" depth="7" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>4</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="34" parent_id="1" name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" depth="2" position="2" skp="0">
+      <object>
+        <name>SYS_TEMP_0FD9D661F_F94298</name>
+      </object>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1</stat>
+        <stat name="max_memory">347136</stat>
+      </stats>
+      <rwsstats group_id="9">
+        <stat id="2">40</stat>
+      </rwsstats>
+    </operation>
+    <operation id="35" parent_id="34" name="HASH" options="GROUP BY" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>332028</bytes>
+        <cost>767</cost>
+        <cpu_cost>102425544</cpu_cost>
+        <io_cost>764</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">40</stat>
+      </stats>
+      <rwsstats group_id="21"/>
+    </operation>
+    <operation id="36" parent_id="35" name="VIEW" depth="4" position="1" skp="0">
+      <object type="VIEW">
+        <owner>SYS</owner>
+        <name>DBA_OBJECTS</name>
+      </object>
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>332028</bytes>
+        <cost>766</cost>
+        <cpu_cost>66520506</cpu_cost>
+        <io_cost>764</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">26586</stat>
+      </stats>
+    </operation>
+    <operation id="37" parent_id="36" name="UNION-ALL" depth="5" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>526851</bytes>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">26586</stat>
+      </stats>
+    </operation>
+    <operation id="38" parent_id="37" name="TABLE ACCESS" options="BY INDEX ROWID" depth="6" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SUM$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>26</bytes>
+        <cpu_cost>1400</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="39" parent_id="38" name="INDEX" options="UNIQUE SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SUM$_1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="40" parent_id="37" name="FILTER" depth="6" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">26586</stat>
+      </stats>
+    </operation>
+    <operation id="41" parent_id="40" name="HASH JOIN" depth="7" position="1" skp="0">
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>571152</bytes>
+        <cost>378</cost>
+        <cpu_cost>55043591</cpu_cost>
+        <io_cost>376</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">26586</stat>
+        <stat name="max_memory">1649664</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">154</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="42" parent_id="41" name="INDEX" options="FULL SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>153</cardinality>
+        <bytes>612</bytes>
+        <cost>1</cost>
+        <cpu_cost>37721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">154</stat>
+      </stats>
+    </operation>
+    <operation id="43" parent_id="41" name="HASH JOIN" depth="8" position="2" skp="0">
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>555504</bytes>
+        <cost>377</cost>
+        <cpu_cost>53991719</cpu_cost>
+        <io_cost>375</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">26586</stat>
+        <stat name="max_memory">1385472</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">154</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="44" parent_id="43" name="INDEX" options="FULL SCAN" depth="9" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>153</cardinality>
+        <bytes>3825</bytes>
+        <cost>1</cost>
+        <cpu_cost>37721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">154</stat>
+      </stats>
+    </operation>
+    <operation id="45" parent_id="43" name="TABLE ACCESS" options="FULL" depth="9" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>OBJ$</name>
+      </object>
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>457704</bytes>
+        <cost>376</cost>
+        <cpu_cost>52939848</cpu_cost>
+        <io_cost>374</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">26586</stat>
+      </stats>
+      <rwsstats group_id="3"/>
+    </operation>
+    <operation id="46" parent_id="40" name="NESTED LOOPS" depth="7" position="2" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>32</bytes>
+        <cost>4</cost>
+        <cpu_cost>30806</cpu_cost>
+        <io_cost>4</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1933</stat>
+      </stats>
+    </operation>
+    <operation id="47" parent_id="46" name="NESTED LOOPS" depth="8" position="1" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>23</bytes>
+        <cost>3</cost>
+        <cpu_cost>22584</cpu_cost>
+        <io_cost>3</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1933</stat>
+        <stat name="cardinality">0</stat>
+      </stats>
+    </operation>
+    <operation id="48" parent_id="47" name="TABLE ACCESS" options="BY INDEX ROWID" depth="9" position="1" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>IND$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>2</cost>
+        <cpu_cost>15463</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1933</stat>
+        <stat name="cardinality">1933</stat>
+      </stats>
+    </operation>
+    <operation id="49" parent_id="48" name="INDEX" options="UNIQUE SCAN" depth="10" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_IND1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1933</stat>
+        <stat name="cardinality">1933</stat>
+      </stats>
+    </operation>
+    <operation id="50" parent_id="47" name="TABLE ACCESS" options="CLUSTER" depth="9" position="2" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>1</cost>
+        <cpu_cost>7121</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1933</stat>
+      </stats>
+    </operation>
+    <operation id="51" parent_id="46" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_OBJ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8221</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="52" parent_id="40" name="TABLE ACCESS" options="CLUSTER" depth="7" position="3" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>2</cost>
+        <cpu_cost>16323</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1377</stat>
+        <stat name="cardinality">1377</stat>
+      </stats>
+    </operation>
+    <operation id="53" parent_id="52" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (CLUSTER)">
+        <owner>SYS</owner>
+        <name>I_OBJ#</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1377</stat>
+        <stat name="cardinality">1377</stat>
+      </stats>
+    </operation>
+    <operation id="54" parent_id="40" name="TABLE ACCESS" options="BY INDEX ROWID" depth="7" position="4" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SEQ$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>8</bytes>
+        <cost>1</cost>
+        <cpu_cost>8801</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">124</stat>
+        <stat name="cardinality">124</stat>
+      </stats>
+    </operation>
+    <operation id="55" parent_id="54" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SEQ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">124</stat>
+        <stat name="cardinality">124</stat>
+      </stats>
+    </operation>
+    <operation id="56" parent_id="40" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="5" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>6</bytes>
+        <cost>2</cost>
+        <cpu_cost>15083</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="57" parent_id="56" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>2</cardinality>
+        <cost>1</cost>
+        <cpu_cost>7521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="58" parent_id="40" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="6" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>6</bytes>
+        <cost>2</cost>
+        <cpu_cost>15083</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="59" parent_id="58" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>2</cardinality>
+        <cost>1</cost>
+        <cpu_cost>7521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="60" parent_id="40" name="NESTED LOOPS" options="SEMI" depth="7" position="7" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>29</bytes>
+        <cost>2</cost>
+        <cpu_cost>15493</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="61" parent_id="60" name="INDEX" options="SKIP SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>20</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="62" parent_id="60" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_OBJ4</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="63" parent_id="37" name="NESTED LOOPS" depth="6" position="3" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>83</bytes>
+        <cost>1</cost>
+        <cpu_cost>7621</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="64" parent_id="63" name="INDEX" options="FULL SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_LINK1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>79</bytes>
+        <cpu_cost>300</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="65" parent_id="63" name="INDEX" options="RANGE SCAN" depth="7" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>4</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="66" parent_id="1" name="LOAD AS SELECT" options="(CURSOR DURATION MEMORY)" depth="2" position="3" skp="0">
+      <object>
+        <name>SYS_TEMP_0FD9D6620_F94298</name>
+      </object>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1</stat>
+        <stat name="max_memory">108544</stat>
+      </stats>
+      <rwsstats group_id="9">
+        <stat id="2">39</stat>
+      </rwsstats>
+    </operation>
+    <operation id="67" parent_id="66" name="HASH" options="GROUP BY" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>767</cost>
+        <cpu_cost>102425544</cpu_cost>
+        <io_cost>764</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">39</stat>
+      </stats>
+      <rwsstats group_id="21"/>
+    </operation>
+    <operation id="68" parent_id="67" name="VIEW" depth="4" position="1" skp="0">
+      <object type="VIEW">
+        <owner>SYS</owner>
+        <name>DBA_OBJECTS</name>
+      </object>
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>766</cost>
+        <cpu_cost>66520506</cpu_cost>
+        <io_cost>764</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23453</stat>
+      </stats>
+    </operation>
+    <operation id="69" parent_id="68" name="UNION-ALL" depth="5" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>526851</bytes>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23453</stat>
+      </stats>
+    </operation>
+    <operation id="70" parent_id="69" name="TABLE ACCESS" options="BY INDEX ROWID" depth="6" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SUM$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>26</bytes>
+        <cpu_cost>1400</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="71" parent_id="70" name="INDEX" options="UNIQUE SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SUM$_1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="72" parent_id="69" name="FILTER" depth="6" position="1" skp="0">
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23453</stat>
+      </stats>
+    </operation>
+    <operation id="73" parent_id="72" name="HASH JOIN" depth="7" position="1" skp="0">
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>571152</bytes>
+        <cost>378</cost>
+        <cpu_cost>55043591</cpu_cost>
+        <io_cost>376</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23453</stat>
+        <stat name="max_memory">1660928</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">154</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="74" parent_id="73" name="INDEX" options="FULL SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>153</cardinality>
+        <bytes>612</bytes>
+        <cost>1</cost>
+        <cpu_cost>37721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">154</stat>
+      </stats>
+    </operation>
+    <operation id="75" parent_id="73" name="HASH JOIN" depth="8" position="2" skp="0">
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>555504</bytes>
+        <cost>377</cost>
+        <cpu_cost>53991719</cpu_cost>
+        <io_cost>375</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23453</stat>
+        <stat name="max_memory">1375232</stat>
+      </stats>
+      <rwsstats group_id="0">
+        <stat id="1">983040</stat>
+        <stat id="2">154</stat>
+        <stat id="3">8</stat>
+        <stat id="4">122880</stat>
+        <stat id="5">8</stat>
+        <stat id="6">8</stat>
+      </rwsstats>
+    </operation>
+    <operation id="76" parent_id="75" name="INDEX" options="FULL SCAN" depth="9" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>153</cardinality>
+        <bytes>3825</bytes>
+        <cost>1</cost>
+        <cpu_cost>37721</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">154</stat>
+      </stats>
+    </operation>
+    <operation id="77" parent_id="75" name="TABLE ACCESS" options="FULL" depth="9" position="2" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>OBJ$</name>
+      </object>
+      <optimizer>
+        <cardinality>3912</cardinality>
+        <bytes>457704</bytes>
+        <cost>376</cost>
+        <cpu_cost>52939848</cpu_cost>
+        <io_cost>374</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">23453</stat>
+      </stats>
+      <rwsstats group_id="3"/>
+    </operation>
+    <operation id="78" parent_id="72" name="NESTED LOOPS" depth="7" position="2" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>32</bytes>
+        <cost>4</cost>
+        <cpu_cost>30806</cpu_cost>
+        <io_cost>4</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">927</stat>
+      </stats>
+    </operation>
+    <operation id="79" parent_id="78" name="NESTED LOOPS" depth="8" position="1" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>23</bytes>
+        <cost>3</cost>
+        <cpu_cost>22584</cpu_cost>
+        <io_cost>3</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">927</stat>
+        <stat name="cardinality">0</stat>
+      </stats>
+    </operation>
+    <operation id="80" parent_id="79" name="TABLE ACCESS" options="BY INDEX ROWID" depth="9" position="1" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>IND$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>10</bytes>
+        <cost>2</cost>
+        <cpu_cost>15463</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">927</stat>
+        <stat name="cardinality">927</stat>
+      </stats>
+    </operation>
+    <operation id="81" parent_id="80" name="INDEX" options="UNIQUE SCAN" depth="10" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_IND1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">927</stat>
+        <stat name="cardinality">927</stat>
+      </stats>
+    </operation>
+    <operation id="82" parent_id="79" name="TABLE ACCESS" options="CLUSTER" depth="9" position="2" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>1</cost>
+        <cpu_cost>7121</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">927</stat>
+      </stats>
+    </operation>
+    <operation id="83" parent_id="78" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_OBJ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8221</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="84" parent_id="72" name="TABLE ACCESS" options="CLUSTER" depth="7" position="3" skp="0">
+      <object type="CLUSTER">
+        <owner>SYS</owner>
+        <name>TAB$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>13</bytes>
+        <cost>2</cost>
+        <cpu_cost>16323</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1036</stat>
+        <stat name="cardinality">1036</stat>
+      </stats>
+    </operation>
+    <operation id="85" parent_id="84" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (CLUSTER)">
+        <owner>SYS</owner>
+        <name>I_OBJ#</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1036</stat>
+        <stat name="cardinality">1036</stat>
+      </stats>
+    </operation>
+    <operation id="86" parent_id="72" name="TABLE ACCESS" options="BY INDEX ROWID" depth="7" position="4" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>SEQ$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>8</bytes>
+        <cost>1</cost>
+        <cpu_cost>8801</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">106</stat>
+        <stat name="cardinality">106</stat>
+      </stats>
+    </operation>
+    <operation id="87" parent_id="86" name="INDEX" options="UNIQUE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_SEQ1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <cpu_cost>1050</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">106</stat>
+        <stat name="cardinality">106</stat>
+      </stats>
+    </operation>
+    <operation id="88" parent_id="72" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="5" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>6</bytes>
+        <cost>2</cost>
+        <cpu_cost>15083</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="89" parent_id="88" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>2</cardinality>
+        <cost>1</cost>
+        <cpu_cost>7521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="90" parent_id="72" name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" depth="7" position="6" skp="0">
+      <object type="TABLE">
+        <owner>SYS</owner>
+        <name>USER_EDITIONING$</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>6</bytes>
+        <cost>2</cost>
+        <cpu_cost>15083</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="91" parent_id="90" name="INDEX" options="RANGE SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_USER_EDITIONING</name>
+      </object>
+      <optimizer>
+        <cardinality>2</cardinality>
+        <cost>1</cost>
+        <cpu_cost>7521</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="92" parent_id="72" name="NESTED LOOPS" options="SEMI" depth="7" position="7" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>29</bytes>
+        <cost>2</cost>
+        <cpu_cost>15493</cpu_cost>
+        <io_cost>2</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="93" parent_id="92" name="INDEX" options="SKIP SCAN" depth="8" position="1" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>20</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="94" parent_id="92" name="INDEX" options="RANGE SCAN" depth="8" position="2" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_OBJ4</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>9</bytes>
+        <cost>1</cost>
+        <cpu_cost>8171</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="95" parent_id="69" name="NESTED LOOPS" depth="6" position="3" skp="0">
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>83</bytes>
+        <cost>1</cost>
+        <cpu_cost>7621</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="96" parent_id="95" name="INDEX" options="FULL SCAN" depth="7" position="1" skp="0">
+      <object type="INDEX">
+        <owner>SYS</owner>
+        <name>I_LINK1</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>79</bytes>
+        <cpu_cost>300</cpu_cost>
+        <io_cost>0</io_cost>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="starts">1</stat>
+      </stats>
+    </operation>
+    <operation id="97" parent_id="95" name="INDEX" options="RANGE SCAN" depth="7" position="2" skp="0">
+      <object type="INDEX (UNIQUE)">
+        <owner>SYS</owner>
+        <name>I_USER2</name>
+      </object>
+      <optimizer>
+        <cardinality>1</cardinality>
+        <bytes>4</bytes>
+        <cost>1</cost>
+        <cpu_cost>7321</cpu_cost>
+        <io_cost>1</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor"/>
+    </operation>
+    <operation id="98" parent_id="1" name="MERGE JOIN" options="CARTESIAN" depth="2" position="4" skp="0">
+      <optimizer>
+        <cardinality>47006795529</cardinality>
+        <bytes>3666530051262</bytes>
+        <cost>65445676</cost>
+        <cpu_cost>9200379480689</cpu_cost>
+        <io_cost>65174945</io_cost>
+        <time>2557</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">48360</stat>
+      </stats>
+    </operation>
+    <operation id="99" parent_id="98" name="MERGE JOIN" options="CARTESIAN" depth="3" position="1" skp="0">
+      <optimizer>
+        <cardinality>13024881</cardinality>
+        <bytes>677293812</bytes>
+        <cost>50640</cost>
+        <cpu_cost>3397429626</cpu_cost>
+        <io_cost>50540</io_cost>
+        <time>2</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">1240</stat>
+      </stats>
+    </operation>
+    <operation id="100" parent_id="99" name="VIEW" depth="4" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>14</cost>
+        <cpu_cost>941116</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">40</stat>
+      </stats>
+    </operation>
+    <operation id="101" parent_id="100" name="TABLE ACCESS" options="FULL" depth="5" position="1" skp="0">
+      <object type="TABLE (TEMP)">
+        <owner>SYS</owner>
+        <name>SYS_TEMP_0FD9D661F_F94298</name>
+      </object>
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>14</cost>
+        <cpu_cost>941116</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">40</stat>
+      </stats>
+    </operation>
+    <operation id="102" parent_id="99" name="BUFFER" options="SORT" depth="4" position="2" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>50640</cost>
+        <cpu_cost>3397429626</cpu_cost>
+        <io_cost>50540</io_cost>
+        <time>2</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">40</stat>
+        <stat name="cardinality">1240</stat>
+        <stat name="max_memory">2048</stat>
+      </stats>
+      <rwsstats group_id="22">
+        <metadata>
+          <stat id="1" name="Total Number of Input Rows" desc="Total number of rows provided to sort" type="1"/>
+          <stat id="2" name="Total Number of Output Rows" desc="Total number of output rows from sort" type="1"/>
+          <stat id="3" name="Total Memory Used (KB)" desc="Total kilobytes of memory used by sort if it did not spill to disk" type="1"/>
+          <stat id="4" name="Disk Blocks Used During First Pass" desc="Number of disk blocks used by sort at end of input" type="1"/>
+        </metadata>
+        <stat id="1">31</stat>
+        <stat id="2">31</stat>
+        <stat id="3">2</stat>
+      </rwsstats>
+    </operation>
+    <operation id="103" parent_id="102" name="VIEW" depth="5" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>14</cost>
+        <cpu_cost>941116</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">31</stat>
+      </stats>
+    </operation>
+    <operation id="104" parent_id="103" name="TABLE ACCESS" options="FULL" depth="6" position="1" skp="0">
+      <object type="TABLE (TEMP)">
+        <owner>SYS</owner>
+        <name>SYS_TEMP_0FD9D661E_F94298</name>
+      </object>
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>14</cost>
+        <cpu_cost>941116</cpu_cost>
+        <io_cost>14</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">31</stat>
+      </stats>
+    </operation>
+    <operation id="105" parent_id="98" name="BUFFER" options="SORT" depth="3" position="2" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>65445662</cost>
+        <cpu_cost>9200378539572</cpu_cost>
+        <io_cost>65174931</io_cost>
+        <time>2557</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:34</stat>
+        <stat name="duration">4</stat>
+        <stat name="from_most_recent">0</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1240</stat>
+        <stat name="cardinality">48360</stat>
+        <stat name="max_memory">2048</stat>
+      </stats>
+      <rwsstats group_id="22">
+        <stat id="1">39</stat>
+        <stat id="2">39</stat>
+        <stat id="3">2</stat>
+      </rwsstats>
+    </operation>
+    <operation id="106" parent_id="105" name="VIEW" depth="4" position="1" skp="0">
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>5</cost>
+        <cpu_cost>706109</cpu_cost>
+        <io_cost>5</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">39</stat>
+      </stats>
+    </operation>
+    <operation id="107" parent_id="106" name="TABLE ACCESS" options="FULL" depth="5" position="1" skp="0">
+      <object type="TABLE (TEMP)">
+        <owner>SYS</owner>
+        <name>SYS_TEMP_0FD9D6620_F94298</name>
+      </object>
+      <optimizer>
+        <cardinality>3609</cardinality>
+        <bytes>93834</bytes>
+        <cost>5</cost>
+        <cpu_cost>706109</cpu_cost>
+        <io_cost>5</io_cost>
+        <time>1</time>
+      </optimizer>
+      <stats type="plan_monitor">
+        <stat name="first_active">09/21/2023 17:39:31</stat>
+        <stat name="last_active">09/21/2023 17:39:31</stat>
+        <stat name="duration">1</stat>
+        <stat name="from_most_recent">3</stat>
+        <stat name="from_sql_exec_start">0</stat>
+        <stat name="starts">1</stat>
+        <stat name="cardinality">39</stat>
+      </stats>
+    </operation>
+  </plan_monitor>
+</sql_monitor_report>
