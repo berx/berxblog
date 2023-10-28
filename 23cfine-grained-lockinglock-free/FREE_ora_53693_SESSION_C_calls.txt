@@ -1,0 +1,151 @@
+2023-10-27T14:31:44.886  Database calls and statement text by call end time
+
+mrskew --rc=calls.rc --top=0 "C:\Users\berx\Downloads\FREE_ora_53693_SESSION_C.trc"
+
+input files:
+	'C:\Users\berx\Downloads\FREE_ora_53693_SESSION_C.trc'
+
+where expression:
+	((1) and (1)) and $is_dbcall
+
+group expression:
+	sprintf("%27s %10d %10d %10d  %-40.40s %-.46s", $time1, $line, $parse_id, $exec_id, "· "x$dep.$name.(scalar(@bind)?"(".join(",",@bind).")":""), "· "x$dep.$sql)
+
+matched input files:
+	'C:\Users\berx\Downloads\FREE_ora_53693_SESSION_C.trc'
+
+matched call names:
+	'CLOSE'
+	'ERROR'
+	'EXEC'
+	'FETCH'
+	'PARSE'
+	'XCTEND'
+
+                   END-TIMe       LINE   PARSE-ID    EXEC-ID  CALL-NAME(BOUND-VALUES)                  STATEMENT-TEXT                                
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ 2023-10-26T14:51:55.199686         34          0          0  CLOSE                                    #140437751622392:C:\Users\berx\Downloads\FREE_
+ 2023-10-26T14:51:55.200764         39         39          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.200979         47         39         47  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.201041         48         39         47  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.201139         50         39         47  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.201302         51         51          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.201419         59         51         59  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.201446         60         51         59  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.201467         61         51         59  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:51:55.202602         67         67          0  PARSE                                    update ticketsales set capacity = capacity - 5
+ 2023-10-26T14:51:55.202876         72         72          0  · PARSE                                  · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:51:55.203106         87         72         87  · EXEC(04000100330500,1,)                · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:51:55.203295         88         72         87  · FETCH(04000100330500,1,)               · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:51:55.203576         98         98          0  · PARSE                                  · INSERT INTO "SYS_RESERVJRNL_98174" (ORA_SAGA
+ 2023-10-26T14:51:55.203951        135         98        135  · EXEC(,04000100330500,"ACTIVE","UPDATE" · INSERT INTO "SYS_RESERVJRNL_98174" (ORA_SAGA
+ 2023-10-26T14:51:55.204026        137         67        137  EXEC                                     update ticketsales set capacity = capacity - 5
+ 2023-10-26T14:52:02.051276        144         67        137  CLOSE                                    update ticketsales set capacity = capacity - 5
+ 2023-10-26T14:52:02.051621        149        149          0  PARSE                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:52:02.051806        150        149        150  EXEC                                     select xid from v$transaction where addr=(sele
+ 2023-10-26T14:52:02.052622        152        149        150  FETCH                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:52:02.060402        154        149        150  FETCH                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:52:10.380996        166        149        150  CLOSE                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:52:10.381072        171        171          0  PARSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:52:10.381174        172        171        172  EXEC                                     select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:52:10.381413        174        171        172  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:52:10.383934        176        171        172  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:52:24.198811        182        171        172  CLOSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:52:24.199568        183        183          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:24.199674        191        183        191  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:24.199710        192        183        191  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:24.199733        193        183        191  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:24.200463        198        198          0  PARSE                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:52:24.200563        199        198        199  EXEC                                     select capacity from ticketsales where id = 1 
+ 2023-10-26T14:52:24.200643        201        198        199  FETCH                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:52:24.201574        205        198        199  FETCH                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:52:33.242642        210        198        199  CLOSE                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:52:33.243299        211        211          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.243401        219        211        219  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.243439        220        211        219  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.243461        221        211        219  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.243551        222        222          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.243615        230        222        230  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.243634        231        222        230  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.243664        232        222        230  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:52:33.244339        239        239          0  PARSE                                    update ticketsales set capacity = capacity - 7
+ 2023-10-26T14:52:33.244482        254         72        254  · EXEC(04000100330500,1,)                · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:52:33.244584        255         72        254  · FETCH(04000100330500,1,)               · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:52:33.244938        260        260          0  · PARSE                                  · select o.name, c.name, decode(bitand(cd.defe
+ 2023-10-26T14:52:33.245893        268        260        268  · EXEC(8245)                             · select o.name, c.name, decode(bitand(cd.defe
+ 2023-10-26T14:52:33.245943        269        260        268  · FETCH(8245)                            · select o.name, c.name, decode(bitand(cd.defe
+ 2023-10-26T14:52:33.246058        278        260        268  · CLOSE(8245)                            · select o.name, c.name, decode(bitand(cd.defe
+ 2023-10-26T14:52:33.246097        279        239        279  EXEC                                     update ticketsales set capacity = capacity - 7
+                                   280        239        279  ERROR                                    update ticketsales set capacity = capacity - 7
+ 2023-10-26T14:52:33.255272        287        239        279  CLOSE                                    update ticketsales set capacity = capacity - 7
+ 2023-10-26T14:52:33.282680        317        317          0  PARSE                                    declare l_theCursor integer default dbms_sql.o
+ 2023-10-26T14:52:33.283564        322        322          0  · PARSE                                  · select owner#,name,namespace,remoteowner,lin
+ 2023-10-26T14:52:33.284167        344        322        344  · EXEC(8580)                             · select owner#,name,namespace,remoteowner,lin
+ 2023-10-26T14:52:33.284259        345        322        344  · FETCH(8580)                            · select owner#,name,namespace,remoteowner,lin
+ 2023-10-26T14:52:33.284293        346        322        344  · FETCH(8580)                            · select owner#,name,namespace,remoteowner,lin
+ 2023-10-26T14:52:33.284507        356        322        344  · CLOSE(8580)                            · select owner#,name,namespace,remoteowner,lin
+ 2023-10-26T14:52:33.284557        361        361          0  · PARSE                                  · select order#,columns,types from access$ whe
+ 2023-10-26T14:52:33.284663        369        361        369  · EXEC(8580)                             · select order#,columns,types from access$ whe
+ 2023-10-26T14:52:33.284685        370        361        369  · FETCH(8580)                            · select order#,columns,types from access$ whe
+ 2023-10-26T14:52:33.284756        373        361        369  · CLOSE(8580)                            · select order#,columns,types from access$ whe
+ 2023-10-26T14:52:33.290230        396        396          0  · · PARSE                                · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.290326        404        396        404  · · EXEC(00008151.001C.0001)             · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.290361        405        396        404  · · FETCH(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.290384        406        396        404  · · CLOSE(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.290522        407        407          0  · · PARSE                                · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.290601        415        407        415  · · EXEC(00008151.001C.0001)             · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.290618        416        407        415  · · FETCH(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.290634        417        407        415  · · CLOSE(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:52:33.291451        424        424          0  · PARSE                                  · update ticketsales set capacity = capacity -
+ 2023-10-26T14:52:33.291512        425        424          0  · CLOSE                                  · update ticketsales set capacity = capacity -
+ 2023-10-26T14:52:33.291561        427        317        427  EXEC("update ticketsales)                declare l_theCursor integer default dbms_sql.o
+ 2023-10-26T14:53:41.704758        431        317        427  CLOSE("update ticketsales)               declare l_theCursor integer default dbms_sql.o
+ 2023-10-26T14:53:41.704848        432        432          0  PARSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:41.704904        433        432        433  EXEC                                     select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:41.705088        435        432        433  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:41.707057        437        432        433  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:50.224745        442        432        433  CLOSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:50.226033        443        443          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.226187        451        443        451  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.226241        452        443        451  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.226273        453        443        451  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.226396        454        454          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.226489        462        454        462  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.226517        463        454        462  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.226540        464        454        462  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:50.227511        470        470          0  PARSE                                    update ticketsales set capacity = capacity - 7
+ 2023-10-26T14:53:50.227762        485         72        485  · EXEC(04000100330500,1,)                · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:53:50.227944        486         72        485  · FETCH(04000100330500,1,)               · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:53:50.228238        523         98        523  · EXEC(,04000100330500,"ACTIVE","UPDATE" · INSERT INTO "SYS_RESERVJRNL_98174" (ORA_SAGA
+ 2023-10-26T14:53:50.228267        524        470        524  EXEC                                     update ticketsales set capacity = capacity - 7
+ 2023-10-26T14:53:50.473804        531        470        524  CLOSE                                    update ticketsales set capacity = capacity - 7
+ 2023-10-26T14:53:50.473869        536        536          0  PARSE                                    commit                                        
+ 2023-10-26T14:53:50.473927        537          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53693_SES
+ 2023-10-26T14:53:50.474049        542        542          0  · PARSE                                  · update (select B$.ID,B$.CAPACITY,ORA_ESCR_AG
+ 2023-10-26T14:53:50.474444        550        542        550  · EXEC(04000100330500)                   · update (select B$.ID,B$.CAPACITY,ORA_ESCR_AG
+ 2023-10-26T14:53:50.474720        563        563          0  · PARSE                                  · delete from BERX.SYS_RESERVJRNL_98174 where 
+ 2023-10-26T14:53:50.474984        571        563        571  · EXEC(04000100330500)                   · delete from BERX.SYS_RESERVJRNL_98174 where 
+ 2023-10-26T14:53:50.475307        574        536        574  EXEC                                     commit                                        
+ 2023-10-26T14:53:51.270715        578        536        574  CLOSE                                    commit                                        
+ 2023-10-26T14:53:51.272108        579        579          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:51.272280        587        579        587  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:51.272325        588        579        587  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:51.272352        589        579        587  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:51.273447        595        595          0  PARSE                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:53:51.273513        596        595        596  EXEC                                     select capacity from ticketsales where id = 1 
+ 2023-10-26T14:53:51.273577        598        595        596  FETCH                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:53:51.274973        602        595        596  FETCH                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:53:54.079746        607          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53693_SES
+ 2023-10-26T14:53:54.079790        608        595        596  CLOSE                                    select capacity from ticketsales where id = 1 
+ 2023-10-26T14:53:54.079811        609        563        571  CLOSE(04000100330500)                    delete from BERX.SYS_RESERVJRNL_98174 where OR
+ 2023-10-26T14:53:54.079820        610        542        550  CLOSE(04000100330500)                    update (select B$.ID,B$.CAPACITY,ORA_ESCR_AGG$
+ 2023-10-26T14:53:54.079829        611         98        523  CLOSE(,04000100330500,"ACTIVE","UPDATE", INSERT INTO "SYS_RESERVJRNL_98174" (ORA_SAGA_I
+ 2023-10-26T14:53:54.079838        612         72        485  CLOSE(04000100330500,1,)                 SELECT NVL(((select NVL(sum(CAPACITY_RESERVED)
+ 2023-10-26T14:53:54.079849        613          0          0  CLOSE                                    #140437761622440:C:\Users\berx\Downloads\FREE_
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL (118)                                                                                                                                          
+
+0,081 seconds     0 MB/sec
+
+
+

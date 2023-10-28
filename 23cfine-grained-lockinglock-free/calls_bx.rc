@@ -1,0 +1,4 @@
+--group='sprintf("%27s %10d %10d %10d  %-40.40s %-.46s", $time1, $line, $parse_id, $exec_id, "· "x$dep.$name.(scalar(@bind)?"(".join(",",@bind).")":""), "· "x$dep.$sql)'
+#              12345678901234567 1234567890 1234567890 1234567890 1234567890123456789012345678901234567890 123..
+--gl='sprintf("%27s %10s %10s %10s  %-40s %-46s", "END-TIMe", "LINE", "PARSE-ID", "EXEC-ID", "CALL-NAME(BOUND-VALUES)", "STATEMENT-TEXT")'
+--alldepths --nohistogram --sort=1na --name=:dbcall --top=0

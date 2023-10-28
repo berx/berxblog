@@ -1,0 +1,665 @@
+2023-10-26T17:20:37.526  Database calls and statement text by call end time
+
+mrskew --rc=calls.rc --top=0 "C:\Users\berx\Downloads\FREE_ora_53177_SESSION_A.trc"
+
+input files:
+	'C:\Users\berx\Downloads\FREE_ora_53177_SESSION_A.trc'
+
+where expression:
+	((1) and (1)) and $is_dbcall
+
+group expression:
+	sprintf("%27s %10d %10d %10d  %-40.40s %-.46s", $time1, $line, $parse_id, $exec_id, "· "x$dep.$name.(scalar(@bind)?"(".join(",",@bind).")":""), "· "x$dep.$sql)
+
+matched input files:
+	'C:\Users\berx\Downloads\FREE_ora_53177_SESSION_A.trc'
+
+matched call names:
+	'CLOSE'
+	'ERROR'
+	'EXEC'
+	'FETCH'
+	'PARSE'
+	'XCTEND'
+
+                   END-TIMe       LINE   PARSE-ID    EXEC-ID  CALL-NAME(BOUND-VALUES)                  STATEMENT-TEXT                                
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+                                   188         38        187  ERROR                                    drop table ticketsales                        
+ 2023-10-26T14:49:38.902692         32          0          0  CLOSE                                    #140104620911352:C:\Users\berx\Downloads\FREE_
+ 2023-10-26T14:49:38.903029         33          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53177_SES
+ 2023-10-26T14:49:38.903769         38         38          0  PARSE                                    drop table ticketsales                        
+ 2023-10-26T14:49:38.903968         43         43          0  · PARSE                                  · SELECT VALUE$ FROM SYS.PROPS$ WHERE NAME = '
+ 2023-10-26T14:49:38.904075         44         43         44  · EXEC                                   · SELECT VALUE$ FROM SYS.PROPS$ WHERE NAME = '
+ 2023-10-26T14:49:38.904150         45         43         44  · FETCH                                  · SELECT VALUE$ FROM SYS.PROPS$ WHERE NAME = '
+ 2023-10-26T14:49:38.904398         62         62          0  · PARSE                                  · BEGIN BEGIN IF (sys.is_vpd_enabled(sys.dicti
+ 2023-10-26T14:49:38.905064         67         67          0  · · PARSE                                · · SELECT /*+ ALL_ROWS */ COUNT(*) FROM SYS.D
+ 2023-10-26T14:49:38.905431         85         67         85  · · EXEC("BERX","TICKETSALES","CHECKPRIV · · SELECT /*+ ALL_ROWS */ COUNT(*) FROM SYS.D
+ 2023-10-26T14:49:38.905621         86         67         85  · · FETCH("BERX","TICKETSALES","CHECKPRI · · SELECT /*+ ALL_ROWS */ COUNT(*) FROM SYS.D
+ 2023-10-26T14:49:38.906700        108         67         85  · · CLOSE("BERX","TICKETSALES","CHECKPRI · · SELECT /*+ ALL_ROWS */ COUNT(*) FROM SYS.D
+ 2023-10-26T14:49:38.906852        126         67        126  · · EXEC("BERX","TICKETSALES","CHECKPRIV · · SELECT /*+ ALL_ROWS */ COUNT(*) FROM SYS.D
+ 2023-10-26T14:49:38.906924        127         67        126  · · FETCH("BERX","TICKETSALES","CHECKPRI · · SELECT /*+ ALL_ROWS */ COUNT(*) FROM SYS.D
+ 2023-10-26T14:49:38.906949        128         67        126  · · CLOSE("BERX","TICKETSALES","CHECKPRI · · SELECT /*+ ALL_ROWS */ COUNT(*) FROM SYS.D
+ 2023-10-26T14:49:38.906963        129         62        129  · EXEC                                   · BEGIN BEGIN IF (sys.is_vpd_enabled(sys.dicti
+ 2023-10-26T14:49:38.907007        130         62        129  · CLOSE                                  · BEGIN BEGIN IF (sys.is_vpd_enabled(sys.dicti
+ 2023-10-26T14:49:38.907100        135        135          0  · PARSE                                  · select count(*) from ilm$ where rownum < 2  
+ 2023-10-26T14:49:38.907150        136        135        136  · EXEC                                   · select count(*) from ilm$ where rownum < 2  
+ 2023-10-26T14:49:38.907170        137        135        136  · FETCH                                  · select count(*) from ilm$ where rownum < 2  
+ 2023-10-26T14:49:38.907234        141        135        136  · CLOSE                                  · select count(*) from ilm$ where rownum < 2  
+ 2023-10-26T14:49:38.907273        146        146          0  · PARSE                                  · select count(*) from user$ u where bitand(u.
+ 2023-10-26T14:49:38.907360        154        146        154  · EXEC("BERX")                           · select count(*) from user$ u where bitand(u.
+ 2023-10-26T14:49:38.907399        155        146        154  · FETCH("BERX")                          · select count(*) from user$ u where bitand(u.
+ 2023-10-26T14:49:38.907506        159        146        154  · CLOSE("BERX")                          · select count(*) from user$ u where bitand(u.
+ 2023-10-26T14:49:38.907626        164        164          0  · PARSE                                  · select obj#,type#,ctime,mtime,stime, status,
+ 2023-10-26T14:49:38.908033        182        164        182  · EXEC(131,"TICKETSALES",1)              · select obj#,type#,ctime,mtime,stime, status,
+ 2023-10-26T14:49:38.908059        183        164        182  · FETCH(131,"TICKETSALES",1)             · select obj#,type#,ctime,mtime,stime, status,
+ 2023-10-26T14:49:38.908129        186        164        182  · CLOSE(131,"TICKETSALES",1)             · select obj#,type#,ctime,mtime,stime, status,
+ 2023-10-26T14:49:38.908175        187         38        187  EXEC                                     drop table ticketsales                        
+ 2023-10-26T14:49:39.426139        195         38        187  CLOSE                                    drop table ticketsales                        
+ 2023-10-26T14:49:39.426528        200        200          0  · PARSE                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.426821        201        200        201  · EXEC                                   · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.427288        202        200        201  · FETCH                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.429265        265        200        201  · CLOSE                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.429421        270        270          0  · PARSE                                  · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.429583        278        270        278  · EXEC("BERX")                           · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.429642        279        270        278  · FETCH("BERX")                          · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.429820        284        270        278  · CLOSE("BERX")                          · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.430211        285        285          0  · PARSE                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.430423        286        285        286  · EXEC                                   · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.430942        287        285        286  · FETCH                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.431082        288        285        286  · CLOSE                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.431121        289        289          0  · PARSE                                  · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.431250        297        289        297  · EXEC("BERX")                           · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.431288        298        289        297  · FETCH("BERX")                          · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.431322        299        289        297  · CLOSE("BERX")                          · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.431360        300          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53177_SES
+ 2023-10-26T14:49:39.434617        309        309          0  PARSE                                    CREATE TABLE TICKETSALES( ID NUMBER PRIMARY KE
+ 2023-10-26T14:49:39.435165        327        164        327  · EXEC(1,"TICKETSALES",1)                · select obj#,type#,ctime,mtime,stime, status,
+ 2023-10-26T14:49:39.435239        328        164        327  · FETCH(1,"TICKETSALES",1)               · select obj#,type#,ctime,mtime,stime, status,
+ 2023-10-26T14:49:39.435274        329        164        327  · CLOSE(1,"TICKETSALES",1)               · select obj#,type#,ctime,mtime,stime, status,
+ 2023-10-26T14:49:39.435410        334        334          0  · PARSE                                  · select o.owner#,o.name,o.namespace,o.remoteo
+ 2023-10-26T14:49:39.435714        342        334        342  · EXEC(98174)                            · select o.owner#,o.name,o.namespace,o.remoteo
+ 2023-10-26T14:49:39.435756        343        334        342  · FETCH(98174)                           · select o.owner#,o.name,o.namespace,o.remoteo
+ 2023-10-26T14:49:39.435833        346        334        342  · CLOSE(98174)                           · select o.owner#,o.name,o.namespace,o.remoteo
+ 2023-10-26T14:49:39.435919        351        351          0  · PARSE                                  · select obj# from objerror$                  
+ 2023-10-26T14:49:39.435971        352        351        352  · EXEC                                   · select obj# from objerror$                  
+ 2023-10-26T14:49:39.436046        353        351        352  · FETCH                                  · select obj# from objerror$                  
+ 2023-10-26T14:49:39.436094        355        351        352  · CLOSE                                  · select obj# from objerror$                  
+ 2023-10-26T14:49:39.437017        362        362          0  · PARSE                                  · select obj#, owner, node from syn$ where nam
+ 2023-10-26T14:49:39.440226        376        362        376  · EXEC("TICKETSALES","BERX")             · select obj#, owner, node from syn$ where nam
+ 2023-10-26T14:49:39.440258        377        362        376  · FETCH("TICKETSALES","BERX")            · select obj#, owner, node from syn$ where nam
+ 2023-10-26T14:49:39.440349        380        362        376  · CLOSE("TICKETSALES","BERX")            · select obj#, owner, node from syn$ where nam
+ 2023-10-26T14:49:39.441704        385        385          0  · PARSE                                  · select user#,password,datats#,tempts#,type#,
+ 2023-10-26T14:49:39.444092        395        385        395  · EXEC("TICKETSALES")                    · select user#,password,datats#,tempts#,type#,
+ 2023-10-26T14:49:39.444140        396        385        395  · FETCH("TICKETSALES")                   · select user#,password,datats#,tempts#,type#,
+ 2023-10-26T14:49:39.444228        399        385        395  · CLOSE("TICKETSALES")                   · select user#,password,datats#,tempts#,type#,
+ 2023-10-26T14:49:39.445338        404        404          0  · PARSE                                  · insert into obj$(owner#,name,namespace,obj#,
+ 2023-10-26T14:49:39.450749        543        404        543  · EXEC(131,"TICKETSALES",1,98174,2,"10/2 · insert into obj$(owner#,name,namespace,obj#,
+ 2023-10-26T14:49:39.450826        545        404        543  · CLOSE(131,"TICKETSALES",1,98174,2,"10/ · insert into obj$(owner#,name,namespace,obj#,
+ 2023-10-26T14:49:39.451828        550        550          0  · · PARSE                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.452329        552        550        552  · · EXEC                                 · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.453230        553        550        552  · · FETCH                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.455594        616        550        552  · · CLOSE                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.455642        621        621          0  · · PARSE                                · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.455737        629        621        629  · · EXEC("BERX")                         · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.455767        630        621        629  · · FETCH("BERX")                        · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.455870        635        621        629  · · CLOSE("BERX")                        · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.456094        636        636          0  · · PARSE                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.456191        637        636        637  · · EXEC                                 · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.456467        638        636        637  · · FETCH                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.456518        639        636        637  · · CLOSE                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.456537        640        640          0  · · PARSE                                · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.456597        648        640        648  · · EXEC("BERX")                         · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.456616        649        640        648  · · FETCH("BERX")                        · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.456634        650        640        648  · · CLOSE("BERX")                        · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.456992        655        655          0  · PARSE                                  · create table BERX.SYS_RESERVJRNL_98174 (ORA_
+ 2023-10-26T14:49:39.457295        673        164        673  · · EXEC(131,"SYS_RESERVJRNL_98174",1)   · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.457318        674        164        673  · · FETCH(131,"SYS_RESERVJRNL_98174",1)  · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.457336        675        164        673  · · CLOSE(131,"SYS_RESERVJRNL_98174",1)  · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.457786        693        164        693  · · EXEC(1,"SYS_RESERVJRNL_98174",1)     · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.458527        694        164        693  · · FETCH(1,"SYS_RESERVJRNL_98174",1)    · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.458577        695        164        693  · · CLOSE(1,"SYS_RESERVJRNL_98174",1)    · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.460950        700        700          0  · · PARSE                                · · update obj$ set obj#=:4, type#=:5,ctime=:6
+ 2023-10-26T14:49:39.466683        832        700        832  · · EXEC(1,0,"3/26/2023 2:26:24","10/26/ · · update obj$ set obj#=:4, type#=:5,ctime=:6
+ 2023-10-26T14:49:39.466784        835        700        832  · · CLOSE(1,0,"3/26/2023 2:26:24","10/26 · · update obj$ set obj#=:4, type#=:5,ctime=:6
+ 2023-10-26T14:49:39.467141        843        334        843  · · EXEC(98175)                          · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:49:39.467167        844        334        843  · · FETCH(98175)                         · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:49:39.467323        845        334        843  · · CLOSE(98175)                         · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:49:39.467599        850        850          0  · · PARSE                                · · select obj# from objerror$                
+ 2023-10-26T14:49:39.467702        851        850        851  · · EXEC                                 · · select obj# from objerror$                
+ 2023-10-26T14:49:39.467761        852        850        851  · · FETCH                                · · select obj# from objerror$                
+ 2023-10-26T14:49:39.467828        854        850        851  · · CLOSE                                · · select obj# from objerror$                
+ 2023-10-26T14:49:39.468245        859        859          0  · · PARSE                                · · select obj#, owner, node from syn$ where n
+ 2023-10-26T14:49:39.469494        872        859        872  · · EXEC("SYS_RESERVJRNL_98174","BERX")  · · select obj#, owner, node from syn$ where n
+ 2023-10-26T14:49:39.469513        873        859        872  · · FETCH("SYS_RESERVJRNL_98174","BERX") · · select obj#, owner, node from syn$ where n
+ 2023-10-26T14:49:39.469574        876        859        872  · · CLOSE("SYS_RESERVJRNL_98174","BERX") · · select obj#, owner, node from syn$ where n
+ 2023-10-26T14:49:39.469915        884        385        884  · · EXEC("SYS_RESERVJRNL_98174")         · · select user#,password,datats#,tempts#,type
+ 2023-10-26T14:49:39.469948        885        385        884  · · FETCH("SYS_RESERVJRNL_98174")        · · select user#,password,datats#,tempts#,type
+ 2023-10-26T14:49:39.469972        886        385        884  · · CLOSE("SYS_RESERVJRNL_98174")        · · select user#,password,datats#,tempts#,type
+ 2023-10-26T14:49:39.471682       1025        404       1025  · · EXEC(131,"SYS_RESERVJRNL_98174",1,98 · · insert into obj$(owner#,name,namespace,obj
+ 2023-10-26T14:49:39.471730       1026        404       1025  · · CLOSE(131,"SYS_RESERVJRNL_98174",1,9 · · insert into obj$(owner#,name,namespace,obj
+ 2023-10-26T14:49:39.473270       1031       1031          0  · · · PARSE                              · · · select annotation_name, annotation_value
+ 2023-10-26T14:49:39.474984       1039       1031       1039  · · · EXEC(81)                           · · · select annotation_name, annotation_value
+ 2023-10-26T14:49:39.475012       1040       1031       1039  · · · FETCH(81)                          · · · select annotation_name, annotation_value
+ 2023-10-26T14:49:39.475107       1043       1031       1039  · · · CLOSE(81)                          · · · select annotation_name, annotation_value
+ 2023-10-26T14:49:39.475845       1048       1048          0  · · · PARSE                              · · · select con#,obj#,rcon#,enabled,nvl(defer
+ 2023-10-26T14:49:39.477871       1056       1048       1056  · · · EXEC(81)                           · · · select con#,obj#,rcon#,enabled,nvl(defer
+ 2023-10-26T14:49:39.477901       1057       1048       1056  · · · FETCH(81)                          · · · select con#,obj#,rcon#,enabled,nvl(defer
+ 2023-10-26T14:49:39.478014       1060       1048       1056  · · · CLOSE(81)                          · · · select con#,obj#,rcon#,enabled,nvl(defer
+ 2023-10-26T14:49:39.480166       1065       1065          0  · · · PARSE                              · · · select con#,type#,condlength,intcols,rob
+ 2023-10-26T14:49:39.482689       1073       1065       1073  · · · EXEC(81)                           · · · select con#,type#,condlength,intcols,rob
+ 2023-10-26T14:49:39.482741       1074       1065       1073  · · · FETCH(81)                          · · · select con#,type#,condlength,intcols,rob
+ 2023-10-26T14:49:39.482813       1079       1079          0  · · · PARSE                              · · · select intcol#,nvl(pos#,0),col#,nvl(spar
+ 2023-10-26T14:49:39.482904       1087       1079       1087  · · · EXEC(188)                          · · · select intcol#,nvl(pos#,0),col#,nvl(spar
+ 2023-10-26T14:49:39.482930       1088       1079       1087  · · · FETCH(188)                         · · · select intcol#,nvl(pos#,0),col#,nvl(spar
+ 2023-10-26T14:49:39.482944       1089       1079       1087  · · · FETCH(188)                         · · · select intcol#,nvl(pos#,0),col#,nvl(spar
+ 2023-10-26T14:49:39.483015       1092       1079       1087  · · · CLOSE(188)                         · · · select intcol#,nvl(pos#,0),col#,nvl(spar
+ 2023-10-26T14:49:39.483034       1093       1065       1073  · · · FETCH(81)                          · · · select con#,type#,condlength,intcols,rob
+ 2023-10-26T14:49:39.483084       1096       1065       1073  · · · CLOSE(81)                          · · · select con#,type#,condlength,intcols,rob
+ 2023-10-26T14:49:39.483370       1101       1101          0  · · · PARSE                              · · · select col#, grantee#, privilege#,max(mo
+ 2023-10-26T14:49:39.483590       1111       1101       1111  · · · EXEC(81)                           · · · select col#, grantee#, privilege#,max(mo
+ 2023-10-26T14:49:39.483624       1112       1101       1111  · · · FETCH(81)                          · · · select col#, grantee#, privilege#,max(mo
+ 2023-10-26T14:49:39.483705       1116       1101       1111  · · · CLOSE(81)                          · · · select col#, grantee#, privilege#,max(mo
+ 2023-10-26T14:49:39.483743       1121       1121          0  · · · PARSE                              · · · select grantee#,privilege#,nvl(col#,0),m
+ 2023-10-26T14:49:39.483848       1129       1121       1129  · · · EXEC(81)                           · · · select grantee#,privilege#,nvl(col#,0),m
+ 2023-10-26T14:49:39.483867       1130       1121       1129  · · · FETCH(81)                          · · · select grantee#,privilege#,nvl(col#,0),m
+ 2023-10-26T14:49:39.483936       1134       1121       1129  · · · CLOSE(81)                          · · · select grantee#,privilege#,nvl(col#,0),m
+ 2023-10-26T14:49:39.484007       1139       1139          0  · · PARSE                                · · insert into deferred_stg$ (obj#, pctfree_s
+ 2023-10-26T14:49:39.485398       1249       1139       1249  · · EXEC(98175,,,,2,2,,,,,,,,,,,,16392,, · · insert into deferred_stg$ (obj#, pctfree_s
+ 2023-10-26T14:49:39.485702       1251       1139       1249  · · CLOSE(98175,,,,2,2,,,,,,,,,,,,16392, · · insert into deferred_stg$ (obj#, pctfree_s
+ 2023-10-26T14:49:39.486452       1256       1256          0  · · PARSE                                · · select con#,spare1 from con$ where owner#=
+ 2023-10-26T14:49:39.487987       1269       1256       1269  · · EXEC(131,"SYS_C008243")              · · select con#,spare1 from con$ where owner#=
+ 2023-10-26T14:49:39.488018       1270       1256       1269  · · FETCH(131,"SYS_C008243")             · · select con#,spare1 from con$ where owner#=
+ 2023-10-26T14:49:39.488117       1273       1256       1269  · · CLOSE(131,"SYS_C008243")             · · select con#,spare1 from con$ where owner#=
+ 2023-10-26T14:49:39.488889       1278       1278          0  · · PARSE                                · · insert into con$(owner#,name,con#,spare1)v
+ 2023-10-26T14:49:39.490429       1301       1278       1301  · · EXEC(131,"SYS_C008243",8243,0)       · · insert into con$(owner#,name,con#,spare1)v
+ 2023-10-26T14:49:39.490495       1303       1278       1301  · · CLOSE(131,"SYS_C008243",8243,0)      · · insert into con$(owner#,name,con#,spare1)v
+ 2023-10-26T14:49:39.491135       1308       1308          0  · · PARSE                                · · delete from con$recycle where con#=:1     
+ 2023-10-26T14:49:39.492926       1316       1308       1316  · · EXEC(8243)                           · · delete from con$recycle where con#=:1     
+ 2023-10-26T14:49:39.493040       1319       1308       1316  · · CLOSE(8243)                          · · delete from con$recycle where con#=:1     
+ 2023-10-26T14:49:39.494300       1324       1324          0  · · PARSE                                · · insert into tab$(obj#,ts#,file#,block#,bob
+ 2023-10-26T14:49:39.498339       1515       1324       1515  · · EXEC(98175,6,0,0,0,,0,,7,7,0,,"----- · · insert into tab$(obj#,ts#,file#,block#,bob
+ 2023-10-26T14:49:39.498439       1517       1324       1515  · · CLOSE(98175,6,0,0,0,,0,,7,7,0,,"---- · · insert into tab$(obj#,ts#,file#,block#,bob
+ 2023-10-26T14:49:39.499957       1522       1522          0  · · PARSE                                · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.504496       1710       1522       1710  · · EXEC(98175,"ORA_SAGA_ID$",1,1,23,16, · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.504576       1712       1522       1710  · · CLOSE(98175,"ORA_SAGA_ID$",1,1,23,16 · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.506437       1898       1522       1898  · · EXEC(98175,"ORA_TXN_ID$",2,2,23,8,,0 · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.506466       1899       1522       1898  · · CLOSE(98175,"ORA_TXN_ID$",2,2,23,8,, · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.509384       2085       1522       2085  · · EXEC(98175,"ORA_STATUS$",3,3,96,12,, · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.509427       2086       1522       2085  · · CLOSE(98175,"ORA_STATUS$",3,3,96,12, · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.512042       2272       1522       2272  · · EXEC(98175,"ORA_STMT_TYPE$",4,4,96,1 · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.512091       2273       1522       2272  · · CLOSE(98175,"ORA_STMT_TYPE$",4,4,96, · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.513666       2459       1522       2459  · · EXEC(98175,"ID",5,5,2,22,,0,,,,,-127 · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.513699       2460       1522       2459  · · CLOSE(98175,"ID",5,5,2,22,,0,,,,,-12 · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.516135       2646       1522       2646  · · EXEC(98175,"CAPACITY_OP",6,6,96,7,,0 · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.516189       2647       1522       2646  · · CLOSE(98175,"CAPACITY_OP",6,6,96,7,, · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.516954       2833       1522       2833  · · EXEC(98175,"CAPACITY_RESERVED",7,7,2 · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.516975       2834       1522       2833  · · CLOSE(98175,"CAPACITY_RESERVED",7,7, · · insert into col$(obj#,name,intcol#,segcol#
+ 2023-10-26T14:49:39.518305       2839       2839          0  · · PARSE                                · · insert into ccol$(con#,obj#,intcol#,pos#,c
+ 2023-10-26T14:49:39.520255       2874       2839       2874  · · EXEC(8243,98175,5,0,,5,0)            · · insert into ccol$(con#,obj#,intcol#,pos#,c
+ 2023-10-26T14:49:39.520330       2876       2839       2874  · · CLOSE(8243,98175,5,0,,5,0)           · · insert into ccol$(con#,obj#,intcol#,pos#,c
+ 2023-10-26T14:49:39.521183       2881       2881          0  · · PARSE                                · · insert into cdef$(obj#,con#,type#,intcols,
+ 2023-10-26T14:49:39.523326       2985       2881       2985  · · EXEC(98175,8243,7,1,,16,,""ID" IS NO · · insert into cdef$(obj#,con#,type#,intcols,
+ 2023-10-26T14:49:39.523372       2987       2881       2985  · · CLOSE(98175,8243,7,1,,16,,""ID" IS N · · insert into cdef$(obj#,con#,type#,intcols,
+ 2023-10-26T14:49:39.523411       2988       2988          0  · · PARSE                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.523695       2989       2988       2989  · · EXEC                                 · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.524095       2990       2988       2989  · · FETCH                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.524176       2991       2988       2989  · · CLOSE                                · · select 1 from dba_tables where owner = 'SY
+ 2023-10-26T14:49:39.524199       2992       2992          0  · · PARSE                                · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.524253       3000       2992       3000  · · EXEC("BERX")                         · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.524273       3001       2992       3000  · · FETCH("BERX")                        · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.524289       3002       2992       3000  · · CLOSE("BERX")                        · · select 1 from sys.bc$ bc, sys.user$ ur whe
+ 2023-10-26T14:49:39.525190       3007       3007          0  · · PARSE                                · · select owner#,name,namespace,remoteowner,l
+ 2023-10-26T14:49:39.532592       3033       3007       3033  · · EXEC(76530)                          · · select owner#,name,namespace,remoteowner,l
+ 2023-10-26T14:49:39.532988       3034       3007       3033  · · FETCH(76530)                         · · select owner#,name,namespace,remoteowner,l
+ 2023-10-26T14:49:39.533036       3035       3007       3033  · · FETCH(76530)                         · · select owner#,name,namespace,remoteowner,l
+ 2023-10-26T14:49:39.533066       3036       3007       3033  · · FETCH(76530)                         · · select owner#,name,namespace,remoteowner,l
+ 2023-10-26T14:49:39.533104       3037       3007       3033  · · FETCH(76530)                         · · select owner#,name,namespace,remoteowner,l
+ 2023-10-26T14:49:39.533845       3047       3007       3033  · · CLOSE(76530)                         · · select owner#,name,namespace,remoteowner,l
+ 2023-10-26T14:49:39.534860       3052       3052          0  · · PARSE                                · · select order#,columns,types from access$ w
+ 2023-10-26T14:49:39.536179       3060       3052       3060  · · EXEC(76530)                          · · select order#,columns,types from access$ w
+ 2023-10-26T14:49:39.536222       3061       3052       3060  · · FETCH(76530)                         · · select order#,columns,types from access$ w
+ 2023-10-26T14:49:39.536247       3062       3052       3060  · · FETCH(76530)                         · · select order#,columns,types from access$ w
+ 2023-10-26T14:49:39.536337       3065       3052       3060  · · CLOSE(76530)                         · · select order#,columns,types from access$ w
+ 2023-10-26T14:49:39.536394       3070       3070          0  · · PARSE                                · · select actionsize from trigger$ where obj#
+ 2023-10-26T14:49:39.536500       3078       3070       3078  · · EXEC(76530)                          · · select actionsize from trigger$ where obj#
+ 2023-10-26T14:49:39.536523       3079       3070       3078  · · FETCH(76530)                         · · select actionsize from trigger$ where obj#
+ 2023-10-26T14:49:39.536623       3082       3070       3078  · · CLOSE(76530)                         · · select actionsize from trigger$ where obj#
+ 2023-10-26T14:49:39.536661       3087       3087          0  · · PARSE                                · · select action# from trigger$ where obj# = 
+ 2023-10-26T14:49:39.536800       3095       3087       3095  · · EXEC(76530)                          · · select action# from trigger$ where obj# = 
+ 2023-10-26T14:49:39.536830       3096       3087       3095  · · FETCH(76530)                         · · select action# from trigger$ where obj# = 
+ 2023-10-26T14:49:39.536926       3099       3087       3095  · · CLOSE(76530)                         · · select action# from trigger$ where obj# = 
+ 2023-10-26T14:49:39.537182       3104       3104          0  · · PARSE                                · · select baseobject,type#,update$,insert$,de
+ 2023-10-26T14:49:39.537322       3112       3104       3112  · · EXEC(76530)                          · · select baseobject,type#,update$,insert$,de
+ 2023-10-26T14:49:39.537346       3113       3104       3112  · · FETCH(76530)                         · · select baseobject,type#,update$,insert$,de
+ 2023-10-26T14:49:39.537667       3116       3104       3112  · · CLOSE(76530)                         · · select baseobject,type#,update$,insert$,de
+ 2023-10-26T14:49:39.537707       3121       3121          0  · · PARSE                                · · select tc.type#,tc.intcol#,tc.position#,c.
+ 2023-10-26T14:49:39.538067       3169       3121       3169  · · EXEC(76530,0,0,0,0,0,76530,1001,7653 · · select tc.type#,tc.intcol#,tc.position#,c.
+ 2023-10-26T14:49:39.538267       3170       3121       3169  · · FETCH(76530,0,0,0,0,0,76530,1001,765 · · select tc.type#,tc.intcol#,tc.position#,c.
+ 2023-10-26T14:49:39.538972       3186       3121       3169  · · CLOSE(76530,0,0,0,0,0,76530,1001,765 · · select tc.type#,tc.intcol#,tc.position#,c.
+ 2023-10-26T14:49:39.539014       3191       3191          0  · · PARSE                                · · select case when (bitand(u.spare1, 16) = 0
+ 2023-10-26T14:49:39.539134       3199       3191       3199  · · EXEC(76530)                          · · select case when (bitand(u.spare1, 16) = 0
+ 2023-10-26T14:49:39.539167       3200       3191       3199  · · FETCH(76530)                         · · select case when (bitand(u.spare1, 16) = 0
+ 2023-10-26T14:49:39.539707       3207       3191       3199  · · CLOSE(76530)                         · · select case when (bitand(u.spare1, 16) = 0
+ 2023-10-26T14:49:39.539757       3208        655       3208  · EXEC                                   · create table BERX.SYS_RESERVJRNL_98174 (ORA_
+ 2023-10-26T14:49:39.540862       3316       1139       3316  · EXEC(98174,,,,,,,,,,,,,,,,,8,,,0,0,,,0 · insert into deferred_stg$ (obj#, pctfree_stg
+ 2023-10-26T14:49:39.540891       3317       1139       3316  · CLOSE(98174,,,,,,,,,,,,,,,,,8,,,0,0,,, · insert into deferred_stg$ (obj#, pctfree_stg
+ 2023-10-26T14:49:39.541061       3330       1256       3330  · EXEC(131,"SYS_C008244")                · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541086       3331       1256       3330  · FETCH(131,"SYS_C008244")               · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541109       3332       1256       3330  · CLOSE(131,"SYS_C008244")               · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541381       3355       1278       3355  · EXEC(131,"SYS_C008244",8244,0)         · insert into con$(owner#,name,con#,spare1)val
+ 2023-10-26T14:49:39.541401       3356       1278       3355  · CLOSE(131,"SYS_C008244",8244,0)        · insert into con$(owner#,name,con#,spare1)val
+ 2023-10-26T14:49:39.541466       3364       1308       3364  · EXEC(8244)                             · delete from con$recycle where con#=:1       
+ 2023-10-26T14:49:39.541481       3365       1308       3364  · CLOSE(8244)                            · delete from con$recycle where con#=:1       
+ 2023-10-26T14:49:39.541624       3378       1256       3378  · EXEC(131,"MINIMUM_CAPACITY")           · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541640       3379       1256       3378  · FETCH(131,"MINIMUM_CAPACITY")          · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541656       3380       1256       3378  · CLOSE(131,"MINIMUM_CAPACITY")          · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541755       3393       1256       3393  · EXEC(0,"_NEXT_CONSTRAINT")             · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541772       3394       1256       3393  · FETCH(0,"_NEXT_CONSTRAINT")            · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.541788       3395       1256       3393  · CLOSE(0,"_NEXT_CONSTRAINT")            · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.543893       3400       3400          0  · PARSE                                  · update con$ set con#=:3,spare1=:4 where owne
+ 2023-10-26T14:49:39.546000       3423       3400       3423  · EXEC(8250,0,0,"_NEXT_CONSTRAINT")      · update con$ set con#=:3,spare1=:4 where owne
+ 2023-10-26T14:49:39.546106       3426       3400       3423  · CLOSE(8250,0,0,"_NEXT_CONSTRAINT")     · update con$ set con#=:3,spare1=:4 where owne
+ 2023-10-26T14:49:39.546560       3449       1278       3449  · EXEC(131,"MINIMUM_CAPACITY",8245,0)    · insert into con$(owner#,name,con#,spare1)val
+ 2023-10-26T14:49:39.546602       3450       1278       3449  · CLOSE(131,"MINIMUM_CAPACITY",8245,0)   · insert into con$(owner#,name,con#,spare1)val
+ 2023-10-26T14:49:39.547694       3458       1308       3458  · EXEC(8245)                             · delete from con$recycle where con#=:1       
+ 2023-10-26T14:49:39.547726       3459       1308       3458  · CLOSE(8245)                            · delete from con$recycle where con#=:1       
+ 2023-10-26T14:49:39.548030       3472       1256       3472  · EXEC(131,"SYS_C008246")                · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.548054       3473       1256       3472  · FETCH(131,"SYS_C008246")               · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.548075       3474       1256       3472  · CLOSE(131,"SYS_C008246")               · select con#,spare1 from con$ where owner#=:1
+ 2023-10-26T14:49:39.548358       3497       1278       3497  · EXEC(131,"SYS_C008246",8246,0)         · insert into con$(owner#,name,con#,spare1)val
+ 2023-10-26T14:49:39.548384       3498       1278       3497  · CLOSE(131,"SYS_C008246",8246,0)        · insert into con$(owner#,name,con#,spare1)val
+ 2023-10-26T14:49:39.548454       3506       1308       3506  · EXEC(8246)                             · delete from con$recycle where con#=:1       
+ 2023-10-26T14:49:39.548470       3507       1308       3506  · CLOSE(8246)                            · delete from con$recycle where con#=:1       
+ 2023-10-26T14:49:39.549358       3512       3512          0  · · PARSE                                · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:49:39.550422       3520       3512       3520  · · EXEC(98174)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:49:39.550453       3521       3512       3520  · · FETCH(98174)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:49:39.550550       3524       3512       3520  · · CLOSE(98174)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:49:39.551168       3529       3529          0  · · PARSE                                · · select /*+ rule */ bucket_cnt, row_cnt, ca
+ 2023-10-26T14:49:39.551848       3542       3529       3542  · · EXEC(98174,1)                        · · select /*+ rule */ bucket_cnt, row_cnt, ca
+ 2023-10-26T14:49:39.551885       3543       3529       3542  · · FETCH(98174,1)                       · · select /*+ rule */ bucket_cnt, row_cnt, ca
+ 2023-10-26T14:49:39.551965       3546       3529       3542  · · CLOSE(98174,1)                       · · select /*+ rule */ bucket_cnt, row_cnt, ca
+ 2023-10-26T14:49:39.552463       3551       3551          0  · PARSE                                  · CREATE UNIQUE INDEX "BERX"."SYS_C008246" on 
+ 2023-10-26T14:49:39.552692       3553        655       3208  · · CLOSE                                · · create table BERX.SYS_RESERVJRNL_98174 (OR
+ 2023-10-26T14:49:39.552733       3558       3558          0  · · PARSE                                · · select p.valchar from sys.optstat_user_pre
+ 2023-10-26T14:49:39.553196       3576       3558       3576  · · EXEC("BERX","TICKETSALES","PUBLISH") · · select p.valchar from sys.optstat_user_pre
+ 2023-10-26T14:49:39.553615       3577       3558       3576  · · FETCH("BERX","TICKETSALES","PUBLISH" · · select p.valchar from sys.optstat_user_pre
+ 2023-10-26T14:49:39.554027       3590       3590          0  · · PARSE                                · · select /*+ no_parallel */ spare4 from sys.
+ 2023-10-26T14:49:39.554124       3598       3590       3598  · · EXEC("PUBLISH")                      · · select /*+ no_parallel */ spare4 from sys.
+ 2023-10-26T14:49:39.554177       3599       3590       3598  · · FETCH("PUBLISH")                     · · select /*+ no_parallel */ spare4 from sys.
+ 2023-10-26T14:49:39.554385       3618        164       3618  · · EXEC(131,"SYS_C008246",4)            · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.554404       3619        164       3618  · · FETCH(131,"SYS_C008246",4)           · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.554422       3620        164       3618  · · CLOSE(131,"SYS_C008246",4)           · · select obj#,type#,ctime,mtime,stime, statu
+ 2023-10-26T14:49:39.554526       3628        334       3628  · · EXEC(98176)                          · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:49:39.554547       3629        334       3628  · · FETCH(98176)                         · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:49:39.554563       3630        334       3628  · · CLOSE(98176)                         · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:49:39.554594       3631       3631          0  · · PARSE                                · · select obj# from objerror$                
+ 2023-10-26T14:49:39.554625       3632       3631       3632  · · EXEC                                 · · select obj# from objerror$                
+ 2023-10-26T14:49:39.554670       3633       3631       3632  · · FETCH                                · · select obj# from objerror$                
+ 2023-10-26T14:49:39.554693       3634       3631       3632  · · CLOSE                                · · select obj# from objerror$                
+ 2023-10-26T14:49:39.554806       3642        385       3642  · · EXEC("SYS_C008246")                  · · select user#,password,datats#,tempts#,type
+ 2023-10-26T14:49:39.554823       3643        385       3642  · · FETCH("SYS_C008246")                 · · select user#,password,datats#,tempts#,type
+ 2023-10-26T14:49:39.554839       3644        385       3642  · · CLOSE("SYS_C008246")                 · · select user#,password,datats#,tempts#,type
+ 2023-10-26T14:49:39.556352       3783        404       3783  · · EXEC(131,"SYS_C008246",4,98176,1,"10 · · insert into obj$(owner#,name,namespace,obj
+ 2023-10-26T14:49:39.556379       3784        404       3783  · · CLOSE(131,"SYS_C008246",4,98176,1,"1 · · insert into obj$(owner#,name,namespace,obj
+ 2023-10-26T14:49:39.557560       3912        700       3912  · · EXEC(98175,2,"10/26/2023 14:49:39"," · · update obj$ set obj#=:4, type#=:5,ctime=:6
+ 2023-10-26T14:49:39.557590       3913        700       3912  · · CLOSE(98175,2,"10/26/2023 14:49:39", · · update obj$ set obj#=:4, type#=:5,ctime=:6
+ 2023-10-26T14:49:39.558893       4026       1139       4026  · · EXEC(98176,10,,,,,,,,,,,2,255,,,,0,, · · insert into deferred_stg$ (obj#, pctfree_s
+ 2023-10-26T14:49:39.558920       4027       1139       4026  · · CLOSE(98176,10,,,,,,,,,,,2,255,,,,0, · · insert into deferred_stg$ (obj#, pctfree_s
+ 2023-10-26T14:49:39.558979       4028       3558       3576  · · CLOSE("BERX","TICKETSALES","PUBLISH" · · select p.valchar from sys.optstat_user_pre
+ 2023-10-26T14:49:39.559032       4030       3590       3598  · · CLOSE("PUBLISH")                     · · select /*+ no_parallel */ spare4 from sys.
+ 2023-10-26T14:49:39.559056       4031       4031          0  · · PARSE                                · · select p.valchar from sys.optstat_user_pre
+ 2023-10-26T14:49:39.559206       4049       4031       4049  · · EXEC("BERX","TICKETSALES","PUBLISH") · · select p.valchar from sys.optstat_user_pre
+ 2023-10-26T14:49:39.559252       4050       4031       4049  · · FETCH("BERX","TICKETSALES","PUBLISH" · · select p.valchar from sys.optstat_user_pre
+ 2023-10-26T14:49:39.559303       4051       4051          0  · · PARSE                                · · select /*+ no_parallel */ spare4 from sys.
+ 2023-10-26T14:49:39.559370       4059       4051       4059  · · EXEC("PUBLISH")                      · · select /*+ no_parallel */ spare4 from sys.
+ 2023-10-26T14:49:39.559410       4060       4051       4059  · · FETCH("PUBLISH")                     · · select /*+ no_parallel */ spare4 from sys.
+ 2023-10-26T14:49:39.560906       4066       4066          0  · · PARSE                                · · select parttype, partcnt, partkeycols, fla
+ 2023-10-26T14:49:39.563126       4074       4066       4074  · · EXEC(98174)                          · · select parttype, partcnt, partkeycols, fla
+ 2023-10-26T14:49:39.563151       4075       4066       4074  · · FETCH(98174)                         · · select parttype, partcnt, partkeycols, fla
+ 2023-10-26T14:49:39.563215       4078       4066       4074  · · CLOSE(98174)                         · · select parttype, partcnt, partkeycols, fla
+ 2023-10-26T14:49:39.563253       4079       3551       4079  · EXEC                                   · CREATE UNIQUE INDEX "BERX"."SYS_C008246" on 
+ 2023-10-26T14:49:39.563339       4083       3551       4079  · CLOSE                                  · CREATE UNIQUE INDEX "BERX"."SYS_C008246" on 
+ 2023-10-26T14:49:39.563948       4088       4088          0  · PARSE                                  · insert into icol$(obj#,bo#,intcol#,pos#,segc
+ 2023-10-26T14:49:39.566894       4131       4088       4131  · EXEC(98176,98174,1,1,1,0,0,0)          · insert into icol$(obj#,bo#,intcol#,pos#,segc
+ 2023-10-26T14:49:39.566973       4133       4088       4131  · CLOSE(98176,98174,1,1,1,0,0,0)         · insert into icol$(obj#,bo#,intcol#,pos#,segc
+ 2023-10-26T14:49:39.568092       4138       4138          0  · PARSE                                  · insert into ind$(bo#,obj#,ts#,file#,block#,i
+ 2023-10-26T14:49:39.571249       4317       4138       4317  · EXEC(98174,98176,6,0,0,1,1,67108864,40 · insert into ind$(bo#,obj#,ts#,file#,block#,i
+ 2023-10-26T14:49:39.571710       4319       4138       4317  · CLOSE(98174,98176,6,0,0,1,1,67108864,4 · insert into ind$(bo#,obj#,ts#,file#,block#,i
+ 2023-10-26T14:49:39.572322       4510       1324       4510  · EXEC(98174,6,0,0,0,,0,,3,3,0,,"------- · insert into tab$(obj#,ts#,file#,block#,bobj#
+ 2023-10-26T14:49:39.572340       4511       1324       4510  · CLOSE(98174,6,0,0,0,,0,,3,3,0,,"------ · insert into tab$(obj#,ts#,file#,block#,bobj#
+ 2023-10-26T14:49:39.573326       4697       1522       4697  · EXEC(98174,"ID",1,1,2,22,,0,,,,,-127,, · insert into col$(obj#,name,intcol#,segcol#,t
+ 2023-10-26T14:49:39.573363       4698       1522       4697  · CLOSE(98174,"ID",1,1,2,22,,0,,,,,-127, · insert into col$(obj#,name,intcol#,segcol#,t
+ 2023-10-26T14:49:39.575378       4884       1522       4884  · EXEC(98174,"NAME",2,2,1,100,,0,,,,,0,, · insert into col$(obj#,name,intcol#,segcol#,t
+ 2023-10-26T14:49:39.575424       4885       1522       4884  · CLOSE(98174,"NAME",2,2,1,100,,0,,,,,0, · insert into col$(obj#,name,intcol#,segcol#,t
+ 2023-10-26T14:49:39.576473       5071       1522       5071  · EXEC(98174,"CAPACITY",3,3,2,22,,0,,,,, · insert into col$(obj#,name,intcol#,segcol#,t
+ 2023-10-26T14:49:39.576498       5072       1522       5071  · CLOSE(98174,"CAPACITY",3,3,2,22,,0,,,, · insert into col$(obj#,name,intcol#,segcol#,t
+ 2023-10-26T14:49:39.577298       5107       2839       5107  · EXEC(8244,98174,3,0,,3,0)              · insert into ccol$(con#,obj#,intcol#,pos#,col
+ 2023-10-26T14:49:39.577334       5108       2839       5107  · CLOSE(8244,98174,3,0,,3,0)             · insert into ccol$(con#,obj#,intcol#,pos#,col
+ 2023-10-26T14:49:39.578361       5212       2881       5212  · EXEC(98174,8244,7,1,,22,,""CAPACITY" I · insert into cdef$(obj#,con#,type#,intcols,co
+ 2023-10-26T14:49:39.578397       5213       2881       5212  · CLOSE(98174,8244,7,1,,22,,""CAPACITY"  · insert into cdef$(obj#,con#,type#,intcols,co
+ 2023-10-26T14:49:39.578730       5248       2839       5248  · EXEC(8245,98174,3,0,,3,0)              · insert into ccol$(con#,obj#,intcol#,pos#,col
+ 2023-10-26T14:49:39.579861       5249       2839       5248  · CLOSE(8245,98174,3,0,,3,0)             · insert into ccol$(con#,obj#,intcol#,pos#,col
+ 2023-10-26T14:49:39.580397       5353       2881       5353  · EXEC(98174,8245,1,1,,14,,"CAPACITY >=  · insert into cdef$(obj#,con#,type#,intcols,co
+ 2023-10-26T14:49:39.580415       5354       2881       5353  · CLOSE(98174,8245,1,1,,14,,"CAPACITY >= · insert into cdef$(obj#,con#,type#,intcols,co
+ 2023-10-26T14:49:39.580609       5389       2839       5389  · EXEC(8246,98174,1,1,,1,0)              · insert into ccol$(con#,obj#,intcol#,pos#,col
+ 2023-10-26T14:49:39.580624       5390       2839       5389  · CLOSE(8246,98174,1,1,,1,0)             · insert into ccol$(con#,obj#,intcol#,pos#,col
+ 2023-10-26T14:49:39.580989       5493       2881       5493  · EXEC(98174,8246,2,1,,0,,,0,,0,,0,,0,,9 · insert into cdef$(obj#,con#,type#,intcols,co
+ 2023-10-26T14:49:39.581007       5494       2881       5493  · CLOSE(98174,8246,2,1,,0,,,0,,0,,0,,0,, · insert into cdef$(obj#,con#,type#,intcols,co
+ 2023-10-26T14:49:39.581051       5495       5495          0  · PARSE                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.581629       5496       5495       5496  · EXEC                                   · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.581992       5497       5495       5496  · FETCH                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.582061       5498       5495       5496  · CLOSE                                  · select 1 from dba_tables where owner = 'SYS'
+ 2023-10-26T14:49:39.582091       5499       5499          0  · PARSE                                  · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.582183       5507       5499       5507  · EXEC("BERX")                           · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.582211       5508       5499       5507  · FETCH("BERX")                          · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.582236       5509       5499       5507  · CLOSE("BERX")                          · select 1 from sys.bc$ bc, sys.user$ ur where
+ 2023-10-26T14:49:39.582290       5510          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53177_SES
+ 2023-10-26T14:49:39.583916       5638        700       5638  · EXEC(98174,2,"10/26/2023 14:49:39","10 · update obj$ set obj#=:4, type#=:5,ctime=:6,m
+ 2023-10-26T14:49:39.583950       5639        700       5638  · CLOSE(98174,2,"10/26/2023 14:49:39","1 · update obj$ set obj#=:4, type#=:5,ctime=:6,m
+ 2023-10-26T14:49:39.584434       5640        309       5640  EXEC                                     CREATE TABLE TICKETSALES( ID NUMBER PRIMARY KE
+ 2023-10-26T14:49:39.593984       5642       4051       4059  CLOSE("PUBLISH")                         select /*+ no_parallel */ spare4 from sys.opts
+ 2023-10-26T14:49:39.594003       5643       4031       4049  CLOSE("BERX","TICKETSALES","PUBLISH")    select p.valchar from sys.optstat_user_prefs$ 
+ 2023-10-26T14:49:39.954240       5647        309       5640  CLOSE                                    CREATE TABLE TICKETSALES( ID NUMBER PRIMARY KE
+ 2023-10-26T14:49:39.954761       5655       3512       5655  · EXEC(98174)                            · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.954808       5656       3512       5655  · FETCH(98174)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.954838       5657       3512       5655  · CLOSE(98174)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.954930       5665       3512       5665  · EXEC(98176)                            · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.954950       5666       3512       5665  · FETCH(98176)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.954968       5667       3512       5665  · CLOSE(98176)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.955321       5672       5672          0  · PARSE                                  · select decode(u.type#, 2, u.ext_username, u.
+ 2023-10-26T14:49:39.955566       5690       5672       5690  · EXEC("TICKETSALES",131,2)              · select decode(u.type#, 2, u.ext_username, u.
+ 2023-10-26T14:49:39.955628       5691       5672       5690  · FETCH("TICKETSALES",131,2)             · select decode(u.type#, 2, u.ext_username, u.
+ 2023-10-26T14:49:39.956141       5708       5672       5690  · CLOSE("TICKETSALES",131,2)             · select decode(u.type#, 2, u.ext_username, u.
+ 2023-10-26T14:49:39.956207       5713       5713          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.956333       5721       5713       5721  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.956365       5722       5713       5721  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.956426       5724       5713       5721  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.956927       5729       5729          0  · PARSE                                  · select /* QOSD */ /*+ index(do) */ dir_cnt f
+ 2023-10-26T14:49:39.958819       5737       5729       5737  · EXEC(14289642580912669802)             · select /* QOSD */ /*+ index(do) */ dir_cnt f
+ 2023-10-26T14:49:39.958844       5738       5729       5737  · FETCH(14289642580912669802)            · select /* QOSD */ /*+ index(do) */ dir_cnt f
+ 2023-10-26T14:49:39.958948       5741       5729       5737  · CLOSE(14289642580912669802)            · select /* QOSD */ /*+ index(do) */ dir_cnt f
+ 2023-10-26T14:49:39.959350       5750       5750          0  PARSE                                    insert into ticketsales values ( 1 , 'Faster' 
+ 2023-10-26T14:49:39.959587       5758       3512       5758  · EXEC(98174)                            · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.959619       5759       3512       5758  · FETCH(98174)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.959642       5760       3512       5758  · CLOSE(98174)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.960115       5765       5765          0  · PARSE                                  · delete from deferred_stg$ where obj# = :1   
+ 2023-10-26T14:49:39.961213       5773       5765       5773  · EXEC(98174)                            · delete from deferred_stg$ where obj# = :1   
+ 2023-10-26T14:49:39.961306       5776       5765       5773  · CLOSE(98174)                           · delete from deferred_stg$ where obj# = :1   
+ 2023-10-26T14:49:39.961665       5782       5782          0  · PARSE                                  · select type#,blocks,extents,minexts,maxexts,
+ 2023-10-26T14:49:39.961868       5800       5782       5800  · EXEC(6,15,202)                         · select type#,blocks,extents,minexts,maxexts,
+ 2023-10-26T14:49:39.961910       5801       5782       5800  · FETCH(6,15,202)                        · select type#,blocks,extents,minexts,maxexts,
+ 2023-10-26T14:49:39.962001       5804       5782       5800  · CLOSE(6,15,202)                        · select type#,blocks,extents,minexts,maxexts,
+ 2023-10-26T14:49:39.962783       5809       5809          0  · PARSE                                  · insert into seg$ (file#,block#,type#,ts#,blo
+ 2023-10-26T14:49:39.964075       5909       5809       5909  · EXEC(15,202,3,6,8,1,1,2147483645,128,0 · insert into seg$ (file#,block#,type#,ts#,blo
+ 2023-10-26T14:49:39.964148       5911       5809       5909  · CLOSE(15,202,3,6,8,1,1,2147483645,128, · insert into seg$ (file#,block#,type#,ts#,blo
+ 2023-10-26T14:49:39.964473       5916       5916          0  · PARSE                                  · select indmethod# from ind$ where obj#=:1   
+ 2023-10-26T14:49:39.964592       5924       5916       5924  · EXEC(98176)                            · select indmethod# from ind$ where obj#=:1   
+ 2023-10-26T14:49:39.964621       5925       5916       5924  · FETCH(98176)                           · select indmethod# from ind$ where obj#=:1   
+ 2023-10-26T14:49:39.964738       5928       5916       5924  · CLOSE(98176)                           · select indmethod# from ind$ where obj#=:1   
+ 2023-10-26T14:49:39.964835       5936       3512       5936  · EXEC(98176)                            · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.964863       5937       3512       5936  · FETCH(98176)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.964883       5938       3512       5936  · CLOSE(98176)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:49:39.965039       5946       5765       5946  · EXEC(98176)                            · delete from deferred_stg$ where obj# = :1   
+ 2023-10-26T14:49:39.965064       5947       5765       5946  · CLOSE(98176)                           · delete from deferred_stg$ where obj# = :1   
+ 2023-10-26T14:49:39.965318       5965       5782       5965  · EXEC(6,15,210)                         · select type#,blocks,extents,minexts,maxexts,
+ 2023-10-26T14:49:39.965337       5966       5782       5965  · FETCH(6,15,210)                        · select type#,blocks,extents,minexts,maxexts,
+ 2023-10-26T14:49:39.965356       5967       5782       5965  · CLOSE(6,15,210)                        · select type#,blocks,extents,minexts,maxexts,
+ 2023-10-26T14:49:39.966085       6067       5809       6067  · EXEC(15,210,3,6,8,1,1,2147483645,128,0 · insert into seg$ (file#,block#,type#,ts#,blo
+ 2023-10-26T14:49:39.966114       6068       5809       6067  · CLOSE(15,210,3,6,8,1,1,2147483645,128, · insert into seg$ (file#,block#,type#,ts#,blo
+ 2023-10-26T14:49:39.966371       6073       6073          0  · PARSE                                  · delete from superobj$ where subobj# = :1    
+ 2023-10-26T14:49:39.966481       6081       6073       6081  · EXEC(98174)                            · delete from superobj$ where subobj# = :1    
+ 2023-10-26T14:49:39.966566       6084       6073       6081  · CLOSE(98174)                           · delete from superobj$ where subobj# = :1    
+ 2023-10-26T14:49:39.967004       6089       6089          0  · PARSE                                  · select /*+ index(ts) */ spare1 from sys.tab_
+ 2023-10-26T14:49:39.967966       6097       6089       6097  · EXEC(98174)                            · select /*+ index(ts) */ spare1 from sys.tab_
+ 2023-10-26T14:49:39.967987       6098       6089       6097  · FETCH(98174)                           · select /*+ index(ts) */ spare1 from sys.tab_
+ 2023-10-26T14:49:39.968076       6101       6089       6097  · CLOSE(98174)                           · select /*+ index(ts) */ spare1 from sys.tab_
+ 2023-10-26T14:49:39.968547       6109       1048       6109  · · EXEC(73)                             · · select con#,obj#,rcon#,enabled,nvl(defer,0
+ 2023-10-26T14:49:39.968571       6110       1048       6109  · · FETCH(73)                            · · select con#,obj#,rcon#,enabled,nvl(defer,0
+ 2023-10-26T14:49:39.968597       6111       1048       6109  · · CLOSE(73)                            · · select con#,obj#,rcon#,enabled,nvl(defer,0
+ 2023-10-26T14:49:39.968699       6119       1065       6119  · · EXEC(73)                             · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.968739       6120       1065       6119  · · FETCH(73)                            · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.968823       6128       1079       6128  · · EXEC(173)                            · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.968849       6129       1079       6128  · · FETCH(173)                           · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.968866       6130       1079       6128  · · FETCH(173)                           · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.968884       6131       1079       6128  · · CLOSE(173)                           · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.968905       6132       1065       6119  · · FETCH(73)                            · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.968921       6133       1065       6119  · · CLOSE(73)                            · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.971061       6141       1101       6141  · · EXEC(73)                             · · select col#, grantee#, privilege#,max(mod(
+ 2023-10-26T14:49:39.971098       6142       1101       6141  · · FETCH(73)                            · · select col#, grantee#, privilege#,max(mod(
+ 2023-10-26T14:49:39.971121       6143       1101       6141  · · CLOSE(73)                            · · select col#, grantee#, privilege#,max(mod(
+ 2023-10-26T14:49:39.971203       6151       1121       6151  · · EXEC(73)                             · · select grantee#,privilege#,nvl(col#,0),max
+ 2023-10-26T14:49:39.971222       6152       1121       6151  · · FETCH(73)                            · · select grantee#,privilege#,nvl(col#,0),max
+ 2023-10-26T14:49:39.971240       6153       1121       6151  · · CLOSE(73)                            · · select grantee#,privilege#,nvl(col#,0),max
+ 2023-10-26T14:49:39.971330       6158       6158          0  · PARSE                                  · delete from tab_stats$ where obj#=:1        
+ 2023-10-26T14:49:39.972250       6166       6158       6166  · EXEC(98174)                            · delete from tab_stats$ where obj#=:1        
+ 2023-10-26T14:49:39.972372       6169       6158       6166  · CLOSE(98174)                           · delete from tab_stats$ where obj#=:1        
+ 2023-10-26T14:49:39.973065       6174       6174          0  · PARSE                                  · update tab$ set ts#=:2,file#=:3,block#=:4,bo
+ 2023-10-26T14:49:39.976431       6380       6174       6380  · EXEC(6,15,202,0,,0,,3,3,0,,"---------- · update tab$ set ts#=:2,file#=:3,block#=:4,bo
+ 2023-10-26T14:49:39.976613       6384       6174       6380  · CLOSE(6,15,202,0,,0,,3,3,0,,"--------- · update tab$ set ts#=:2,file#=:3,block#=:4,bo
+ 2023-10-26T14:49:39.976978       6392       1048       6392  · · EXEC(75)                             · · select con#,obj#,rcon#,enabled,nvl(defer,0
+ 2023-10-26T14:49:39.977001       6393       1048       6392  · · FETCH(75)                            · · select con#,obj#,rcon#,enabled,nvl(defer,0
+ 2023-10-26T14:49:39.977034       6394       1048       6392  · · CLOSE(75)                            · · select con#,obj#,rcon#,enabled,nvl(defer,0
+ 2023-10-26T14:49:39.977121       6402       1065       6402  · · EXEC(75)                             · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.977153       6403       1065       6402  · · FETCH(75)                            · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.977231       6411       1079       6411  · · EXEC(174)                            · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.977257       6412       1079       6411  · · FETCH(174)                           · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.977274       6413       1079       6411  · · FETCH(174)                           · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.977290       6414       1079       6411  · · CLOSE(174)                           · · select intcol#,nvl(pos#,0),col#,nvl(spare1
+ 2023-10-26T14:49:39.977309       6415       1065       6402  · · FETCH(75)                            · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.977325       6416       1065       6402  · · CLOSE(75)                            · · select con#,type#,condlength,intcols,robj#
+ 2023-10-26T14:49:39.977703       6424       1101       6424  · · EXEC(75)                             · · select col#, grantee#, privilege#,max(mod(
+ 2023-10-26T14:49:39.977740       6425       1101       6424  · · FETCH(75)                            · · select col#, grantee#, privilege#,max(mod(
+ 2023-10-26T14:49:39.977764       6426       1101       6424  · · CLOSE(75)                            · · select col#, grantee#, privilege#,max(mod(
+ 2023-10-26T14:49:39.977851       6434       1121       6434  · · EXEC(75)                             · · select grantee#,privilege#,nvl(col#,0),max
+ 2023-10-26T14:49:39.977872       6435       1121       6434  · · FETCH(75)                            · · select grantee#,privilege#,nvl(col#,0),max
+ 2023-10-26T14:49:39.977891       6436       1121       6434  · · CLOSE(75)                            · · select grantee#,privilege#,nvl(col#,0),max
+ 2023-10-26T14:49:39.977986       6441       6441          0  · PARSE                                  · delete from ind_stats$ where obj#=:1        
+ 2023-10-26T14:49:39.979098       6449       6441       6449  · EXEC(98176)                            · delete from ind_stats$ where obj#=:1        
+ 2023-10-26T14:49:39.979226       6452       6441       6449  · CLOSE(98176)                           · delete from ind_stats$ where obj#=:1        
+ 2023-10-26T14:49:39.979863       6457       6457          0  · PARSE                                  · update ind$ set ts#=:2,file#=:3,block#=:4,in
+ 2023-10-26T14:49:39.982440       6626       6457       6626  · EXEC(6,15,210,1,1,0,4097,10,2,255,,,,, · update ind$ set ts#=:2,file#=:3,block#=:4,in
+ 2023-10-26T14:49:39.982545       6629       6457       6626  · CLOSE(6,15,210,1,1,0,4097,10,2,255,,,, · update ind$ set ts#=:2,file#=:3,block#=:4,in
+ 2023-10-26T14:49:39.983085       6634       6634          0  · PARSE                                  · update seg$ set type#=:4,blocks=:5,extents=:
+ 2023-10-26T14:49:39.985174       6738       6634       6738  · EXEC(5,8,1,1,2147483645,128,0,131,8,0, · update seg$ set type#=:4,blocks=:5,extents=:
+ 2023-10-26T14:49:39.985309       6742       6634       6738  · CLOSE(5,8,1,1,2147483645,128,0,131,8,0 · update seg$ set type#=:4,blocks=:5,extents=:
+ 2023-10-26T14:49:39.985908       6846       6634       6846  · EXEC(6,8,1,1,2147483645,128,0,131,8,0, · update seg$ set type#=:4,blocks=:5,extents=:
+ 2023-10-26T14:49:39.985935       6847       6634       6846  · CLOSE(6,8,1,1,2147483645,128,0,131,8,0 · update seg$ set type#=:4,blocks=:5,extents=:
+ 2023-10-26T14:49:39.987504       6848       6848          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.987619       6856       6848       6856  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.987648       6857       6848       6856  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.987673       6858       6848       6856  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:49:39.993765       6859       5750       6859  EXEC                                     insert into ticketsales values ( 1 , 'Faster' 
+ 2023-10-26T14:49:40.392046       6866       5750       6859  CLOSE                                    insert into ticketsales values ( 1 , 'Faster' 
+ 2023-10-26T14:49:40.393714       6871       6871          0  PARSE                                    commit                                        
+ 2023-10-26T14:49:40.393792       6872          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53177_SES
+ 2023-10-26T14:49:40.394001       6873       6871       6873  EXEC                                     commit                                        
+ 2023-10-26T14:50:15.673448       6879       6871       6873  CLOSE                                    commit                                        
+ 2023-10-26T14:50:15.673970       6884       6884          0  PARSE                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:15.674162       6885       6884       6885  EXEC                                     select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:15.675458       6887       6884       6885  FETCH                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:27.229166       6898       6884       6885  CLOSE                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:27.229968       6906       3512       6906  · EXEC(98175)                            · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:50:27.230007       6907       3512       6906  · FETCH(98175)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:50:27.230034       6908       3512       6906  · CLOSE(98175)                           · select pctfree_stg, pctused_stg, size_stg,in
+ 2023-10-26T14:50:27.230791       6913       6913          0  · PARSE                                  · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:27.230932       6921       3512       6921  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:27.230953       6922       3512       6921  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:27.230970       6923       3512       6921  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:27.232061       6946       6913       6946  · EXEC(0,0,1,1)                          · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:27.232089       6947       6913       6946  · FETCH(0,0,1,1)                         · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:27.232196       6951       6913       6946  · CLOSE(0,0,1,1)                         · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:27.232581       6956       6956          0  PARSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:50:27.232671       6957       6956       6957  EXEC                                     select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:50:27.232742       6959       6956       6957  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:50:46.200517       6964       6956       6957  CLOSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:50:46.201615       6965       6965          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.201756       6973       6965       6973  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.201808       6974       6965       6973  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.201840       6975       6965       6973  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.201987       6976       6976          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.202070       6984       6976       6984  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.202096       6985       6976       6984  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.202118       6986       6976       6984  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:50:46.202543       6999       3529       6999  · EXEC(98174,3)                          · select /*+ rule */ bucket_cnt, row_cnt, cach
+ 2023-10-26T14:50:46.202577       7000       3529       6999  · FETCH(98174,3)                         · select /*+ rule */ bucket_cnt, row_cnt, cach
+ 2023-10-26T14:50:46.202599       7001       3529       6999  · CLOSE(98174,3)                         · select /*+ rule */ bucket_cnt, row_cnt, cach
+ 2023-10-26T14:50:46.203268       7006       7006          0  · PARSE                                  · select /* QOSD */ /*+ index(eh)*/ objn, sub_
+ 2023-10-26T14:50:46.205040       7014       7006       7014  · EXEC(7225726413155093037)              · select /* QOSD */ /*+ index(eh)*/ objn, sub_
+ 2023-10-26T14:50:46.205060       7015       7006       7014  · FETCH(7225726413155093037)             · select /* QOSD */ /*+ index(eh)*/ objn, sub_
+ 2023-10-26T14:50:46.205154       7018       7006       7014  · CLOSE(7225726413155093037)             · select /* QOSD */ /*+ index(eh)*/ objn, sub_
+ 2023-10-26T14:50:46.205550       7023       7023          0  · PARSE                                  · insert /* QOSD */ into exp_head$ (exp_id, ob
+ 2023-10-26T14:50:46.206477       7066       7023       7066  · EXEC(7225726413155093037,98174,0,.0000 · insert /* QOSD */ into exp_head$ (exp_id, ob
+ 2023-10-26T14:50:46.206532       7068       7023       7066  · CLOSE(7225726413155093037,98174,0,.000 · insert /* QOSD */ into exp_head$ (exp_id, ob
+ 2023-10-26T14:50:46.206867       7076       7006       7076  · EXEC(8511606116474392744)              · select /* QOSD */ /*+ index(eh)*/ objn, sub_
+ 2023-10-26T14:50:46.206881       7077       7006       7076  · FETCH(8511606116474392744)             · select /* QOSD */ /*+ index(eh)*/ objn, sub_
+ 2023-10-26T14:50:46.206898       7078       7006       7076  · CLOSE(8511606116474392744)             · select /* QOSD */ /*+ index(eh)*/ objn, sub_
+ 2023-10-26T14:50:46.207899       7121       7023       7121  · EXEC(8511606116474392744,98174,0,.0000 · insert /* QOSD */ into exp_head$ (exp_id, ob
+ 2023-10-26T14:50:46.207920       7122       7023       7121  · CLOSE(8511606116474392744,98174,0,.000 · insert /* QOSD */ into exp_head$ (exp_id, ob
+ 2023-10-26T14:50:46.208878       7127       7127          0  PARSE                                    update ticketsales set capacity = capacity-200
+ 2023-10-26T14:50:46.209519       7135       3512       7135  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.209564       7136       3512       7135  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.209596       7137       3512       7135  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.209750       7145       3512       7145  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.209769       7146       3512       7145  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.209783       7147       3512       7145  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.210172       7152       7152          0  · PARSE                                  · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:50:46.210540       7160       3512       7160  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.210560       7161       3512       7160  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.210574       7162       3512       7160  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.210649       7170       3512       7170  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.210663       7171       3512       7170  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.210674       7172       3512       7170  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.212027       7180       3512       7180  · · · EXEC(98175)                        · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.212051       7181       3512       7180  · · · FETCH(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.212068       7182       3512       7180  · · · CLOSE(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.212371       7187       7187          0  · · PARSE                                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.212629       7195       3512       7195  · · · EXEC(98175)                        · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.212647       7196       3512       7195  · · · FETCH(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.212660       7197       3512       7195  · · · CLOSE(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.213665       7210       7187       7210  · · EXEC(070015001B0500,1)               · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.213742       7211       7187       7210  · · FETCH(070015001B0500,1)              · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.213814       7215       7187       7210  · · CLOSE(070015001B0500,1)              · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.214495       7223       3512       7223  · · · EXEC(98175)                        · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.214533       7224       3512       7223  · · · FETCH(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.214552       7225       3512       7223  · · · CLOSE(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.214884       7230       7230          0  · · PARSE                                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.215153       7238       3512       7238  · · · EXEC(98175)                        · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.215182       7239       3512       7238  · · · FETCH(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.215199       7240       3512       7238  · · · CLOSE(98175)                       · · · select pctfree_stg, pctused_stg, size_st
+ 2023-10-26T14:50:46.216372       7248       7230       7248  · · EXEC(1)                              · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.216436       7249       7230       7248  · · FETCH(1)                             · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.216513       7253       7230       7248  · · CLOSE(1)                             · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:50:46.217385       7268       7152       7268  · EXEC(070015001B0500,1,)                · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:50:46.217431       7269       7152       7268  · FETCH(070015001B0500,1,)               · SELECT NVL(((select NVL(sum(CAPACITY_RESERVE
+ 2023-10-26T14:50:46.218076       7282       3512       7282  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.218116       7283       3512       7282  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.218144       7284       3512       7282  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.262226       7289       7289          0  · · PARSE                                · · select decode(u.type#, 2, u.ext_username, 
+ 2023-10-26T14:50:46.262524       7307       7289       7307  · · EXEC("SYS_RESERVJRNL_98174",131,2)   · · select decode(u.type#, 2, u.ext_username, 
+ 2023-10-26T14:50:46.262620       7308       7289       7307  · · FETCH("SYS_RESERVJRNL_98174",131,2)  · · select decode(u.type#, 2, u.ext_username, 
+ 2023-10-26T14:50:46.262947       7325       7289       7307  · · CLOSE("SYS_RESERVJRNL_98174",131,2)  · · select decode(u.type#, 2, u.ext_username, 
+ 2023-10-26T14:50:46.263063       7330       7330          0  · PARSE                                  · INSERT INTO "SYS_RESERVJRNL_98174" (ORA_SAGA
+ 2023-10-26T14:50:46.263423       7338       3512       7338  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.263449       7339       3512       7338  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.263464       7340       3512       7338  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.264027       7348       3512       7348  · · EXEC(98175)                          · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.264045       7349       3512       7348  · · FETCH(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.264059       7350       3512       7348  · · CLOSE(98175)                         · · select pctfree_stg, pctused_stg, size_stg,
+ 2023-10-26T14:50:46.264234       7358       5765       7358  · · EXEC(98175)                          · · delete from deferred_stg$ where obj# = :1 
+ 2023-10-26T14:50:46.264264       7359       5765       7358  · · CLOSE(98175)                         · · delete from deferred_stg$ where obj# = :1 
+ 2023-10-26T14:50:46.264475       7377       5782       7377  · · EXEC(6,15,218)                       · · select type#,blocks,extents,minexts,maxext
+ 2023-10-26T14:50:46.264493       7378       5782       7377  · · FETCH(6,15,218)                      · · select type#,blocks,extents,minexts,maxext
+ 2023-10-26T14:50:46.264509       7379       5782       7377  · · CLOSE(6,15,218)                      · · select type#,blocks,extents,minexts,maxext
+ 2023-10-26T14:50:46.265060       7479       5809       7479  · · EXEC(15,218,3,6,8,1,1,2147483645,2,0 · · insert into seg$ (file#,block#,type#,ts#,b
+ 2023-10-26T14:50:46.265083       7480       5809       7479  · · CLOSE(15,218,3,6,8,1,1,2147483645,2, · · insert into seg$ (file#,block#,type#,ts#,b
+ 2023-10-26T14:50:46.265215       7485       7485          0  · · PARSE                                · · delete from superobj$ where subobj# = :1  
+ 2023-10-26T14:50:46.265305       7493       7485       7493  · · EXEC(98175)                          · · delete from superobj$ where subobj# = :1  
+ 2023-10-26T14:50:46.265365       7496       7485       7493  · · CLOSE(98175)                         · · delete from superobj$ where subobj# = :1  
+ 2023-10-26T14:50:46.265439       7504       6089       7504  · · EXEC(98175)                          · · select /*+ index(ts) */ spare1 from sys.ta
+ 2023-10-26T14:50:46.265455       7505       6089       7504  · · FETCH(98175)                         · · select /*+ index(ts) */ spare1 from sys.ta
+ 2023-10-26T14:50:46.265469       7506       6089       7504  · · CLOSE(98175)                         · · select /*+ index(ts) */ spare1 from sys.ta
+ 2023-10-26T14:50:46.266685       7511       7511          0  · · PARSE                                · · delete from tab_stats$ where obj#=:1      
+ 2023-10-26T14:50:46.267489       7519       7511       7519  · · EXEC(98175)                          · · delete from tab_stats$ where obj#=:1      
+ 2023-10-26T14:50:46.267553       7522       7511       7519  · · CLOSE(98175)                         · · delete from tab_stats$ where obj#=:1      
+ 2023-10-26T14:50:46.268302       7728       6174       7728  · · EXEC(6,15,218,0,,0,,7,7,0,,"-------- · · update tab$ set ts#=:2,file#=:3,block#=:4,
+ 2023-10-26T14:50:46.268325       7729       6174       7728  · · CLOSE(6,15,218,0,,0,,7,7,0,,"------- · · update tab$ set ts#=:2,file#=:3,block#=:4,
+ 2023-10-26T14:50:46.268724       7833       6634       7833  · · EXEC(5,8,1,1,2147483645,2,0,131,2,0, · · update seg$ set type#=:4,blocks=:5,extents
+ 2023-10-26T14:50:46.268751       7834       6634       7833  · · CLOSE(5,8,1,1,2147483645,2,0,131,2,0 · · update seg$ set type#=:4,blocks=:5,extents
+ 2023-10-26T14:50:46.269629       7871       7330       7871  · EXEC(,070015001B0500,"ACTIVE","UPDATE" · INSERT INTO "SYS_RESERVJRNL_98174" (ORA_SAGA
+ 2023-10-26T14:50:46.269699       7873       7127       7873  EXEC                                     update ticketsales set capacity = capacity-200
+ 2023-10-26T14:50:51.931299       7881       7127       7873  CLOSE                                    update ticketsales set capacity = capacity-200
+ 2023-10-26T14:50:51.931392       7882       7882          0  PARSE                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:51.931469       7883       7882       7883  EXEC                                     select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:51.931903       7885       7882       7883  FETCH                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:51.932793       7887       7882       7883  FETCH                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:53.993129       7892       7882       7883  CLOSE                                    select xid from v$transaction where addr=(sele
+ 2023-10-26T14:50:53.994562       7897       7897          0  · PARSE                                  · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:53.995497       7920       7897       7920  · EXEC(0,0,1,1)                          · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:53.995518       7921       7897       7920  · FETCH(0,0,1,1)                         · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:53.995582       7925       7897       7920  · CLOSE(0,0,1,1)                         · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNOR
+ 2023-10-26T14:50:53.995860       7930       7930          0  PARSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:50:53.995906       7931       7930       7931  EXEC                                     select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:50:53.996007       7933       7930       7931  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:50:53.997088       7935       7930       7931  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:01.128981       7941       7930       7931  CLOSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:01.129023       7942       7942          0  PARSE                                    commit                                        
+ 2023-10-26T14:53:01.129045       7943          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53177_SES
+ 2023-10-26T14:53:01.130117       7951        334       7951  · · EXEC(0)                              · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:53:01.130141       7952        334       7951  · · FETCH(0)                             · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:53:01.130159       7953        334       7951  · · CLOSE(0)                             · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:53:01.130240       7958       7958          0  · PARSE                                  · update (select B$.ID,B$.CAPACITY,ORA_ESCR_AG
+ 2023-10-26T14:53:01.130693       7966        334       7966  · · EXEC(0)                              · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:53:01.130711       7967        334       7966  · · FETCH(0)                             · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:53:01.130724       7968        334       7966  · · CLOSE(0)                             · · select o.owner#,o.name,o.namespace,o.remot
+ 2023-10-26T14:53:01.131458       7973       7973          0  · · PARSE                                · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.132467       7981       7973       7981  · · EXEC(00008151.001C.0001)             · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.132501       7982       7973       7981  · · FETCH(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.132556       7984       7973       7981  · · CLOSE(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.132667       7985       7985          0  · · PARSE                                · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.132734       7993       7985       7993  · · EXEC(00008151.001C.0001)             · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.133625       7994       7985       7993  · · FETCH(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.133644       7995       7985       7993  · · CLOSE(00008151.001C.0001)            · · select condition from cdef$ where rowid=:1
+ 2023-10-26T14:53:01.134493       8000       8000          0  · · PARSE                                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.135732       8008       8000       8008  · · EXEC(070015001B0500)                 · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.136025       8010       8000       8008  · · FETCH(070015001B0500)                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.136107       8014       8000       8008  · · CLOSE(070015001B0500)                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.136851       8019       8019          0  · · PARSE                                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.138345       8057       8019       8057  · · EXEC(0,0,1,0,0,1,1)                  · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.138503       8058       8019       8057  · · FETCH(0,0,1,0,0,1,1)                 · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.138632       8064       8019       8057  · · CLOSE(0,0,1,0,0,1,1)                 · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.140585       8072       7958       8072  · EXEC(070015001B0500)                   · update (select B$.ID,B$.CAPACITY,ORA_ESCR_AG
+ 2023-10-26T14:53:01.141262       8085       8085          0  · PARSE                                  · delete from BERX.SYS_RESERVJRNL_98174 where 
+ 2023-10-26T14:53:01.142039       8090       8090          0  · · PARSE                                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.142761       8098       8090       8098  · · EXEC(070015001B0500)                 · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.142851       8099       8090       8098  · · FETCH(070015001B0500)                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.142948       8103       8090       8098  · · CLOSE(070015001B0500)                · · SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGN
+ 2023-10-26T14:53:01.143860       8111       8085       8111  · EXEC(070015001B0500)                   · delete from BERX.SYS_RESERVJRNL_98174 where 
+ 2023-10-26T14:53:01.144054       8114       7942       8114  EXEC                                     commit                                        
+ 2023-10-26T14:53:03.701599       8120       7942       8114  CLOSE                                    commit                                        
+ 2023-10-26T14:53:03.701642       8121       8121          0  PARSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:03.701679       8122       8121       8122  EXEC                                     select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:03.701813       8124       8121       8122  FETCH                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:11.039660       8128       8121       8122  CLOSE                                    select * from SYS_RESERVJRNL_98174            
+ 2023-10-26T14:53:11.040416       8129       8129          0  · PARSE                                  · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:11.040521       8137       8129       8137  · EXEC(00008151.001C.0001)               · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:11.040556       8138       8129       8137  · FETCH(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:11.040577       8139       8129       8137  · CLOSE(00008151.001C.0001)              · select condition from cdef$ where rowid=:1  
+ 2023-10-26T14:53:11.041272       8144       8144          0  PARSE                                    select capacity from ticketsales where id=1   
+ 2023-10-26T14:53:11.041331       8145       8144       8145  EXEC                                     select capacity from ticketsales where id=1   
+ 2023-10-26T14:53:11.041401       8147       8144       8145  FETCH                                    select capacity from ticketsales where id=1   
+ 2023-10-26T14:53:11.041725       8151       8144       8145  FETCH                                    select capacity from ticketsales where id=1   
+ 2023-10-26T14:53:58.521156       8156          0          0  XCTEND                                   #():C:\Users\berx\Downloads\FREE_ora_53177_SES
+ 2023-10-26T14:53:58.521205       8157       8144       8145  CLOSE                                    select capacity from ticketsales where id=1   
+ 2023-10-26T14:53:58.521228       8158       8085       8111  CLOSE(070015001B0500)                    delete from BERX.SYS_RESERVJRNL_98174 where OR
+ 2023-10-26T14:53:58.521239       8159       7958       8072  CLOSE(070015001B0500)                    update (select B$.ID,B$.CAPACITY,ORA_ESCR_AGG$
+ 2023-10-26T14:53:58.521250       8160       7330       7871  CLOSE(,070015001B0500,"ACTIVE","UPDATE", INSERT INTO "SYS_RESERVJRNL_98174" (ORA_SAGA_I
+ 2023-10-26T14:53:58.521261       8161       7152       7268  CLOSE(070015001B0500,1,)                 SELECT NVL(((select NVL(sum(CAPACITY_RESERVED)
+ 2023-10-26T14:53:58.521279       8162         43         44  CLOSE                                    SELECT VALUE$ FROM SYS.PROPS$ WHERE NAME = 'OG
+ 2023-10-26T14:53:58.521290       8163          0          0  CLOSE                                    #140104630911400:C:\Users\berx\Downloads\FREE_
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL (632)                                                                                                                                          
+
+0,107 seconds     3 MB/sec
+
+
+
