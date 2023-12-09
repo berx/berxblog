@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 #bind_synt_wait.pl
 # creating a synthetic bind "WAIT" for otherwise UFBCs 
+# https://berxblog.blogspot.com/2023/12/the-cost-of-bind-information-in-sql.html
 use strict;
 
 my $prev_cursor     = 0 ;
