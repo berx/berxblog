@@ -1,0 +1,333 @@
+Trace file /opt/oracle/diag/rdbms/free/FREE/trace/FREE_ora_70047.trc
+Oracle Database 23c Free, Release 23.0.0.0.0 - Developer-Release
+Version 23.2.0.0.0
+Build label:    RDBMS_23.2.0.0.0_LINUX.X64_230325
+ORACLE_HOME:    /opt/oracle/product/23c/dbhomeFree
+System name:	Linux
+Node name:	localhost.localdomain
+Release:	5.4.17-2136.312.3.4.el8uek.x86_64
+Version:	#2 SMP Wed Oct 19 17:42:16 PDT 2022
+Machine:	x86_64
+VM name:	KVM CPUID feature flags: 0x01000089
+CLID:	P
+Instance name: FREE
+Redo thread mounted by this instance: 1
+Oracle process number: 64
+Unix process pid: 70047, NID: 4026531836, image: oracle@localhost.localdomain
+
+
+*** 2024-02-08T15:16:34.616517+00:00 (FREEPDB1(3))
+*** CLIENT ID:() 2024-02-08T15:16:34.616543+00:00
+*** SERVICE NAME:(freepdb1) 2024-02-08T15:16:34.616553+00:00
+*** MODULE NAME:() 2024-02-08T15:16:34.616562+00:00
+*** ACTION NAME:() 2024-02-08T15:16:34.616570+00:00
+*** CLIENT DRIVER:(SERVER) 2024-02-08T15:16:34.616577+00:00
+*** CONTAINER ID:(3) 2024-02-08T15:16:34.616585+00:00
+*** CLIENT IP:(127.0.0.1) 2024-02-08T15:16:34.616593+00:00
+*** CONNECTION ID:(EOFMB47kEZ3gZQAAAAAAAQ==) 2024-02-08T15:16:34.616603+00:00
+ 
+WAIT #0: nam='Allocate UGA memory from OS' ela=13 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284432520
+WAIT #0: nam='Allocate UGA memory from OS' ela=16 Bytes=196608 where=2 p3=0 obj#=4294967295 tim=22284433357
+*** SESSION ID:(44.6694) 2024-02-08T15:16:34.618027+00:00
+*** MODULE NAME:(perl@localhost.localdomain (TNS V1-V3)) 2024-02-08T15:16:34.618059+00:00
+*** ACTION NAME:() 2024-02-08T15:16:34.618070+00:00
+*** CLIENT IP:(127.0.0.1) 2024-02-08T15:16:34.618078+00:00
+ 
+WAIT #0: nam='Allocate PGA memory from OS' ela=16 Bytes=131072 where=1 p3=0 obj#=4294967295 tim=22284434484
+WAIT #0: nam='SQL*Net message to client' ela=2 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284449723
+WAIT #0: nam='SQL*Net message from client' ela=11737 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284461544
+WAIT #140276229884032: nam='Allocate CGA memory from OS' ela=34 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284463420
+WAIT #140276229884032: nam='Allocate CGA memory from OS' ela=14 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284464414
+WAIT #140276229884032: nam='Allocate CGA memory from OS' ela=17 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284465126
+=====================
+PARSING IN CURSOR #140276229884032 len=82 dep=1 uid=0 oct=3 lid=0 tim=22284465420 hv=3873422482 ad='6f8e6b38' sqlid='0k8522rmdzg4k'
+select privilege# from sysauth$ where (grantee#=:1 or grantee#=1) and privilege#>0
+END OF STMT
+PARSE #140276229884032:c=2921,e=2615,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=22284465418
+WAIT #140276229884032: nam='Allocate UGA memory from OS' ela=17 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284465946
+WAIT #140276229884032: nam='Allocate CGA memory from OS' ela=18 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284467353
+WAIT #140276229884032: nam='Allocate CGA memory from OS' ela=15 Bytes=65536 where=2 p3=0 obj#=4294967295 tim=22284468283
+EXEC #140276229884032:c=4144,e=3802,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2057665657,tim=22284469790
+FETCH #140276229884032:c=0,e=90,p=0,cr=4,cu=0,mis=0,r=1,dep=1,og=4,plh=2057665657,tim=22284469940
+WAIT #140276230288632: nam='Allocate PGA memory from OS' ela=50 Bytes=196608 where=1 p3=0 obj#=4294967295 tim=22284470298
+WAIT #140276230284792: nam='Allocate CGA memory from OS' ela=13 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284473186
+WAIT #140276230284792: nam='Allocate CGA memory from OS' ela=18 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284473797
+=====================
+PARSING IN CURSOR #140276230284792 len=97 dep=2 uid=0 oct=3 lid=0 tim=22284473915 hv=791757000 ad='78ccf178' sqlid='87gaftwrm2h68'
+select o.owner#,o.name,o.namespace,o.remoteowner,o.linkname,o.subname from obj$ o where o.obj#=:1
+END OF STMT
+PARSE #140276230284792:c=2035,e=1896,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=22284473914
+WAIT #140276230284792: nam='Allocate CGA memory from OS' ela=15 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284475755
+WAIT #140276230284792: nam='Allocate CGA memory from OS' ela=12 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284476112
+WAIT #140276230284792: nam='Allocate CGA memory from OS' ela=15 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284476800
+WAIT #140276230284792: nam='Allocate UGA memory from OS' ela=11 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284477040
+EXEC #140276230284792:c=2250,e=2474,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=1072382624,tim=22284477120
+FETCH #140276230284792:c=28,e=28,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284477168
+STAT #140276230284792 id=1 cnt=0 pid=0 pos=1 obj=18 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJ$ (cr=2 pr=0 pw=0 str=1 time=35 dr=0 dw=0 us cost=3 size=118 card=1)'
+STAT #140276230284792 id=2 cnt=0 pid=1 pos=1 obj=36 op='INDEX RANGE SCAN I_OBJ1 (cr=2 pr=0 pw=0 str=1 time=29 dr=0 dw=0 us cost=2 size=0 card=1)'
+CLOSE #140276230284792:c=1,e=1,dep=2,type=3,tim=22284477340
+EXEC #140276230284792:c=19,e=19,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284477449
+FETCH #140276230284792:c=7,e=7,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284477476
+CLOSE #140276230284792:c=1,e=0,dep=2,type=3,tim=22284477494
+=====================
+PARSING IN CURSOR #140276230288632 len=226 dep=1 uid=0 oct=3 lid=0 tim=22284477755 hv=3008674554 ad='6f8dc0b8' sqlid='5dqz0hqtp9fru'
+select /*+ connect_by_filtering index(sysauth$ i_sysauth1) */ privilege#, bitand(nvl(option$, 0), 72), grantee#, level from sysauth$ connect by grantee#=prior privilege# and privilege#>0 start with grantee#=:1 and privilege#>0
+END OF STMT
+PARSE #140276230288632:c=7621,e=7775,p=0,cr=4,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=22284477754
+WAIT #140276230288632: nam='Allocate CGA memory from OS' ela=20 Bytes=65536 where=1 p3=0 obj#=4294967295 tim=22284483145
+EXEC #140276230284792:c=43,e=43,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284484262
+FETCH #140276230284792:c=15,e=15,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284484313
+CLOSE #140276230284792:c=1,e=1,dep=2,type=3,tim=22284484348
+EXEC #140276230284792:c=22,e=22,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284484751
+FETCH #140276230284792:c=9,e=9,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284484780
+CLOSE #140276230284792:c=0,e=0,dep=2,type=3,tim=22284484806
+WAIT #140276230288632: nam='Allocate UGA memory from OS' ela=17 Bytes=131072 where=1 p3=0 obj#=4294967295 tim=22284484989
+EXEC #140276230288632:c=7182,e=7408,p=0,cr=4,cu=0,mis=1,r=0,dep=1,og=4,plh=1227530427,tim=22284485238
+FETCH #140276230288632:c=0,e=30,p=0,cr=2,cu=0,mis=0,r=0,dep=1,og=4,plh=1227530427,tim=22284485315
+STAT #140276230288632 id=1 cnt=0 pid=0 pos=1 obj=0 op='CONNECT BY WITH FILTERING (cr=2 pr=0 pw=0 str=1 time=59 dr=0 dw=0 us)'
+STAT #140276230288632 id=2 cnt=0 pid=1 pos=1 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=2 pr=0 pw=0 str=1 time=18 dr=0 dw=0 us cost=3 size=33 card=3)'
+STAT #140276230288632 id=3 cnt=0 pid=2 pos=1 obj=152 op='INDEX RANGE SCAN I_SYSAUTH1 (cr=2 pr=0 pw=0 str=1 time=17 dr=0 dw=0 us cost=2 size=0 card=3)'
+STAT #140276230288632 id=4 cnt=0 pid=1 pos=2 obj=0 op='HASH JOIN  (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=9 size=192 card=8)'
+STAT #140276230288632 id=5 cnt=0 pid=4 pos=1 obj=0 op='NESTED LOOPS  (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=9 size=192 card=8)'
+STAT #140276230288632 id=6 cnt=0 pid=5 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us)'
+STAT #140276230288632 id=7 cnt=0 pid=6 pos=1 obj=0 op='CONNECT BY PUMP  (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us)'
+STAT #140276230288632 id=8 cnt=0 pid=5 pos=2 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=2 size=33 card=3)'
+STAT #140276230288632 id=9 cnt=0 pid=8 pos=1 obj=152 op='INDEX RANGE SCAN I_SYSAUTH1 (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=1 size=0 card=3)'
+STAT #140276230288632 id=10 cnt=0 pid=4 pos=2 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=2 size=33 card=3)'
+STAT #140276230288632 id=11 cnt=0 pid=10 pos=1 obj=152 op='INDEX FULL SCAN I_SYSAUTH1 (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=1 size=0 card=3)'
+CLOSE #140276230288632:c=6,e=6,dep=1,type=0,tim=22284486392
+FETCH #140276229884032:c=14,e=15,p=0,cr=1,cu=0,mis=0,r=1,dep=1,og=4,plh=2057665657,tim=22284486429
+=====================
+PARSING IN CURSOR #140276230288632 len=226 dep=1 uid=0 oct=3 lid=0 tim=22284486497 hv=3008674554 ad='6f8dc0b8' sqlid='5dqz0hqtp9fru'
+select /*+ connect_by_filtering index(sysauth$ i_sysauth1) */ privilege#, bitand(nvl(option$, 0), 72), grantee#, level from sysauth$ connect by grantee#=prior privilege# and privilege#>0 start with grantee#=:1 and privilege#>0
+END OF STMT
+PARSE #140276230288632:c=35,e=35,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1227530427,tim=22284486497
+EXEC #140276230288632:c=64,e=64,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1227530427,tim=22284486639
+FETCH #140276230288632:c=466,e=466,p=0,cr=5,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284487146
+FETCH #140276230288632:c=7,e=7,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1227530427,tim=22284487232
+STAT #140276230288632 id=1 cnt=1 pid=0 pos=1 obj=0 op='CONNECT BY WITH FILTERING (cr=5 pr=0 pw=0 str=1 time=464 dr=0 dw=0 us)'
+STAT #140276230288632 id=2 cnt=1 pid=1 pos=1 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=3 pr=0 pw=0 str=1 time=54 dr=0 dw=0 us cost=3 size=33 card=3)'
+STAT #140276230288632 id=3 cnt=1 pid=2 pos=1 obj=152 op='INDEX RANGE SCAN I_SYSAUTH1 (cr=2 pr=0 pw=0 str=1 time=13 dr=0 dw=0 us cost=2 size=0 card=3)'
+STAT #140276230288632 id=4 cnt=0 pid=1 pos=2 obj=0 op='HASH JOIN  (cr=2 pr=0 pw=0 str=1 time=49 dr=0 dw=0 us cost=9 size=192 card=8)'
+STAT #140276230288632 id=5 cnt=0 pid=4 pos=1 obj=0 op='NESTED LOOPS  (cr=2 pr=0 pw=0 str=1 time=27 dr=0 dw=0 us cost=9 size=192 card=8)'
+STAT #140276230288632 id=6 cnt=1 pid=5 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=0 pr=0 pw=0 str=1 time=8 dr=0 dw=0 us)'
+STAT #140276230288632 id=7 cnt=1 pid=6 pos=1 obj=0 op='CONNECT BY PUMP  (cr=0 pr=0 pw=0 str=1 time=3 dr=0 dw=0 us)'
+STAT #140276230288632 id=8 cnt=0 pid=5 pos=2 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=2 pr=0 pw=0 str=1 time=12 dr=0 dw=0 us cost=2 size=33 card=3)'
+STAT #140276230288632 id=9 cnt=0 pid=8 pos=1 obj=152 op='INDEX RANGE SCAN I_SYSAUTH1 (cr=2 pr=0 pw=0 str=1 time=11 dr=0 dw=0 us cost=1 size=0 card=3)'
+STAT #140276230288632 id=10 cnt=0 pid=4 pos=2 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=2 size=33 card=3)'
+STAT #140276230288632 id=11 cnt=0 pid=10 pos=1 obj=152 op='INDEX FULL SCAN I_SYSAUTH1 (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=1 size=0 card=3)'
+CLOSE #140276230288632:c=6,e=5,dep=1,type=0,tim=22284487995
+FETCH #140276229884032:c=8,e=8,p=0,cr=1,cu=0,mis=0,r=1,dep=1,og=4,plh=2057665657,tim=22284488023
+=====================
+PARSING IN CURSOR #140276230288632 len=226 dep=1 uid=0 oct=3 lid=0 tim=22284488085 hv=3008674554 ad='6f8dc0b8' sqlid='5dqz0hqtp9fru'
+select /*+ connect_by_filtering index(sysauth$ i_sysauth1) */ privilege#, bitand(nvl(option$, 0), 72), grantee#, level from sysauth$ connect by grantee#=prior privilege# and privilege#>0 start with grantee#=:1 and privilege#>0
+END OF STMT
+PARSE #140276230288632:c=26,e=26,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1227530427,tim=22284488085
+EXEC #140276230288632:c=40,e=40,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1227530427,tim=22284488194
+FETCH #140276230288632:c=636,e=637,p=0,cr=32,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284488854
+FETCH #140276230288632:c=7,e=7,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284488927
+FETCH #140276230288632:c=6,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284488961
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489016
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489039
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489060
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489081
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489100
+FETCH #140276230288632:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489130
+FETCH #140276230288632:c=0,e=2,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489153
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489172
+FETCH #140276230288632:c=0,e=2,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489193
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489212
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489232
+FETCH #140276230288632:c=0,e=2,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489252
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489270
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489289
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489310
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489331
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489350
+FETCH #140276230288632:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489369
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489387
+FETCH #140276230288632:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489408
+FETCH #140276230288632:c=0,e=2,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489427
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489447
+FETCH #140276230288632:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489466
+FETCH #140276230288632:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489485
+FETCH #140276230288632:c=9,e=9,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489927
+FETCH #140276230288632:c=5,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489958
+FETCH #140276230288632:c=3,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284489982
+FETCH #140276230288632:c=3,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490006
+FETCH #140276230288632:c=3,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490029
+FETCH #140276230288632:c=3,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490052
+FETCH #140276230288632:c=5,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490077
+FETCH #140276230288632:c=4,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490102
+FETCH #140276230288632:c=4,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490156
+FETCH #140276230288632:c=6,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490240
+FETCH #140276230288632:c=6,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490322
+FETCH #140276230288632:c=4,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490356
+FETCH #140276230288632:c=4,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490381
+FETCH #140276230288632:c=4,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490412
+FETCH #140276230288632:c=4,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490494
+FETCH #140276230288632:c=2,e=2,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490516
+FETCH #140276230288632:c=2,e=2,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=1227530427,tim=22284490530
+FETCH #140276230288632:c=6,e=6,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1227530427,tim=22284490547
+STAT #140276230288632 id=1 cnt=44 pid=0 pos=1 obj=0 op='CONNECT BY WITH FILTERING (cr=32 pr=0 pw=0 str=1 time=640 dr=0 dw=0 us)'
+STAT #140276230288632 id=2 cnt=19 pid=1 pos=1 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=5 pr=0 pw=0 str=1 time=18 dr=0 dw=0 us cost=3 size=33 card=3)'
+STAT #140276230288632 id=3 cnt=19 pid=2 pos=1 obj=152 op='INDEX RANGE SCAN I_SYSAUTH1 (cr=2 pr=0 pw=0 str=1 time=12 dr=0 dw=0 us cost=2 size=0 card=3)'
+STAT #140276230288632 id=4 cnt=15 pid=1 pos=2 obj=0 op='HASH JOIN  (cr=27 pr=0 pw=0 str=2 time=390 dr=0 dw=0 us cost=9 size=192 card=8)'
+STAT #140276230288632 id=5 cnt=15 pid=4 pos=1 obj=0 op='NESTED LOOPS  (cr=27 pr=0 pw=0 str=2 time=378 dr=0 dw=0 us cost=9 size=192 card=8)'
+STAT #140276230288632 id=6 cnt=25 pid=5 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=0 pr=0 pw=0 str=2 time=87 dr=0 dw=0 us)'
+STAT #140276230288632 id=7 cnt=25 pid=6 pos=1 obj=0 op='CONNECT BY PUMP  (cr=0 pr=0 pw=0 str=2 time=3 dr=0 dw=0 us)'
+STAT #140276230288632 id=8 cnt=15 pid=5 pos=2 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=27 pr=0 pw=0 str=25 time=470 dr=0 dw=0 us cost=2 size=33 card=3)'
+STAT #140276230288632 id=9 cnt=15 pid=8 pos=1 obj=152 op='INDEX RANGE SCAN I_SYSAUTH1 (cr=22 pr=0 pw=0 str=25 time=432 dr=0 dw=0 us cost=1 size=0 card=3)'
+STAT #140276230288632 id=10 cnt=0 pid=4 pos=2 obj=149 op='TABLE ACCESS BY INDEX ROWID BATCHED SYSAUTH$ (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=2 size=33 card=3)'
+STAT #140276230288632 id=11 cnt=0 pid=10 pos=1 obj=152 op='INDEX FULL SCAN I_SYSAUTH1 (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=1 size=0 card=3)'
+CLOSE #140276230288632:c=7,e=7,dep=1,type=1,tim=22284490821
+FETCH #140276229884032:c=7,e=7,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=2057665657,tim=22284490839
+STAT #140276229884032 id=1 cnt=3 pid=0 pos=1 obj=0 op='INLIST ITERATOR  (cr=7 pr=0 pw=0 str=1 time=113 dr=0 dw=0 us)'
+STAT #140276229884032 id=2 cnt=3 pid=1 pos=1 obj=152 op='INDEX RANGE SCAN I_SYSAUTH1 (cr=7 pr=0 pw=0 str=2 time=97 dr=0 dw=0 us cost=2 size=24 card=3)'
+CLOSE #140276229884032:c=0,e=3,dep=1,type=0,tim=22284490925
+=====================
+PARSING IN CURSOR #140276229884032 len=43 dep=1 uid=0 oct=3 lid=0 tim=22284493601 hv=3117107889 ad='61e7e330' sqlid='9mb61uqwwqkpj'
+select spare6 from sys.user$ where user#=:1
+END OF STMT
+PARSE #140276229884032:c=2372,e=1790,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=22284493600
+EXEC #140276229884032:c=1310,e=1888,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2709293936,tim=22284495667
+FETCH #140276229884032:c=112,e=111,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2709293936,tim=22284496244
+STAT #140276229884032 id=1 cnt=1 pid=0 pos=1 obj=22 op='TABLE ACCESS CLUSTER USER$ (cr=2 pr=0 pw=0 str=1 time=110 dr=0 dw=0 us cost=1 size=6 card=1)'
+STAT #140276229884032 id=2 cnt=1 pid=1 pos=1 obj=11 op='INDEX UNIQUE SCAN I_USER# (cr=1 pr=0 pw=0 str=1 time=21 dr=0 dw=0 us cost=0 size=0 card=1)'
+CLOSE #140276229884032:c=110,e=110,dep=1,type=0,tim=22284496690
+=====================
+PARSING IN CURSOR #140276229884032 len=36 dep=1 uid=131 oct=42 lid=131 tim=22284496869 hv=594026043 ad='0' sqlid='6b5uh8njqh7jv'
+ALTER SESSION SET TIME_ZONE='+00:00'
+END OF STMT
+PARSE #140276229884032:c=10,e=10,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=0,plh=0,tim=22284496868
+EXEC #140276229884032:c=119,e=118,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=0,plh=0,tim=22284497051
+CLOSE #140276229884032:c=3,e=3,dep=1,type=1,tim=22284497071
+*** CLIENT DRIVER:(DBD::Oracle : 1.83) 2024-02-08T15:16:34.684388+00:00
+ 
+=====================
+PARSING IN CURSOR #140276220711056 len=148 dep=1 uid=0 oct=6 lid=0 tim=22284500845 hv=1015030160 ad='6f3ddcf8' sqlid='8btyg0wy808ch'
+update sys.user$ set spare1=spare1-BITAND(spare1, 1048576), spare6=DECODE(to_char(:2, 'YYYY-MM-DD'), '0000-00-00', to_date(NULL), :2) where user#=:1
+END OF STMT
+PARSE #140276220711056:c=2053,e=1281,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=22284500845
+EXEC #140276220711056:c=3577,e=3506,p=0,cr=2,cu=2,mis=1,r=1,dep=1,og=4,plh=2447725225,tim=22284504538
+STAT #140276220711056 id=1 cnt=0 pid=0 pos=1 obj=22 op='UPDATE  USER$ (cr=2 pr=0 pw=0 str=1 time=683 dr=0 dw=0 us)'
+STAT #140276220711056 id=2 cnt=1 pid=1 pos=1 obj=22 op='TABLE ACCESS CLUSTER USER$ (cr=2 pr=0 pw=0 str=1 time=35 dr=0 dw=0 us cost=1 size=27 card=1)'
+STAT #140276220711056 id=3 cnt=1 pid=2 pos=1 obj=11 op='INDEX UNIQUE SCAN I_USER# (cr=1 pr=0 pw=0 str=1 time=16 dr=0 dw=0 us cost=0 size=0 card=1)'
+EXEC #140276230284792:c=36,e=35,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514223
+FETCH #140276230284792:c=21,e=21,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514321
+CLOSE #140276230284792:c=2,e=1,dep=2,type=3,tim=22284514364
+EXEC #140276230284792:c=13,e=12,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514414
+FETCH #140276230284792:c=6,e=6,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514434
+CLOSE #140276230284792:c=0,e=0,dep=2,type=3,tim=22284514452
+EXEC #140276230284792:c=10,e=10,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514479
+FETCH #140276230284792:c=4,e=4,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514493
+CLOSE #140276230284792:c=1,e=1,dep=2,type=3,tim=22284514510
+EXEC #140276230284792:c=27,e=27,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514886
+FETCH #140276230284792:c=12,e=12,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284514940
+CLOSE #140276230284792:c=1,e=1,dep=2,type=3,tim=22284514994
+EXEC #140276230284792:c=19,e=19,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515048
+FETCH #140276230284792:c=9,e=8,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515075
+CLOSE #140276230284792:c=0,e=1,dep=2,type=3,tim=22284515127
+EXEC #140276230284792:c=19,e=19,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515174
+FETCH #140276230284792:c=11,e=11,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515231
+CLOSE #140276230284792:c=1,e=1,dep=2,type=3,tim=22284515268
+EXEC #140276230284792:c=25,e=25,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515337
+FETCH #140276230284792:c=10,e=10,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515373
+CLOSE #140276230284792:c=1,e=1,dep=2,type=3,tim=22284515409
+EXEC #140276230284792:c=26,e=26,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515472
+FETCH #140276230284792:c=9,e=9,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515506
+CLOSE #140276230284792:c=2,e=2,dep=2,type=3,tim=22284515786
+EXEC #140276230284792:c=31,e=31,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515880
+FETCH #140276230284792:c=9,e=8,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515908
+CLOSE #140276230284792:c=1,e=1,dep=2,type=3,tim=22284515930
+EXEC #140276230284792:c=10,e=10,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515958
+FETCH #140276230284792:c=4,e=3,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284515972
+CLOSE #140276230284792:c=0,e=0,dep=2,type=3,tim=22284515986
+EXEC #140276230284792:c=10,e=10,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284516017
+FETCH #140276230284792:c=4,e=4,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284516033
+CLOSE #140276230284792:c=0,e=0,dep=2,type=3,tim=22284516046
+EXEC #140276230284792:c=16,e=16,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284516081
+FETCH #140276230284792:c=10,e=10,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=1072382624,tim=22284516113
+CLOSE #140276230284792:c=0,e=0,dep=2,type=3,tim=22284516141
+=====================
+PARSING IN CURSOR #140276220704640 len=271 dep=1 uid=0 oct=3 lid=0 tim=22284519001 hv=3876120609 ad='78fbd608' sqlid='f0h5rpzmhju11'
+select SYS_CONTEXT('USERENV', 'SERVER_HOST'), SYS_CONTEXT('USERENV', 'DB_UNIQUE_NAME'), SYS_CONTEXT('USERENV', 'INSTANCE_NAME'), SYS_CONTEXT('USERENV', 'INSTANCE'), STARTUP_TIME, SYS_CONTEXT('USERENV', 'DB_DOMAIN'), SYS_CONTEXT('USERENV', 'SERVICE_NAME')  from v$instance
+END OF STMT
+PARSE #140276220704640:c=12075,e=13218,p=0,cr=33,cu=0,mis=1,r=0,dep=1,og=4,plh=4175978637,tim=22284519001
+EXEC #140276220704640:c=72,e=72,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=4175978637,tim=22284519192
+FETCH #140276220704640:c=121,e=120,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=4175978637,tim=22284519568
+STAT #140276220704640 id=1 cnt=1 pid=0 pos=1 obj=0 op='MERGE JOIN CARTESIAN (cr=0 pr=0 pw=0 str=1 time=89 dr=0 dw=0 us cost=0 size=24 card=1)'
+STAT #140276220704640 id=2 cnt=1 pid=1 pos=1 obj=0 op='MERGE JOIN CARTESIAN (cr=0 pr=0 pw=0 str=1 time=73 dr=0 dw=0 us cost=0 size=13 card=1)'
+STAT #140276220704640 id=3 cnt=1 pid=2 pos=1 obj=0 op='MERGE JOIN CARTESIAN (cr=0 pr=0 pw=0 str=1 time=45 dr=0 dw=0 us cost=0 size=0 card=1)'
+STAT #140276220704640 id=4 cnt=1 pid=3 pos=1 obj=0 op='FIXED TABLE FULL X$QUIESCE (cr=0 pr=0 pw=0 str=1 time=28 dr=0 dw=0 us cost=0 size=0 card=1)'
+STAT #140276220704640 id=5 cnt=1 pid=3 pos=2 obj=0 op='BUFFER SORT (cr=0 pr=0 pw=0 str=1 time=12 dr=0 dw=0 us cost=0 size=0 card=1)'
+STAT #140276220704640 id=6 cnt=1 pid=5 pos=1 obj=0 op='FIXED TABLE FULL X$KJIDT (cr=0 pr=0 pw=0 str=1 time=10 dr=0 dw=0 us cost=0 size=0 card=1)'
+STAT #140276220704640 id=7 cnt=1 pid=2 pos=2 obj=0 op='BUFFER SORT (cr=0 pr=0 pw=0 str=1 time=26 dr=0 dw=0 us cost=0 size=13 card=1)'
+STAT #140276220704640 id=8 cnt=1 pid=7 pos=1 obj=0 op='FIXED TABLE FULL X$KSUXSINST (cr=0 pr=0 pw=0 str=1 time=25 dr=0 dw=0 us cost=0 size=13 card=1)'
+STAT #140276220704640 id=9 cnt=1 pid=1 pos=2 obj=0 op='BUFFER SORT (cr=0 pr=0 pw=0 str=1 time=10 dr=0 dw=0 us cost=0 size=11 card=1)'
+STAT #140276220704640 id=10 cnt=1 pid=9 pos=1 obj=0 op='FIXED TABLE FULL X$KVIT (cr=0 pr=0 pw=0 str=1 time=9 dr=0 dw=0 us cost=0 size=11 card=1)'
+CLOSE #140276220704640:c=411,e=411,dep=1,type=0,tim=22284520031
+=====================
+PARSING IN CURSOR #140276220704640 len=417 dep=1 uid=0 oct=3 lid=0 tim=22284521440 hv=1869971619 ad='7cf59e78' sqlid='bs49gudrrb053'
+select decode(upper(failover_method), NULL, 0 , 'BASIC', 1, 'PRECONNECT', 2 , 'PREPARSE', 4 , 0), decode(upper(failover_type), NULL, 1,  'NONE', 1, 'SESSION', 2, 'SELECT',  4, 'TRANSACTION',  8, 'AUTO' , 32,  1 ), failover_retries, failover_delay, flags, nvl(replay_initiation_timeout, 900), decode(upper(session_state_consistency), 'STATIC', 16, 'HYBRID', 256,  0), failover_restore from sys.service$ where name = :1
+END OF STMT
+PARSE #140276220704640:c=1311,e=1365,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=22284521439
+EXEC #140276220704640:c=1683,e=1985,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=395742348,tim=22284523933
+FETCH #140276220704640:c=548,e=548,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=395742348,tim=22284524544
+STAT #140276220704640 id=1 cnt=1 pid=0 pos=1 obj=570 op='TABLE ACCESS FULL SERVICE$ (cr=2 pr=0 pw=0 str=1 time=541 dr=0 dw=0 us cost=2 size=57 card=1)'
+CLOSE #140276220704640:c=43,e=44,dep=1,type=0,tim=22284524640
+WAIT #0: nam='SQL*Net message to client' ela=16 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284524777
+WAIT #0: nam='SQL*Net message from client' ela=3430 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284528249
+=====================
+PARSING IN CURSOR #140276220697912 len=221 dep=1 uid=0 oct=3 lid=0 tim=22284529847 hv=2723145788 ad='788a7710' sqlid='50vxqdkj4zu1w'
+select user#,password,datats#,tempts#,type#,defrole,resource$,ptime,decode(defschclass,NULL,'DEFAULT_CONSUMER_GROUP',defschclass),spare1,spare4,ext_username,spare2,nvl(spare3,16382),spare9,spare10 from user$ where name=:1
+END OF STMT
+PARSE #140276220697912:c=196,e=707,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=22284529845
+EXEC #140276220697912:c=2959,e=2479,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=1457651150,tim=22284532835
+FETCH #140276220697912:c=46,e=46,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=1457651150,tim=22284532956
+STAT #140276220697912 id=1 cnt=1 pid=0 pos=1 obj=22 op='TABLE ACCESS BY INDEX ROWID USER$ (cr=2 pr=0 pw=0 str=1 time=38 dr=0 dw=0 us cost=1 size=142 card=1)'
+STAT #140276220697912 id=2 cnt=1 pid=1 pos=1 obj=46 op='INDEX UNIQUE SCAN I_USER1 (cr=1 pr=0 pw=0 str=1 time=15 dr=0 dw=0 us cost=0 size=0 card=1)'
+CLOSE #140276220697912:c=1,e=1,dep=1,type=3,tim=22284533658
+=====================
+PARSING IN CURSOR #140276220669912 len=387 dep=1 uid=131 oct=3 lid=131 tim=22284534783 hv=2283152222 ad='78bb9728' sqlid='10yy5ja41c8uy'
+SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNORE_WHERE_CLAUSE RESULT_CACHE(SNAPSHOT=3600) opt_param('parallel_execution_enabled', 'false') NO_PARALLEL(SAMPLESUB) NO_PARALLEL_INDEX(SAMPLESUB) NO_SQL_TUNE */ NVL(SUM(C1),:"SYS_B_0"), NVL(SUM(C2),:"SYS_B_1") FROM (SELECT /*+ NO_PARALLEL("T") FULL("T") NO_PARALLEL_INDEX("T") */ :"SYS_B_2" AS C1, :"SYS_B_3" AS C2 FROM "BERX"."T" "T") SAMPLESUB
+END OF STMT
+PARSE #140276220669912:c=560,e=560,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=0,tim=22284534782
+EXEC #140276220669912:c=3063,e=2901,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=2966233522,tim=22284537852
+WAIT #140276220669912: nam='Allocate UGA memory from OS' ela=62 Bytes=196608 where=1 p3=0 obj#=4294967295 tim=22284538269
+WAIT #140276220669912: nam='Allocate UGA memory from OS' ela=17 Bytes=196608 where=2 p3=0 obj#=4294967295 tim=22284538544
+FETCH #140276220669912:c=727,e=728,p=0,cr=7,cu=0,mis=0,r=1,dep=1,og=1,plh=2966233522,tim=22284538679
+STAT #140276220669912 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  8rr6u2ahunkwzc20m79ykqpw40 (cr=7 pr=0 pw=0 str=1 time=724 dr=0 dw=0 us)'
+STAT #140276220669912 id=2 cnt=1 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=7 pr=0 pw=0 str=1 time=649 dr=0 dw=0 us)'
+STAT #140276220669912 id=3 cnt=1 pid=2 pos=1 obj=118159 op='TABLE ACCESS FULL T (cr=7 pr=0 pw=0 str=1 time=183 dr=0 dw=0 us cost=2 size=0 card=82)'
+CLOSE #140276220669912:c=0,e=9,dep=1,type=0,tim=22284538811
+=====================
+PARSING IN CURSOR #140276220669912 len=387 dep=1 uid=131 oct=3 lid=131 tim=22284539773 hv=2283152222 ad='78bb9728' sqlid='10yy5ja41c8uy'
+SELECT /* OPT_DYN_SAMP */ /*+ ALL_ROWS IGNORE_WHERE_CLAUSE RESULT_CACHE(SNAPSHOT=3600) opt_param('parallel_execution_enabled', 'false') NO_PARALLEL(SAMPLESUB) NO_PARALLEL_INDEX(SAMPLESUB) NO_SQL_TUNE */ NVL(SUM(C1),:"SYS_B_0"), NVL(SUM(C2),:"SYS_B_1") FROM (SELECT /*+ NO_PARALLEL("T") FULL("T") NO_PARALLEL_INDEX("T") */ :"SYS_B_2" AS C1, :"SYS_B_3" AS C2 FROM "BERX"."T" "T") SAMPLESUB
+END OF STMT
+PARSE #140276220669912:c=147,e=148,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=2966233522,tim=22284539772
+EXEC #140276220669912:c=23,e=23,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=2966233522,tim=22284539863
+FETCH #140276220669912:c=8,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=2966233522,tim=22284539884
+STAT #140276220669912 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  8rr6u2ahunkwzc20m79ykqpw40 (cr=0 pr=0 pw=0 str=1 time=7 dr=0 dw=0 us)'
+STAT #140276220669912 id=2 cnt=0 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us)'
+STAT #140276220669912 id=3 cnt=0 pid=2 pos=1 obj=118159 op='TABLE ACCESS FULL T (cr=0 pr=0 pw=0 str=0 time=0 dr=0 dw=0 us cost=2 size=0 card=82)'
+CLOSE #140276220669912:c=4,e=4,dep=1,type=0,tim=22284539983
+=====================
+PARSING IN CURSOR #140276220704640 len=48 dep=0 uid=131 oct=3 lid=131 tim=22284540551 hv=1723986746 ad='61d7dbe0' sqlid='c2zwqytmc3wtu'
+SELECT id, B LOB_LOCATOR FROM T WHERE ROWNUM = 1
+END OF STMT
+PARSE #140276220704640:c=12423,e=12237,p=0,cr=14,cu=0,mis=1,r=0,dep=0,og=1,plh=508354683,tim=22284540550
+WAIT #140276220704640: nam='SQL*Net message to client' ela=18 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284540986
+WAIT #140276220704640: nam='Free private memory to OS' ela=65 Bytes=262144 where=4 p3=0 obj#=4294967295 tim=22284541130
+WAIT #140276220704640: nam='SQL*Net message from client' ela=1155 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284542630
+EXEC #140276220704640:c=45,e=44,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=508354683,tim=22284542742
+WAIT #140276220704640: nam='SQL*Net message to client' ela=11 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284542821
+WAIT #140276220704640: nam='SQL*Net message from client' ela=965 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284543801
+WAIT #140276220704640: nam='SQL*Net message to client' ela=11 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284543922
+FETCH #140276220704640:c=148,e=148,p=0,cr=3,cu=0,mis=0,r=1,dep=0,og=1,plh=508354683,tim=22284543998
+WAIT #140276220704640: nam='SQL*Net message from client' ela=5813 driver id=1952673792 #bytes=1 p3=0 obj#=4294967295 tim=22284549832
+XCTEND rlbk=0, rd_only=1, tim=22284550045
+STAT #140276220704640 id=1 cnt=1 pid=0 pos=1 obj=0 op='COUNT STOPKEY (cr=3 pr=0 pw=0 str=1 time=60 dr=0 dw=0 us)'
+STAT #140276220704640 id=2 cnt=1 pid=1 pos=1 obj=118159 op='TABLE ACCESS FULL T (cr=3 pr=0 pw=0 str=1 time=56 dr=0 dw=0 us cost=3 size=2015 card=1)'
+CLOSE #140276220704640:c=128,e=129,dep=0,type=0,tim=22284550231
+CLOSE #140276220711056:c=5,e=5,dep=0,type=0,tim=22284550270
